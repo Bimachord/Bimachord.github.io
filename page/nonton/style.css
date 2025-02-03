@@ -1,0 +1,505 @@
+/*------ Variables ------*/
+:root {
+  --base-shade-1: #00a8fa;
+  --white-shade-1: #ffffff;
+  --white-shade-2: #d7e1f3;
+  --black-shade-1: #232323;
+  --black-shade-2: #676a8b;
+  --grad-color-1: 0, 180, 250;
+  --grad-color-2: 21, 120, 255;
+
+  --base-font-size: 1.6rem;
+
+  --heading-font-size-1: 4rem;
+  --heading-font-size-2: 3.2rem;
+  --heading-font-size-3: 2rem;
+  --heading-font-size-4: 1.8rem;
+
+  --border-radius-1: 1rem;
+  --border-radius-2: 0.5rem;
+}
+/*------ Base Styles ------*/
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*:not(i) {
+  font-family: "Poppins", sans-serif;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+/*------ Utility Classes ------*/
+
+section,
+footer {
+  padding: 9rem 5rem;
+}
+
+.container{
+  background-color: #FFC6C6; /* Warna latar belakang */
+  padding: 20px; /* Memberikan sedikit ruang di dalam kontainer */
+  width: 100%;
+    display: flex; /* Aktifkan Flexbox */
+    justify-content: center; /* Posisikan secara horizontal */
+    align-items: center; /* Posisikan secara vertikal */
+     /* Tinggi container sesuai viewport */
+    text-align: center; /* Pusatkan teks dalam paragraf */
+}
+
+.header{
+  background-color: #ffffff;
+}
+.tag-line p {
+  margin: 0; /* Hilangkan margin default pada paragraf */
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom per baris pada layar besar */
+  gap: 2rem; /* Jarak antar kolom dan baris */
+}
+.tag-line{
+  font-size: 35px;
+}
+.column {
+  
+  width: 100%;
+}
+.column img{
+  width: 100%; /* Isi penuh kotak */
+height: 100%; /* Isi penuh kotak */
+object-fit: cover;
+}
+
+.divider {
+  border: none;
+  height: 3px;
+  background-color: #BD1212;
+  width: 80%;
+  margin: 40px auto;
+}
+.bagaimana{
+margin-top: -70px;
+padding-bottom: 10px;
+}
+.merah li{
+color: #FF6384;
+font-size: 18px;
+margin-bottom: 8px;
+line-height: 1.5;
+}
+.column .desc{
+  font-size: 20px;
+}
+.section-desc {
+  font-size: 20px;
+  text-align: justify;
+  margin: 5rem 0 10rem 0;
+}
+.desc-tag{
+  font-size: 17px;
+}
+.tanya{
+  font-size: 25px;
+}
+.tag-seks{
+  padding-top: 50px;
+}
+.explore{
+  padding-top: 40px;
+}
+h1 {
+  font-size: var(--heading-font-size-1);
+  color: #00a8fa;
+  margin-bottom: 2rem;
+  word-spacing: 1rem;
+  line-height: 1.6;
+}
+.tag-line{
+  text-align: left;
+}
+h3 {
+  font-size: var(--heading-font-size-2);
+  color: var(--black-shade-1);
+  font-weight: 700;
+  text-align: center;
+}
+h3 {
+  font-size: var(--heading-font-size-3);
+  color: var(--black-shade-1);
+  font-weight: 700;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+h4 {
+  font-size: var(--heading-font-size-4);
+  color: var(--black-shade-2);
+  margin: 1.5rem 0;
+}
+p,
+button {
+  font-size: var(--base-font-size);
+  color: var(--black-shade-2);
+  line-height: 1.8;
+  font-weight: 400;
+}
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* Pusatkan elemen dalam tinggi layar penuh */
+}
+.tombol {
+
+  border: 2px solid #BD1212; /* Mengatur warna garis pinggir */
+  color: #BD1212; /* Mengatur warna font */
+  background-color: transparent; /* Mengatur latar belakang menjadi transparan */
+  align-items: center;
+  justify-items: center;
+  padding: 10px 20px; /* Menambahkan padding untuk tombol */
+  font-size: 16px; /* Mengatur ukuran font */
+  cursor: pointer; /* Mengubah kursor saat hover */
+  transition: background-color 0.3s, color 0.3s; /* Menambahkan efek transisi */
+}
+
+.tombol:hover {
+  background-color: #BD1212; /* Mengubah latar belakang saat hover */
+  color: white; /* Mengubah warna font saat hover */
+}
+.btn {
+  background-color: transparent;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius-2);
+  border: none;
+  margin: 2rem 0;
+}
+.primary-btn {
+  background-color: var(--base-shade-1);
+  color: var(--white-shade-1);
+}
+.secondary-btn {
+  text-decoration: none;
+  font-size: 16px;
+  border: 0.3rem solid #BD1212;
+  color: #BD1212;
+}
+
+/*------ Header ------*/
+header {
+  box-shadow: 0 2rem 1.5rem rgba(0, 0, 0, 0.07);
+  position: fixed;
+  width: 100%;
+  padding: 2rem 4rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+}
+nav a {
+  font-size: 22px;
+  text-decoration: none;
+}
+nav a#logo {
+  color: var(--black-shade-1);
+  font-weight: 700;
+}
+nav ul a {
+  color: #000000;
+}
+
+/*-- SideMenu --*/
+#ham-menu {
+  display: none;
+}
+nav ul.active {
+  left: 0;
+}
+/*-- Sticky Header --*/
+.sticky {
+  background-color:white;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.126);
+}
+.sticky nav ul a,
+.sticky nav a#logo,
+.sticky #ham-menu {
+  color: var(--black-shade-1);
+}
+/*-- Link Hover Effect --*/
+nav ul a:hover {
+  color: #BD1212;
+}
+.sticky nav ul a:hover {
+  color: #c70032;
+}
+/*------ Section: Hero ------*/
+section.hero {
+  display: grid;
+  padding-top: 20px;
+  grid-template-columns: 2fr 1fr; /* Pastikan ada 2 kolom */
+  align-items: start; /* Agar elemen tetap di bagian atas */
+  justify-content: start; /* Pastikan elemen mengikuti sisi kiri */
+}
+
+.hero-img img {
+  width: 100%; /* Opsional, supaya gambar responsif */
+  display: block; /* Menghindari jarak ekstra */
+}
+
+.hero-content {
+padding-right: 5px;
+text-align: right; /* Pastikan teks dalam div tetap rata kiri */
+}
+#header-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.hero-content p {
+ 
+  text-align: justify;
+}
+.list{
+font-size: 15px;
+}
+ol {
+  width: 70%; /* Sesuaikan dengan kebutuhan */
+  margin: 0 auto; /* Agar tetap di tengah */
+}
+
+
+.card{
+  font-size: 20px;
+  color: #BD1212;
+  margin-top: 25px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: max-content;
+  width: 50%;
+  height: 35px;
+  background-color: #FEE9E7;
+  border-radius: 10px;
+}
+
+.btn-container {
+  display: flex;
+  gap: 3rem;
+}
+/*------ Section: Features ------*/
+.features .row {
+  align-items: stretch;
+}
+.features .column {
+  padding: 6rem 2rem;
+  border-radius: var(--border-radius-1);
+}
+.features .column p {
+  text-align: center;
+}
+.features h3 {
+  margin: 3rem 0;
+}
+.features i {
+  display: block;
+  height: 6rem;
+  width: 6rem;
+  margin: 0 auto;
+  font-size: 3.5rem;
+  background-color: var(--base-shade-1);
+  color: var(--white-shade-1);
+  padding: 1.3rem 0;
+  text-align: center;
+  border-radius: var(--border-radius-2);
+}
+.features .column:hover {
+  background-color: var(--base-shade-1);
+}
+.features .column:hover h3 {
+  color: var(--white-shade-1);
+}
+.features .column:hover p {
+  color: var(--white-shade-2);
+}
+.features .column:hover i {
+  background-color: var(--white-shade-1);
+  color: var(--base-shade-1);
+}
+/*------ Section: Courses ------*/
+.courses .row {
+  align-items: stretch;
+}
+.courses .column {
+  box-shadow: 0 0.5rem 2.4rem 0.6rem rgba(0, 0, 0, 0.101);
+  border-radius: var(--border-radius-1);
+  display: flex;
+  flex-direction: column;
+}
+.courses .column > *:not(img) {
+  padding: 0 2rem;
+}
+
+.courses-btn {
+  display: flex;
+  justify-content: center;
+}
+.courses-btn .btn:hover {
+  color: var(--white-shade-1);
+  background-color:#BD1212;
+}
+/*------ Section: Testimonials ------*/
+.testimonial {
+  margin-top: 30px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.testimonial-image p{
+  font-size: 20px;
+}
+.testimonial h2,
+.testimonial .section-desc {
+  color: var(--white-shade-1);
+}
+.testimonial .row {
+  align-items: stretch;
+}
+.testimonial .column {
+  background-color: var(--white-shade-1);
+  padding: 1rem 2rem;
+  text-align: left;
+  border-radius: var(--border-radius-1);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-image {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  padding: 0.9rem;
+  
+  border-radius: 50%;
+}
+.testimonial-image img {
+  width: 100%;
+ 
+}
+.testimonial .column p {
+  
+  flex-grow: 1;
+}
+/*------ Section: Download App ------*/
+.download-app .column:nth-child(1) {
+  display: flex;
+  justify-content: center;
+}
+.download-app .column:nth-child(2) {
+  padding: 0 2rem;
+}
+.download-app img {
+  display: block;
+  width: 45%;
+}
+.app-feature {
+  border-bottom: 1.5px dashed rgba(var(--grad-color-1), 0.4);
+}
+.app-feature:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.app-feature div {
+  display: flex;
+  gap: 2rem;
+}
+.app-feature p {
+  margin-bottom: 1.5rem;
+}
+.download-app .fas {
+  display: inline-block;
+  background-color: var(--white-shade-2);
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--base-shade-1);
+}
+.download-app h3 {
+  display: inline-block;
+}
+.download-btns {
+  display: flex;
+}
+.download-btns a {
+  display: inline;
+  text-align: center;
+}
+.download-btns a img {
+  display: inline-block;
+  width: 70%;
+}
+/*------ Section: Footer ------*/
+footer {
+  background-color: #FEE9E7;
+}
+footer h3 {
+  margin: 0;
+}
+footer h3,
+footer h4 {
+  color: #BD1212;
+  text-align: center;
+}
+footer .row {
+  margin-bottom: 3rem;
+}
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #BD1212;
+}
+.social-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+.social-links a {
+  font-size: 3rem;
+  text-decoration: none;
+  color: #BD1212;
+}
+footer p {
+  text-align: center;
+  color: #BD1212;
+}
+
+/*------ Scroll Top Button ------*/
+#scroll-top {
+  position: fixed;
+  display: none;
+  place-items: center;
+  height: 5rem;
+  width: 5rem;
+  right: 3rem;
+  bottom: 3rem;
+  background-color: #BD1212;
+  color: var(--white-shade-1);
+  border: none;
+  outline: none;
+  font-size: var(--heading-font-size-3);
+  border-radius: var(--border-radius-2);
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
+}

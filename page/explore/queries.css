@@ -1,0 +1,213 @@
+@media only screen and (max-width: 991px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .explore{
+    margin-top: 20px;
+  }
+  .row {
+    flex-direction: column;
+  }
+  section,
+  footer {
+    padding: 7.5rem 5rem;
+  }
+  header {
+    padding: 2.2rem 5rem;
+  }
+  section.hero {
+    grid-template-columns: 1fr;
+    
+  }
+  #header-shape {
+    display: none;
+  }
+  .hero-img {
+    grid-row: 1;
+  }
+  nav ul a,
+  nav a#logo {
+    color: var(--white-shade-1);
+  }
+  .hero-content h1,
+  .hero-content p {
+    text-align: center;
+  }
+  .hero-content h1 {
+    color: var(--white-shade-1);
+  }
+  .hero-content p {
+    color: #6d0f0f;
+  }
+  
+  .btn-container {
+    justify-content: center;
+  }
+  .download-app img {
+    width: 30%;
+  }
+  .app-feature div {
+    justify-content: center;
+  }
+  .app-feature p {
+    text-align: center;
+  }
+  .download-app a img {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 912px){
+  nav a {
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 767px) {
+  .merah3 {
+    padding-left: 20px; /* Geser angka dan kontennya ke kanan */
+}
+
+.merah3 ol {
+    list-style-position: inside; /* Menjadikan angka ikut geser */
+}
+
+.merah3 li {
+    padding-left: 10px; /* Memberi jarak lebih pada item */
+}
+
+
+  footer p{
+    font-size: 16px;
+  }
+  .pala{
+    padding-top: 150px;
+  }
+  .merah3 ul{
+    width: 90%;
+    padding-left: 13px
+  }
+  .merah3 li {
+    font-size: 16px;
+     /* Biar marker ikut bergeser */
+}
+  
+  .merah-2{
+    color: #FF6384;
+    padding-left: 30px;
+  }
+  .merah-2 li{
+    font-size: 16px;
+  }
+  .merah li{
+    padding-top: -20px !important;
+    font-size: 16px !important;
+  }
+  .merah2 li{
+    padding: 15px
+  }
+  ol {
+    padding-left: 20px;
+    width: 100%; /* Sesuaikan dengan kebutuhan */
+    margin: 0 auto; /* Agar tetap di tengah */
+}
+ol 
+section.hero{
+  margin-bottom: -35px;
+}
+.merah p{
+  font-size: 16px !important;
+}
+ .section-desc{
+  font-size: 16px;
+  margin-bottom: 50px;
+  margin-top: -10px;
+ }
+ .tag-line{
+  font-size: 23px;
+}
+.column .desc{
+  font-size: 15px;
+}
+ .column p{
+  font-size: 20px; 
+}
+.features .tag-line{
+  font-size: 25px;
+}
+.features .desc-tag{
+  font-size: 15px;
+}
+.tombol{
+  font-size: 12px;
+}
+.testimonial{
+  padding-top: 10px;
+}
+.testimonial-image p{
+  font-size: 15px;
+}
+.testimoni p{
+  font-size: 30px;
+}
+  header {
+    padding: 2rem 4rem;
+  }
+  #ham-menu {
+    display: block;
+    color: rgb(142, 6, 6);
+  }
+  nav a#logo,
+  #ham-menu {
+    font-size: var(--heading-font-size-2);
+  }
+  nav ul {
+    background-color: var(--black-shade-1);
+    position: fixed;
+    left: -100vw;
+    top: 70.4px;
+    height: calc(100vh - 70.4px);
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: 1s;
+    gap: 0;
+  }
+  nav ul a {
+    font-size: var(--heading-font-size-3);
+  }
+  .sticky nav ul a {
+    color: var(--white-shade-1);
+  }
+  nav ul a:hover {
+    color: var(--base-shade-1);
+  }
+  #scroll-top {
+    height: 6rem;
+    width: 6rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  html {
+    font-size: 46.87%;
+  }
+  .explore{
+    padding-top: 50px;
+  }
+  header {
+    padding: 2rem 3rem;
+  }
+  section,
+  footer {
+    padding: 7.5rem 3rem;
+  }
+  .explore .column {
+    padding: 4rem 2rem;
+  }
+  nav ul {
+    top: 65.18px;
+    height: calc(100vh - 65.18px);
+  }
+}
+}
