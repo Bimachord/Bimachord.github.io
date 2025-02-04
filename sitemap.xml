@@ -6,7 +6,67 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://bimachord.github.io/buku-tamu</loc>
+        <loc>https://bimachord.github.io/buku-tamu.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/list-lagu.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/pasole.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/sapa-moti-malingi.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/nahu-mambali.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/pasapu-monca.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/nangi-dana-tambora.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/malingi.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/nggahi-rawi-pahu.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/tambulate.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/janji-da-ule.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/amancawa.html</loc>
+        <lastmod>2024-02-04</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://bimachord.github.io/assets/list_lagu/sodi-angi.html</loc>
         <lastmod>2024-02-04</lastmod>
         <priority>0.8</priority>
     </url>
