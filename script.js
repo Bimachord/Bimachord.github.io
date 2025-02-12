@@ -35,3 +35,7 @@ window.onscroll = () => {
     document.documentElement.scrollTop = 0;
   });
 };
+
+function goBack() {
+  window.history.back();
+}

@@ -463,4 +463,20 @@
     border-radius: var(--border-radius-2);
     box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
   }
+
+  .back{
+    position: fixed;
+    place-items: center;
+    height: 5rem;
+    color: rgb(159, 19, 19);
+    border: none;
+    outline: none;
+    font-size: var(--heading-font-size-3);
+    border-radius: var(--border-radius-2);
+   
+    background: none;
+    width: 5rem;
+    
+  
+  }
   

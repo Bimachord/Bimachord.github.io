@@ -73,6 +73,16 @@
             font-weight: bold;
             text-align: center;
         }
+        .overlay-tombol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ba1515;
+            font-size: 34px;
+            font-weight: bold;
+            text-align: center;
+        }
 
         .merah li {
             color: #FF6384;
@@ -90,8 +100,13 @@
         <!------ Header ------>
         <header class="header">
             <nav>
-                <a href="#home" id="logo"><img src="../../assets/rise.jpg" alt
-                        style="width: 30%;"></a>
+                <a href="#home" id="logo">
+                    <img src="../../assets/logo_undip.png" alt
+                    style="width: 30px;" >
+                    <img src="../../assets/rise.jpg" alt
+                    style="width: 30%;" >
+                    
+                  </a>
                 <i class="fas fa-bars" id="ham-menu"></i>
                 <ul id="nav-bar">
                     <li>
@@ -110,8 +125,15 @@
             </nav>
         </header>
         <!------ Section: Hero ------>
+            <button onclick="goBack()" style="background: none; border: none; cursor: pointer;" >
+              <h1  class="fas fa-arrow-left overlay-text" style="color:#BD1212; left: 5%; top: 18%;"></h1>
+            </button>
+          
+
+        
         <div class="hero-img">
             <img src="../../assets/Desain tanpa judul (23).png" />
+            
             <p class="overlay-text">APA ITU KTD?</p>
         </div>
         <p class="section-desc"

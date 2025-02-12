@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Education Website</title>
     <!------ Font Awesome ------>
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!------ Google Fonts ------>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,8 +26,13 @@
     <!------ Header ------>
     <header class="header">
       <nav>
-        <a href="#home" id="logo"><img src="../../assets/rise.jpg" alt
-            style="width: 30%;"></a>
+        <a href="#home" id="logo">
+          <img src="../../assets/logo_undip.png" alt
+          style="width: 30px;" >
+          <img src="../../assets/rise.jpg" alt
+          style="width: 30%;" >
+          
+        </a>
         <i class="fas fa-bars" id="ham-menu"></i>
         <ul id="nav-bar">
           <li>
@@ -48,6 +52,9 @@
     </header>
     <!------ Section: Hero ------>
     <div class="container">
+      <button onclick="goBack()" style="background: none; border: none; cursor: pointer;" >
+        <h1  class="fas fa-arrow-left" style="color:#BD1212; left: 5%; top: 15%; position: absolute;"></h1>
+      </button>
       <p class="section-desc" style="color: #BD1212; padding-top: 150px; ">
         <span class="tag-line">Empowering teens through knowledge</span>  <br>jelajahi, pelajari, dan tingkatkan kesadaran tentang kesehatan reproduksi.
       </p>
