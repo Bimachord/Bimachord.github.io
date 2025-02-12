@@ -1,6 +1,6 @@
 /*------ Variables ------*/
 :root {
-    --base-shade-1: #00a8fa;
+    --base-shade-1: #BD1212;
     --white-shade-1: #ffffff;
     --white-shade-2: #d7e1f3;
     --black-shade-1: #232323;
@@ -291,6 +291,10 @@
     color: var(--base-shade-1);
   }
   /*------ Section: Courses ------*/
+  .explore{
+    padding-top: 60px;
+  }
+  
   .courses .row {
     align-items: stretch;
   }

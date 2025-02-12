@@ -14,6 +14,34 @@
   <link rel="stylesheet" href="../../page/explore/style.css" />
   <!------ Queries ------>
   <link rel="stylesheet" href="../../page/index/queries.css" />
+  <style>
+.hero-container {
+  z-index: -1;
+    position: relative;
+    width: 100%; /* Full width */
+}
+
+.hero-container img {
+    width: 100%; /* Full width */
+    height: auto; /* Tetap responsif */
+    display: block; /* Hilangkan spasi bawah */
+}
+
+.explore {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #BD1212;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+  </style>
 
 </head>
 
@@ -27,9 +55,9 @@
     <nav>
       <a href="#home" id="logo">
         <img src="../../assets/logo_undip.png" alt
-        style="width: 30px;" >
+        style="width: 65px;" >
         <img src="../../assets/rise.jpg" alt
-        style="width: 30%;" >
+        style="width: 150px;" >
         
       </a>
       <i class="fas fa-bars" id="ham-menu"></i>
@@ -50,12 +78,17 @@
     </nav>
   </header>
   <!------ Section: Hero ------>
-  <section style="" class="courses" id="courses">
+  <section style="padding-top: 150px;" class="courses2" id="courses" >
     <button onclick="goBack()" style="background: none; border: none; cursor: pointer;" >
-      <h1  class="fas fa-arrow-left overlay-text" style="color:#BD1212; left: 5%; top: 18%; position: absolute;"></h1>
+      <h1 style="text-align: left;color:#BD1212;" class="fas fa-arrow-left"></h1>
     </button>
-    <h1 class="explore" style="text-align: center;color:#BD1212; padding-top: 100px;">Seks
-      Bebas?</h1>
+    
+      <div class="hero-container">
+        <img src="../../assets/HEADER SEKS BEBAS.png" alt="Background Image">
+        <p class="explore" style="-webkit-text-stroke: 0.5px white; /* Untuk browser berbasis WebKit */
+    text-stroke: 0.5px white; /* Untuk browser lain */">Seks Bebas?</p>
+    </div>
+    
     <p class="section-desc"
       style="padding-top: 10px;max-width: 800px; text-align: center; margin: auto; color: #FF6384;padding-bottom: 60px;">
       Seks bebas adalah aktivitas seksual yang menyimpang dari norma sosial
@@ -122,7 +155,7 @@
     <div class="hero-content">
       <h1 style="color: #BD1212; font-size: 30px; float: right; text-align: right;">AWAS,
         <br> BAHAYA MENGINTAI</>
-        <p style="text-align: right; font-size: 17px; margin-top: -70px; color: #BD1212;padding-top: 65px; position: sticky;">
+        <p style="text-align: right; font-size: 17px; margin-top: -70px; color: #BD1212;padding-top: 65px ;">
           Seks bebas pada remaja dapat menimbulkan dua dampak utama yaitu dampak kesehatan dan dampak psikososial.
         </p>
     </div>

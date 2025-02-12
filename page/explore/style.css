@@ -152,7 +152,7 @@
   }
   p,
   button {
-    font-size: var(--base-font-size);
+    font-size: 18px;
     color: var(--black-shade-2);
     line-height: 1.8;
     font-weight: 400;
@@ -265,6 +265,7 @@
 }
 
 .hero-img img {
+  padding-top: 100px;
     width: 100%; /* Opsional, supaya gambar responsif */
     display: block; /* Menghindari jarak ekstra */
 }
@@ -357,6 +358,9 @@ ol .merah{
     color: var(--base-shade-1);
   }
   /*------ Section: Courses ------*/
+  
+
+
   .courses .row {
     align-items: stretch;
   }

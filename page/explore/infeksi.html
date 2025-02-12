@@ -33,14 +33,7 @@
 
     }
 
-    .overlay-text {
-      color: black;
-      /* Ubah dari putih ke hitam */
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      z-index: 2;
-    }
+    
 
     .hero-img::after {
       content: "";
@@ -49,7 +42,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.722);
+      background: rgba(212, 212, 212, 0.389);
       /* Lapisan putih transparan */
     }
 
@@ -73,10 +66,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #ba1515;
+      color: #BD1212;
       font-size: 24px;
       font-weight: bold;
       text-align: center;
+       /* Untuk browser lain */
     }
     .pala{
       width: 100%;
@@ -84,7 +78,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #ba1515;
+      color: #BD1212;
       font-size: 24px;
       font-weight: bold;
       text-align: center;
@@ -94,6 +88,9 @@
       color: #FF6384;
       font-size: 18px;
     }
+  
+
+
   </style>
 
 </head>
@@ -108,9 +105,9 @@
     <nav >
       <a href="#home" id="logo">
         <img src="../../assets/logo_undip.png" alt
-        style="width: 30px;" >
+        style="width: 65px;" >
         <img src="../../assets/rise.jpg" alt
-        style="width: 30%;" >
+        style="width: 150px;" >
         
       </a>
       <i class="fas fa-bars" id="ham-menu"></i>
@@ -133,22 +130,24 @@
   <!------ Section: Hero ------>
   <section class="courses" id="courses">
     <button onclick="goBack()" style="background: none; border: none; cursor: pointer;" >
-      <h1  class="fas fa-arrow-left overlay-text" style="color:#BD1212; left: 5%; top: 18%; position: absolute;"></h1>
+      <h1  class="fas fa-arrow-left overlay-text" style="color:#BD1212; left: 5%; margin-top: -150px; position: absolute;"></h1>
     </button>
     <section>
-    <div class="hero-img">
-      <p class="pala" >INFEKSI MENULAR SEKSUAL (IMS)</p>
-    </div>
+      <div class="hero-img">
+        <img src="../../assets/Desain tanpa judul (8).png" />
+        <p class="overlay-text" style="-webkit-text-stroke: 1px white; /* Untuk browser berbasis WebKit */
+    text-stroke: 1px white;">IMS karena BAKTERI</p>
+      </div>
   </section>
    
     <!-- <h1 class="explore" style="text-align: center;color:#BD1212; ">INFEKSI MENULAR SEKSUAL (IMS)</h1> -->
-    <p class="section-desc" style="padding-top: 130px;color: #FF6384;width: 85%;text-align: left;">
+    <p class="section-desc" style="color: #FF6384;text-align: center;">
       IMS merupakan infeksi yang ditularkan melalui hubungan seksual yang disebabkan oleh bakteri, jamur, virus, atau
       parasit
     </p>
 
     <div class="hero-img">
-      <img src="../..//assets/Desain tanpa judul (8).png" />
+      
       <p class="overlay-text"> <strong>IMS BAKTERI :</strong> GONORRHEA</p>
     </div>
     <p class="section-desc" style="color: #FF6384; padding-top: 30px;width: 85%;margin: 0 auto;  ">
@@ -189,9 +188,9 @@
       </ol>
     </div>
 
-
+    <hr class="divider">
     <div class="hero-img">
-      <img src="../../assets/Desain tanpa judul (9).png" />
+      
       <p class="overlay-text">IMS BAKTERI : SIFILIS</p>
     </div>
     <p class="section-desc" style="color: #ba1515; padding-top: 10px;margin: 0 auto;  padding: 10px 30px;">
@@ -245,9 +244,8 @@
       </ol>
     </div>
 
-
+    <hr class="divider">
     <div class="hero-img">
-      <img src="../../assets/Desain tanpa judul (7).png" />
       <p class="overlay-text"> <strong>IMS BAKTERI :</strong> CHLAMYDIA</p>
     </div>
     <p class="section-desc" style="color: #FF6384; padding-top: 30px;width: 85%;margin: 0 auto;  ">
@@ -460,7 +458,7 @@
   </div>
 
   <div class="hero-img">
-    <img src="../../assets/Desain tanpa judul (31).png" />
+    <img src="../../assets/Kenali risiko dan cegah (IMS).png" />
     <p class="overlay-text">KENALI RISIKO DAN CEGAH!</p>
   </div>
   <div class="list" style="margin-top: 10px; padding-bottom: 15px;">

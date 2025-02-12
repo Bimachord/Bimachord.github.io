@@ -64,6 +64,22 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .courses button {
+    background: #BD1212; /* Ubah warna background */
+    border-radius: 10px; /* Tambahkan sudut melengkung */
+    padding: 10px 15px; /* Tambahkan padding */
+}
+.hero-img img{
+  padding-top: 0px;
+}
+
+.courses button h1 {
+    color: white; /* Ubah warna ikon */
+    font-size: 20px; /* Sesuaikan ukuran ikon */
+}
+  .explore{
+    padding-top: 10px;
+  }
   .merah3 {
     padding-left: 20px; /* Geser angka dan kontennya ke kanan */
 }

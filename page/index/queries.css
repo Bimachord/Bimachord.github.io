@@ -60,6 +60,23 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .hero-container h1
+  .courses button {
+    padding-top: 45px;
+}
+.testimonial ol li {
+  color: #ffffff;
+  font-size: 15px;
+  margin-left: 10px;
+  text-align: left;
+ 
+}
+
+
+  .explore{
+    font-size: 20px;
+    padding-top: 11px;
+  }
   .overlay-text{
     font-size: 25px;
   }
@@ -110,6 +127,12 @@
   font-size: 15px;
 }
 .tombol{
+  font-size: 12px;
+}
+.tombol2{
+  font-size: 12px;
+}
+.tombol3{
   font-size: 12px;
 }
 .testimonial{
