@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bimachord.github.io/sitemap.xml

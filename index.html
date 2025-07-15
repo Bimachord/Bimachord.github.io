@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta name="google-site-verification" content="4qjSqtdsdaIrg97ESuZJWsDtFuQZJXfx1xRm53H3iBE" />
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="description" content="Chord lagu Bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
+  <meta name="keywords" content="chord gitar, kunci gitar, lirik lagu Bima, chord Bima, lagu daerah Bima, chord mudah, belajar gitar Bima">
+  <meta name="author" content="Bima Chord">
+  <meta property="og:title" content="Bima Chord - Chord Gitar dan Lirik Lagu" />
+  <meta property="og:description" content="Bima Chord menyediakan chord gitar dasar dan lirik lagu-lagu dari Bima." />
+  <meta property="og:url" content="https://bimachord.github.io" />
+  <meta property="og:site_name" content="Bima Chord" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bima Chord - Chord Gitar dan Lirik Lagu">
+  <meta name="twitter:description" content="Chord gitar dan lirik lagu Bima lengkap dan mudah dipelajari.">
+  <meta name="twitter:image" content="https://bimachord.github.io/assets/android-icon-192x192.png">
+
+  <title>Bima Chord - Chord Gitar dan Lirik Lagu</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png"> 
+  <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png"> 
+  <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png"> 
+  <link rel="manifest" href="manifest.json"> 
+  <meta name="msapplication-TileColor" content="#ffffff"> 
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
+  <meta name="theme-color" content="#ffffff">
+
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Styles/styles.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      background-color: #1a1a1a; 
+      color: #ffffff; 
+    }
+     .like-btn, .reply-btn {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: inherit;
+    }
+    .like-btn.liked, .reply-btn.replied {
+      color: blue;
+    }
+    .comment-box, .reply-box {
+      margin-bottom: 15px;
+    }
+    .reply-box {
+      margin-left: 20px;
+    }
+    .reply-form {
+      display: none;
+    }
+    .reply-count {
+      margin-left: 10px;
+      color: gray;
+    }
+    .scroll-box {
+      width: 100%;
+      height: 400px;
+      overflow-y: auto;
+      border: 2px solid #333;
+      padding: 10px;
+      background-color: #221f1f;
+    }
+  </style>
+</head>
+<body translate="no">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img2.png" alt="Logo" height="30">
+      Bimachord.com
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tentang.html">Tentang Saya</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="lagu/">List Lagu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="buku-tamu.html">Request Lagu Hubungi Saya</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container mt-3" style="margin-bottom: 12px;">
+    <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
+    <ul id="myList" class="list-group mt-3"></ul>
+  </div>
+
+  <div class="bg-dark text-light text-center py-2 protected-text">
+    <p style="font-style: italic; color: #00ff00; font-size: 40px; margin-bottom: 2px;">Bimachord.com</p>
+  </div>
+  
+  <div class="text-center container mt-2 protected-text">
+    <h2 style="color: #00ff00; font-family: courier; font-size: 20px;">Welcom to Bimachord</h2>
+  </div>     
+  
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6 offset-md-3" style="color: #00ff00;">
+        <div class="adstera">
+          <a href=""><img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-2">
+    <p class="protected-text">
+      Situs ini berisi tentang kumpulan chord mudah, kunci gitar dasar dan lirik khusus lagu "Bima" lengkap.. !</p>
+    <p class="protected-text">Bimachord.com hadir sebagai sumbangsih terhadap dunia musik dengan menghadirkan chord-chord kunci gitar dasar dari khusus Lagu "Bima" saja. 
+    <p class="protected-text">"Oyaa, sebelum kalian melangkah lebih jauh untuk menjelajahi situs ini, kami tekankan lagi bahwa hampir keseluruhan chord kunci gitar yang ada di situs ini di publikasikan menjadi chord dasar dan terdapat juga beberapa penyederhanaan chord dari chord aslinya, jika kami pikir ada chord lain yang lebih mudah dan dasar yang bisa sedikit sesuai dengan nada suara kita. namun terkait itu semua, tentunya kami selalu berusaha memberikan yang terbaik.</p>
+    <p class="protected-text">Untuk memberikan tingkat kenyamanan kami sudah melengkapi situs ini dengan alat transpose chord yang ada di bagian posting tepatnya di bawah judul setiap postingan. Ini sangat berguna saat anda ingin memainkan chord yang ada disitus ini dengan chord-chord yang lain.</p>
+    <p class="protected-text">Semoga dengan kehadiran situs ini, mampu menjadi media hiburan yang bermanfaat bagi masyarakat serta mampu menjadi bahan referensi dalam mencari chord gitar "berbekal" kunci dasar yang lebih mudah.</p>
+    <p class="protected-text">Happy Genjrengan...!!!</p>
+  </div>
+       
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '79835cf4b45c5113461bc355f79bd332',
+        'format' : 'iframe',
+        'height' : 60,
+        'width' : 468,
+        'params' : {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/79835cf4b45c5113461bc355f79bd332/invoke.js"></scr' + 'ipt>');
+    </script>
+  </div>
+      
+  <div class="container mt-5">
+      <form id="comment-form">
+          <div class="form-group">
+              <label for="comment">Kritik dan Saran</label>
+              <textarea class="form-control" id="comment" rows="5" placeholder="Enter your comment" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div id="comments-container" class="mt-5 scroll-box">
+          <!-- Comments will be displayed here -->
+      </div>
+  </div>
+      
+<div class="download-section">
+    <a href="download.html">
+        <i class="fas fa-download"></i> Unduh Aplikasi
+    </a>
+</div>
+      
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p style="font-style: italic; color: #00ff00;" >Copyright &copy; 2024 Chord Dasar & Lirik Lagu.</p>
+                    <div>
+                        <a href="https://www.facebook.com/profile.php?id=100093961165463" target="_blank" class="text-white mx-2">
+                            <i class="fab fa-facebook fa-lg"></i>
+                        </a>
+                        <a href="https://wa.me/6287841947229" target="_blank" class="text-white mx-2">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="Js/scripts.js"></script>
+  
+  <script type='text/javascript' src='//pl22487775.profitablegatecpm.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
+     crossorigin="anonymous"></script>
+      
+  <script src="Js/comentar.js"></script>
+
+
+  
+
+</body>
+</html>

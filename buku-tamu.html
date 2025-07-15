@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="description" content="Chord lagu bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png"> 
+  <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png"> 
+  <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png"> 
+  <link rel="manifest" href="manifest.json"> 
+  <meta name="msapplication-TileColor" content="#ffffff"> 
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
+  <meta name="theme-color" content="#ffffff">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Styles/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <title>Buku Tamu Bimachord</title>
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      background-color: #1a1a1a; 
+      color: #ffffff; 
+    }
+    input[type="text"],
+    textarea {
+      background-color: white;
+      color: black;
+    }
+    .scroll-box {
+            width: 100%;
+            height: 400px;
+            overflow-y: auto; /* Scroll vertikal */
+            border: 2px solid #333;
+            padding: 10px;
+            background-color: #221f1f;
+        }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img2.png" alt="Logo" height="30">
+      Bimachord.com
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tentang.html">Tentang Saya</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="list-lagu.html">List Lagu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Request Lagu Hubungi Saya</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-3" style="margin-bottom: 12px;">
+    <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
+    <ul id="myList" class="list-group mt-3">
+    </ul>
+  </div>
+
+  <div class="bg-dark text-light text-center py-2 protected-text">
+    <p style="font-style: italic; color: #00ff00; font-size: 40px; margin-bottom: 2px;">Bimachord.com</p>
+  </div>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 content-divider">
+      </div>
+    </div>
+  </div>
+  
+  <div class="protected-text">
+    <div class="content-divider text-center">
+      <p style="color: #00ff00; font-size: 30px">Buku Tamu Bimachord</p>
+    </div>
+  </div>
+
+  <div class="protected-text" style="text-align: center;">
+    <p><span style="color: red;">Catatan :</span> Sebelum kamu menggunakan buku tamu Bimachord, silahkan mendaftar terlebih dahulu caranya yaitu :</p>
+  </div>
+
+  <div class="protected-text" style="text-align: center;">
+    <p>1. <span style="color: #00ff00;">Login</span> atau jika belum punya akun <span style="color: #00ff00;">klik daftar</span></p>
+    <p>2. Tulis judul<span style="color: #00ff00;"> lagu</span> di kolom <span style="color: #00ff00;">Request</span></p>
+    <p>3. lalu setelah itu klik tombol <span style="color: #00ff00;">Kirim</span></p>
+    <p>4. <span style="color: #00ff00;">Harap di ingat username</span> dan <span style="color: #00ff00;">Password</span> yang kamu buat</p>
+  </div>
+
+  <div class="content-divider protected-text" style="text-align: center; font-size: 20px; font-family: Arial, sans-serif;">
+    <p><span style="color: yellow; font-weight: bold;">PENTING!!! HARAP DIBACA!!!</span></p>
+    <p><span style="color: yellow; font-weight: bold;">SEBELUM REQUEST!!!</span></p>
+  </div>
+  
+  <div class="paragraf protected-text">
+    <p style="max-width: 600px; margin: 0 auto;">1. Pastikan dulu di blog ini memang belum ada chord/kunci gitar yang kamu cari dengan menelusurinya di list lagu atau kolom pencarian di atas</p>
+    <p style="max-width: 600px; margin: 0 auto;">2. Jika sudah di pastikan chord yang kamu cari tidak ada di blog ini, coba lihat dulu di google search engine, barangkali di blog/website lain sudah ada</p>
+    <p style="max-width: 600px; margin: 0 auto;">3. Request chord/kunci gitar yang sudah bertebaran di blog/website lain di menu search engine google, akan di filter terlebih dahulu jadi mungkin requestnya akan sangat lama atau bahkan tidak akan di posting sama sekali.</p>
+  </div>
+  
+  <div class="paragraf protected-text" style="text-align: center; background-color: white; padding: 20px; border: 1px solid black; border-radius: 10px;">
+    <p style="max-width: 600px; margin: 0 auto; color: black;">Jadikan panduan kunci gitarmu jangan hanya di blog ini saja karena kami menyadari blog ini sangat jauh dari kesempurnaan dan notabene kebanyakan berisi kunci-kunci gitar dasar. <a href="tentang-kami.html" style="color: blue;">Baca: Tentang Kami</a></p>
+  </div>
+
+  <div class="paragraf protected-text" style="text-align: center;">
+    <p>Terima kasih atas pengertianya. dan jangan membuat <span style="color: purple; font-weight: bold;">SPAM..</span> Kami dari segenap team bimachord.com sangat berterima kasih karena kamu sudah bersedia mengunjungi blog ini. salam....</p>
+  </div>
+
+  <!-- Form Request Lagu -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card bg-dark text-white">
+          <div class="card-header">
+            <h5 class="card-title">Request Lagu</h5>
+          </div>
+          <div class="card-body">
+            <form id="request-form">
+              <div class="form-group">
+                <label for="song-title">Judul,artis dan pesan anda</label>
+                <textarea style="height: 80px;"type="text" class="form-control" id="song-title" placeholder="Masukkan pesan anda" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display Requests -->
+    <div class="mt-5">
+      <div class="scroll-box">
+        <div id="requests-container">
+          <!-- Requests will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p style="font-style: italic; color: #00ff00;" >Copyright &copy; 2024 Chord Dasar & Lirik Lagu.</p>
+          <div>
+            <a href="https://www.facebook.com/profile.php?id=100093961165463" target="_blank" class="text-white mx-2">
+              <i class="fab fa-facebook fa-lg"></i>
+            </a>
+            <a href="https://wa.me/6287841947229" target="_blank" class="text-white mx-2">
+              <i class="fab fa-whatsapp fa-lg"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+              <i class="fab fa-instagram fa-lg"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="Js/scripts.js"></script>
+  <script type='text/javascript' src='//pl22487775.profitablegatecpm.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCxgwhRJeRailX_oDGp6XrqIAsD6wVilU8",
+      authDomain: "userbc-d8204.firebaseapp.com",
+      projectId: "userbc-d8204",
+      storageBucket: "userbc-d8204.appspot.com",
+      messagingSenderId: "941116930960",
+      appId: "1:941116930960:web:71d002aabbbedf45a21115",
+      measurementId: "G-JQ0SDKH6MT"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Reference to the database
+    var database = firebase.database();
+
+    // Check if user is logged in
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in
+        console.log('User is logged in:', user);
+      } else {
+        // No user is signed in
+        console.log('No user is logged in');
+      }
+    });
+
+    // Handle form submission
+    document.getElementById('request-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var user = firebase.auth().currentUser;
+      if (user) {
+        var songTitle = document.getElementById('song-title').value;
+        var newRequestRef = database.ref('requests').push();
+        newRequestRef.set({
+          username: user.email,
+          title: songTitle,
+          timestamp: firebase.database.ServerValue.TIMESTAMP
+        }).then(() => {
+          document.getElementById('song-title').value = '';
+          loadRequests();
+        });
+      } else {
+        window.location.href = 'login.html';
+      }
+    });
+
+    // Load requests from Firebase and display them
+    function loadRequests() {
+      var requestsContainer = document.getElementById('requests-container');
+      requestsContainer.innerHTML = '';
+      database.ref('requests').orderByChild('timestamp').once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var request = childSnapshot.val();
+          var requestElement = document.createElement('div');
+          requestElement.classList.add('comment-box');
+          requestElement.innerHTML = `
+            <strong style="color: #00ff00;">${request.username} :</strong> ${request.title}
+              <p class="card-text"><small class="text-muted">${new Date(request.timestamp).toLocaleString()}</small></p>
+            </strong>
+          `;
+          requestsContainer.prepend(requestElement);
+        });
+      });
+    }
+
+    // Initial load
+    loadRequests();
+  </script>
+</body>
+</html>

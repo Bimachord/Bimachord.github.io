@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png"> 
+  <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png"> 
+  <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png"> 
+  <link rel="manifest" href="manifest.json"> 
+  <meta name="msapplication-TileColor" content="#ffffff"> 
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
+  <meta name="theme-color" content="#ffffff">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .btn-primary {
+            background-color: #1877f2;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #155db2;
+        }
+        .form-control {
+            height: 45px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="login-container">
+        <h2 class="text-center">Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <div id="error-message" class="error-message"></div>
+        </form>
+        <hr>
+        <a href="register.html" class="btn btn-secondary btn-block">Create New Account</a>
+    </div>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCxgwhRJeRailX_oDGp6XrqIAsD6wVilU8",
+    authDomain: "userbc-d8204.firebaseapp.com",
+    projectId: "userbc-d8204",
+    storageBucket: "userbc-d8204.appspot.com",
+    messagingSenderId: "941116930960",
+    appId: "1:941116930960:web:71d002aabbbedf45a21115",
+    measurementId: "G-JQ0SDKH6MT"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Login form submit event
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var errorMessageDiv = document.getElementById('error-message');
+
+    // Clear previous error message
+    errorMessageDiv.textContent = '';
+
+    // Add a domain to the username to create a valid email format
+    var email = username + "@bimachord.com";
+
+    // Sign in with email and password
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        // Redirect to index.html after successful login
+        window.location.href = 'index.html';
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+
+        // Handle specific errors
+        if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
+          errorMessageDiv.textContent = 'Invalid username or password. Please try again.';
+        } else {
+          errorMessageDiv.textContent = 'Invalid username or password. Please try again.';
+        }
+      });
+  });
+</script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
