@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guitar Tuner Online - BimaChord</title>
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Guitar Tuner Online gratis untuk menyetem gitar kamu dengan akurat. Gunakan mikrofon untuk deteksi nada otomatis." />
+  <meta name="keywords" content="guitar tuner, stem gitar, tuner gitar online, bimachord, akord, gitar akurat" />
+  <meta name="author" content="BimaChord" />
+  <link rel="canonical" href="https://bimachord.github.io/tunning.html" />
+
+  <!-- ✅ Open Graph Meta Tags (Untuk Facebook, WhatsApp, LinkedIn, dll) -->
+  <meta property="og:title" content="🎸 Guitar Tuner Online - BimaChord" />
+  <meta property="og:description" content="Stem gitar kamu dengan presisi menggunakan tuner online berbasis mikrofon. Cepat, mudah, dan gratis!" />
+  <meta property="og:url" content="https://bimachord.github.io/tunning.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://bimachord.github.io/assets/logo.png" />
+
+  <!-- ✅ Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guitar Tuner Online - BimaChord" />
+  <meta name="twitter:description" content="Stem gitar kamu langsung dari browser! Gratis dan akurat." />
+  <meta name="twitter:image" content="https://bimachord.github.io/assets/logo.png" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png"> 
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png"> 
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png"> 
+  <link rel="manifest" href="/manifest.json"> 
+  <meta name="msapplication-TileColor" content="#ffffff"> 
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <style>
+    .note-btn {
+      @apply px-3 py-1 bg-blue-600 rounded transition;
+    }
+    .note-btn:hover {
+      color: #16a34a;
+    }
+    .note-btn.active {
+      @apply bg-green-500 text-white;
+    }
+    .glow {
+      box-shadow: 0 0 20px 5px #00ff00;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+  <div class="min-h-screen flex flex-col items-center justify-center space-y-6">
+    <h1 class="text-3xl font-bold">Guitar Tuner</h1>
+
+    <div class="flex space-x-2">
+      <button ondblclick="autoDetectMode()" onclick="selectNote('E2', this)" class="note-btn">E</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('A2', this)" class="note-btn">A</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('D3', this)" class="note-btn">D</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('G3', this)" class="note-btn">G</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('B3', this)" class="note-btn">B</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('E4', this)" class="note-btn">e</button>
+    </div>
+
+    <div class="text-center">
+      <h2 class="text-4xl" id="note">Nada: -</h2>
+      <p id="detune" class="text-xl">Detune: -</p>
+    </div>
+
+    <!-- B: Circular Dial -->
+    <div class="relative w-64 h-32">
+      <svg viewBox="0 0 200 100" class="w-full h-full">
+        <path d="M 10 100 A 90 90 0 0 1 190 100" fill="none" stroke="#444" stroke-width="10"/>
+        <line id="needle-svg" x1="100" y1="100" x2="100" y2="20" stroke="red" stroke-width="4" stroke-linecap="round" transform="rotate(0 100 100)" />
+      </svg>
+    </div>
+
+    <!-- D: LED multi zona -->
+    <div class="flex space-x-1 mt-2">
+      <div id="led1" class="w-3 h-3 rounded-full bg-gray-700"></div>
+      <div id="led2" class="w-3 h-3 rounded-full bg-gray-700"></div>
+      <div id="led3" class="w-3 h-3 rounded-full bg-gray-700"></div>
+      <div id="led4" class="w-3 h-3 rounded-full bg-gray-700"></div>
+      <div id="led5" class="w-3 h-3 rounded-full bg-gray-700"></div>
+    </div>
+
+    <!-- C: Gelombang suara -->
+    <canvas id="wave" width="600" height="100" class="mt-4 bg-black rounded"></canvas>
+  </div>
+
+  <script>
+    let audioContext, analyser, microphone, bufferLength, dataArray, targetNote = null, autoDetect = true;
+    let waveCanvas, waveCtx;
+
+    const notesFreq = {
+      'E2': 82.41, 'A2': 110.00, 'D3': 146.83, 'G3': 196.00, 'B3': 246.94, 'E4': 329.63
+    };
+
+    function selectNote(note, btn) {
+      autoDetect = false;
+      targetNote = note;
+      document.querySelectorAll('.note-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function autoDetectMode() {
+      autoDetect = true;
+      targetNote = null;
+      document.querySelectorAll('.note-btn').forEach(b => b.classList.remove('active'));
+    }
+
+    function autoCorrelate(buf, sampleRate) {
+      let SIZE = buf.length, rms = 0;
+      for (let i = 0; i < SIZE; i++) rms += buf[i] * buf[i];
+      rms = Math.sqrt(rms / SIZE);
+      if (rms < 0.01) return -1;
+      let r1 = 0, r2 = SIZE - 1, threshold = 0.2;
+      for (let i = 0; i < SIZE / 2; i++) if (Math.abs(buf[i]) < threshold) { r1 = i; break; }
+      for (let i = 1; i < SIZE / 2; i++) if (Math.abs(buf[SIZE - i]) < threshold) { r2 = SIZE - i; break; }
+      buf = buf.slice(r1, r2); SIZE = buf.length;
+      let c = new Array(SIZE).fill(0);
+      for (let i = 0; i < SIZE; i++) for (let j = 0; j < SIZE - i; j++) c[i] += buf[j] * buf[j + i];
+      let d = 0; while (c[d] > c[d + 1]) d++;
+      let maxval = -1, maxpos = -1;
+      for (let i = d; i < SIZE; i++) if (c[i] > maxval) { maxval = c[i]; maxpos = i; }
+      let T0 = maxpos; return sampleRate / T0;
+    }
+
+    function noteFromFreq(freq) {
+      let notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+      let n = 12 * (Math.log2(freq / 440)) + 69;
+      let index = Math.round(n);
+      return notes[index % 12] + Math.floor(index / 12 - 1);
+    }
+
+    async function startTuner() {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      microphone = audioContext.createMediaStreamSource(stream);
+      analyser = audioContext.createAnalyser();
+      analyser.fftSize = 2048;
+      bufferLength = analyser.fftSize;
+      dataArray = new Float32Array(bufferLength);
+      microphone.connect(analyser);
+      waveCanvas = document.getElementById("wave");
+      waveCtx = waveCanvas.getContext("2d");
+      updatePitch();
+    }
+
+    function updatePitch() {
+      analyser.getFloatTimeDomainData(dataArray);
+      let pitch = autoCorrelate(dataArray, audioContext.sampleRate);
+
+      waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+      waveCtx.lineWidth = 2;
+      waveCtx.strokeStyle = 'lime';
+      waveCtx.beginPath();
+      const sliceWidth = waveCanvas.width * 1.0 / bufferLength;
+      let x = 0;
+      for (let i = 0; i < bufferLength; i++) {
+        let v = dataArray[i] * 0.5 + 0.5;
+        let y = v * waveCanvas.height;
+        if (i === 0) waveCtx.moveTo(x, y);
+        else waveCtx.lineTo(x, y);
+        x += sliceWidth;
+      }
+      waveCtx.lineTo(waveCanvas.width, waveCanvas.height / 2);
+      waveCtx.stroke();
+
+      if (pitch !== -1) {
+        let note = noteFromFreq(pitch);
+        document.getElementById("note").innerText = `Nada: ${note}`;
+        let detuneText = "-";
+        let angle = 0;
+
+        if (autoDetect) {
+          for (let key in notesFreq) {
+            if (Math.abs(pitch - notesFreq[key]) < 10) {
+              targetNote = key;
+              document.querySelectorAll('.note-btn').forEach(btn => {
+                const btnNote = btn.innerText === 'e' ? 'E4' : btn.innerText + (btn.innerText === 'E' && key === 'E4' ? '4' : '2');
+                btn.classList.toggle('active', key === btnNote || key.startsWith(btn.innerText));
+              });
+              break;
+            }
+          }
+        }
+
+        if (targetNote && notesFreq[targetNote]) {
+          let targetFreq = notesFreq[targetNote];
+          let diff = pitch - targetFreq;
+          detuneText = `${diff.toFixed(2)} Hz`;
+          angle = Math.min(45, Math.max(-45, diff * 2));
+
+          const leds = ["led1", "led2", "led3", "led4", "led5"];
+          leds.forEach(id => document.getElementById(id).style.backgroundColor = '#444');
+          document.getElementById("led3").classList.remove("glow");
+
+          if (Math.abs(diff) < 1) {
+            document.getElementById("led3").style.backgroundColor = 'lime';
+            document.getElementById("led3").classList.add("glow");
+          }
+          else if (diff < -5) document.getElementById("led1").style.backgroundColor = 'red';
+          else if (diff < 0) document.getElementById("led2").style.backgroundColor = 'orange';
+          else if (diff > 5) document.getElementById("led5").style.backgroundColor = 'red';
+          else if (diff > 0) document.getElementById("led4").style.backgroundColor = 'orange';
+        }
+
+        document.getElementById("detune").innerText = `Detune: ${detuneText}`;
+        document.getElementById("needle-svg").setAttribute("transform", `rotate(${angle} 100 100)`);
+      } else {
+        document.getElementById("note").innerText = `Nada: -`;
+        document.getElementById("detune").innerText = `Detune: -`;
+      }
+      requestAnimationFrame(updatePitch);
+    }
+
+    window.addEventListener('DOMContentLoaded', startTuner);
+  </script>
+</body>
+</html>
