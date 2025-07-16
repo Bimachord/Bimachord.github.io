@@ -11,46 +11,36 @@
   <meta name="author" content="BimaChord" />
   <link rel="canonical" href="https://bimachord.github.io/tunning.html" />
 
-  <!-- ✅ Open Graph Meta Tags (Untuk Facebook, WhatsApp, LinkedIn, dll) -->
+  <!-- ✅ Open Graph -->
   <meta property="og:title" content="🎸 Guitar Tuner Online - BimaChord" />
   <meta property="og:description" content="Stem gitar kamu dengan presisi menggunakan tuner online berbasis mikrofon. Cepat, mudah, dan gratis!" />
   <meta property="og:url" content="https://bimachord.github.io/tunning.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://bimachord.github.io/assets/logo.png" />
 
-  <!-- ✅ Twitter Card Meta -->
+  <!-- ✅ Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Guitar Tuner Online - BimaChord" />
   <meta name="twitter:description" content="Stem gitar kamu langsung dari browser! Gratis dan akurat." />
   <meta name="twitter:image" content="https://bimachord.github.io/assets/logo.png" />
 
-  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png"> 
-  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png"> 
-  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png"> 
-  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-icon-76x76.png"> 
-  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-icon-114x114.png"> 
-  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-icon-120x120.png"> 
-  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-icon-144x144.png"> 
-  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png"> 
-  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png"> 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"> 
-  <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png"> 
-  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png"> 
+  <!-- Favicon & Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/icon/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
 
+  <!-- Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
-  <!-- TailwindCSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  
+  <!-- Custom Styles -->
   <style>
-    .note-btn {
-      @apply px-3 py-1 bg-blue-600 rounded transition;
-    }
-    .note-btn:hover {
-      color: #16a34a;
-    }
-    .note-btn.active {
-      @apply bg-green-500 text-white;
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
     .glow {
       box-shadow: 0 0 20px 5px #00ff00;
@@ -64,12 +54,12 @@
     <h1 class="text-3xl font-bold">Guitar Tuner</h1>
 
     <div class="flex space-x-2">
-      <button ondblclick="autoDetectMode()" onclick="selectNote('E2', this)" class="note-btn">E</button>
-      <button ondblclick="autoDetectMode()" onclick="selectNote('A2', this)" class="note-btn">A</button>
-      <button ondblclick="autoDetectMode()" onclick="selectNote('D3', this)" class="note-btn">D</button>
-      <button ondblclick="autoDetectMode()" onclick="selectNote('G3', this)" class="note-btn">G</button>
-      <button ondblclick="autoDetectMode()" onclick="selectNote('B3', this)" class="note-btn">B</button>
-      <button ondblclick="autoDetectMode()" onclick="selectNote('E4', this)" class="note-btn">e</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('E2', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">E</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('A2', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">A</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('D3', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">D</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('G3', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">G</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('B3', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">B</button>
+      <button ondblclick="autoDetectMode()" onclick="selectNote('E4', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">e</button>
     </div>
 
     <div class="text-center">
@@ -77,7 +67,7 @@
       <p id="detune" class="text-xl">Detune: -</p>
     </div>
 
-    <!-- B: Circular Dial -->
+    <!-- Dial -->
     <div class="relative w-64 h-32">
       <svg viewBox="0 0 200 100" class="w-full h-full">
         <path d="M 10 100 A 90 90 0 0 1 190 100" fill="none" stroke="#444" stroke-width="10"/>
@@ -85,7 +75,7 @@
       </svg>
     </div>
 
-    <!-- D: LED multi zona -->
+    <!-- LED -->
     <div class="flex space-x-1 mt-2">
       <div id="led1" class="w-3 h-3 rounded-full bg-gray-700"></div>
       <div id="led2" class="w-3 h-3 rounded-full bg-gray-700"></div>
@@ -94,7 +84,7 @@
       <div id="led5" class="w-3 h-3 rounded-full bg-gray-700"></div>
     </div>
 
-    <!-- C: Gelombang suara -->
+    <!-- Waveform -->
     <canvas id="wave" width="600" height="100" class="mt-4 bg-black rounded"></canvas>
   </div>
 
