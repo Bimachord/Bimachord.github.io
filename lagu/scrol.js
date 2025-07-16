@@ -20,25 +20,26 @@ function showElement() {
     el.style.display = el.style.display === "flex" ? "none" : "flex";
 }
 
-        const chords = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-        let autoScrollActive = false;
+const chords = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "A#m", "Bm"];
+let autoScrollActive = false;
         
+function transpose(step) {
+    document.querySelectorAll('.chord').forEach(el => {
+        let currentChord = el.innerText.trim();
+        let baseChordMatch = currentChord.match(/^[A-G]#?m?/);
+        if (!baseChordMatch) return;
 
-        function transpose(step) {
-            document.querySelectorAll('.chord').forEach(el => {
-                let currentChord = el.innerText.trim();
-                let baseChord = currentChord.match(/[A-G]#?/)[0];
-                let suffix = currentChord.replace(baseChord, "");
-                let index = chords.indexOf(baseChord);
-                
-                if (index !== -1) {
-                    let newIndex = (index + step + chords.length) % chords.length;
-                    el.innerText = chords[newIndex] + suffix;
-                    el.setAttribute("onclick", `showChordImage('${chords[newIndex]}')`);
-                }
-            });
+        let baseChord = baseChordMatch[0]; // misalnya "Am"
+        let suffix = currentChord.slice(baseChord.length); // sisanya (seperti "7", "maj7", dsb)
+
+        let index = chords.indexOf(baseChord);
+        if (index !== -1) {
+            let newIndex = (index + step + chords.length) % chords.length;
+            el.innerText = chords[newIndex] + suffix;
+            el.setAttribute("onclick", `showChordImage('${chords[newIndex]}')`);
         }
-
+    });
+}
     
 
         function showChordImage(chord) {
