@@ -57,6 +57,9 @@
   <div class="min-h-screen flex flex-col items-center justify-center space-y-6">
     <h1 class="text-3xl font-bold">Guitar Tuner</h1>
 
+    <!-- Tombol Mulai Tuning -->
+    <button onclick="startTuner()" class="px-4 py-2 bg-green-600 rounded hover:bg-green-700 transition">Mulai Tuning</button>
+
     <div class="flex space-x-2">
       <button onclick="selectNote('E2', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">E</button>
       <button onclick="selectNote('A2', this)" class="px-3 py-1 bg-blue-600 rounded transition note-btn">A</button>
@@ -93,8 +96,6 @@
     <canvas id="wave" width="600" height="100" class="mt-4 bg-black rounded"></canvas>
   </div>
 
-  <!-- ... seluruh bagian <head> dan <body> tidak berubah ... -->
-
 <script>
   let audioContext, analyser, microphone, bufferLength, dataArray, targetNote = null, autoDetect = true;
   let waveCanvas, waveCtx;
@@ -125,7 +126,7 @@
     for (let i = 0; i < SIZE; i++) rms += buf[i] * buf[i];
     rms = Math.sqrt(rms / SIZE);
     console.log("🎚️ RMS:", rms.toFixed(5));
-    if (rms < 0.002) return -1; // Lebih sensitif dari sebelumnya
+    if (rms < 0.002) return -1;
 
     let r1 = 0, r2 = SIZE - 1, threshold = 0.2;
     for (let i = 0; i < SIZE / 2; i++) if (Math.abs(buf[i]) < threshold) { r1 = i; break; }
@@ -152,6 +153,7 @@
       console.log("🔊 Memulai akses mikrofon...");
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      await audioContext.resume();
 
       console.log("✅ Mikrofon diizinkan dan stream diterima.");
       microphone = audioContext.createMediaStreamSource(stream);
@@ -179,7 +181,6 @@
     let pitch = autoCorrelate(dataArray, audioContext.sampleRate);
     console.log("🎼 Pitch terdeteksi:", pitch.toFixed(2));
 
-    // Gambar waveform
     waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
     waveCtx.lineWidth = 2;
     waveCtx.strokeStyle = 'lime';
@@ -248,11 +249,6 @@
 
     requestAnimationFrame(updatePitch);
   }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    console.log("🌐 DOM Loaded. Memulai tuner...");
-    startTuner();
-  });
 </script>
 
 </body>
