@@ -20,6 +20,10 @@
   .content-divider {
         border-bottom: 1px dotted #ffffff; /* Garis titik-titik di bawah elemen h2 */
         margin-bottom: 20px; /* Ruang antara elemen h2 dan kontennya */
+        color: #00ff00;
+      }
+      .content-divider a{
+        color: #00ff00;
       }
   /* styles.css */
   .protected-text {
@@ -471,4 +475,11 @@
         cursor: pointer;
         border-radius: 5px;
         margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+    .text-green {
+       color: #008000; /* warna hijau */
     }

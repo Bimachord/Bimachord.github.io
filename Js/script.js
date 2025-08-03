@@ -67,4 +67,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  
+  // random link
+async function loadLinkKomponen() {
+  const res = await fetch('/components/lirik.html');
+  const html = await res.text();
+  const container = document.getElementById('link-komponen');
+  container.innerHTML = html;
+
+   // Tunggu sampai isi dimasukkan, lalu jalankan script
+  const allLinks = Array.from(container.querySelectorAll('#all-links .content-divider'));
+  const shuffled = allLinks.sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 4);
+  const target = container.querySelector('#random-links');
+  selected.forEach(link => {
+    target.appendChild(link.cloneNode(true));
+   });
+}
+
+loadLinkKomponen();
