@@ -83,60 +83,79 @@
       </a>
     </div>
   </div>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script>
+  // Firebase config
+  var firebaseConfig = {
+    apiKey: "AIzaSyCxgwhRJeRailX_oDGp6XrqIAsD6wVilU8",
+    authDomain: "userbc-d8204.firebaseapp.com",
+    projectId: "userbc-d8204",
+    storageBucket: "userbc-d8204.appspot.com",
+    messagingSenderId: "941116930960",
+    appId: "1:941116930960:web:71d002aabbbedf45a21115",
+    measurementId: "G-JQ0SDKH6MT"
+  };
+  firebase.initializeApp(firebaseConfig);
 
-  <script>
-    // Firebase config
-    var firebaseConfig = {
-      apiKey: "AIzaSyCxgwhRJeRailX_oDGp6XrqIAsD6wVilU8",
-      authDomain: "userbc-d8204.firebaseapp.com",
-      projectId: "userbc-d8204",
-      storageBucket: "userbc-d8204.appspot.com",
-      messagingSenderId: "941116930960",
-      appId: "1:941116930960:web:71d002aabbbedf45a21115",
-      measurementId: "G-JQ0SDKH6MT"
-    };
-    firebase.initializeApp(firebaseConfig);
+  // Email/password login
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    // Email/password login
-    document.getElementById('login-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const errorMessage = document.getElementById('error-message');
-      errorMessage.textContent = '';
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = '';
 
-      const email = username + "@bimachord.com";
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(userCredential => {
-          window.location.href = 'index.html';
-        })
-        .catch(error => {
-          if (['auth/user-not-found', 'auth/wrong-password'].includes(error.code)) {
-            errorMessage.textContent = 'Invalid username or password.';
-          } else {
-            errorMessage.textContent = 'Something went wrong. Please try again.';
-          }
-        });
-    });
-
-    // Google login
-    function loginWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-        .then(result => {
-          window.location.href = 'index.html';
-        })
-        .catch(error => {
-          console.error(error);
-          alert("Google login failed: " + error.message);
-        });
+    if (!username || !password) {
+      errorMessage.textContent = 'Username dan password wajib diisi.';
+      return;
     }
-  </script>
 
-</body>
-</html>
+    const email = username + "@bimachord.com";
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        const loginInfo = {
+          uid: user.uid,
+          email: user.email,
+          username: username,
+          loginProvider: "email"
+        };
+        localStorage.setItem("login_token", JSON.stringify(loginInfo));
+        window.location.href = 'index.html';
+      })
+      .catch(error => {
+        console.error(error);
+        if (['auth/user-not-found', 'auth/wrong-password'].includes(error.code)) {
+          errorMessage.textContent = 'Username atau password salah.';
+        } else {
+          errorMessage.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+        }
+      });
+  });
+
+  // Google login
+  function loginWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then(result => {
+        const user = result.user;
+        const loginInfo = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          loginProvider: "google"
+        };
+        localStorage.setItem("login_token", JSON.stringify(loginInfo));
+        window.location.href = 'index.html';
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Login dengan Google gagal: " + error.message);
+      });
+  }
+</script>

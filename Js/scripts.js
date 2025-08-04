@@ -130,3 +130,28 @@ async function loadFooterKomponen() {
 }
 
 loadFooterKomponen();
+
+  // Firebase config kamu
+
+  // Cek status login dari localStorage
+  document.addEventListener('DOMContentLoaded', function () {
+    const logoutItem = document.getElementById('logout-nav-item');
+    const token = localStorage.getItem('login_token');
+
+    if (token) {
+      logoutItem.style.display = 'block';
+    } else {
+      logoutItem.style.display = 'none';
+    }
+  });
+
+ function handleLogout() {
+    firebase.auth().signOut().then(() => {
+      alert("Berhasil logout!");
+      window.location.href = "/login.html"; // Ganti sesuai halaman login kamu
+    }).catch((error) => {
+      console.error("Gagal logout:", error);
+      alert("Gagal logout: " + error.message);
+    });
+  }
+
