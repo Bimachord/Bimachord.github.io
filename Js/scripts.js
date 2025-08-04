@@ -84,3 +84,49 @@ async function loadLinkKomponen() {
 }
 
 loadLinkKomponen();
+
+async function loadNavbarKomponen() {
+  try {
+    const res = await fetch('/components/navbar.html');
+    
+    if (!res.ok) {
+      throw new Error(`Gagal memuat komponen: ${res.status}`);
+    }
+
+    const html = await res.text();
+    const container = document.getElementById('Navbar-komponen');
+
+    if (container) {
+      container.innerHTML = html;
+    } else {
+      console.warn('Elemen dengan id "link-komponen" tidak ditemukan.');
+    }
+  } catch (error) {
+    console.error('Terjadi kesalahan saat memuat komponen:', error);
+  }
+}
+
+loadNavbarKomponen();
+
+async function loadFooterKomponen() {
+  try {
+    const res = await fetch('/components/Footer.html');
+    
+    if (!res.ok) {
+      throw new Error(`Gagal memuat komponen: ${res.status}`);
+    }
+
+    const html = await res.text();
+    const container = document.getElementById('Footer-komponen');
+
+    if (container) {
+      container.innerHTML = html;
+    } else {
+      console.warn('Elemen dengan id "link-komponen" tidak ditemukan.');
+    }
+  } catch (error) {
+    console.error('Terjadi kesalahan saat memuat komponen:', error);
+  }
+}
+
+loadFooterKomponen();
