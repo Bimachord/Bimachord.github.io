@@ -110,7 +110,7 @@ loadNavbarKomponen();
 
 async function loadFooterKomponen() {
   try {
-    const res = await fetch('/components/Footer.html');
+    const res = await fetch('/components/footer.html');
     
     if (!res.ok) {
       throw new Error(`Gagal memuat komponen: ${res.status}`);
