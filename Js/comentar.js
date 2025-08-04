@@ -48,141 +48,201 @@
     });
 
     // Function to handle like
-    function handleLike(commentId, isReply, parentId = null) {
-      var user = firebase.auth().currentUser;
-      if (user) {
-        var commentRef = isReply ? commentsRef.child(parentId).child('replies').child(commentId) : commentsRef.child(commentId);
-        commentRef.once('value', (snapshot) => {
-          var commentData = snapshot.val();
-          var updates = {};
-          if (!commentData.usersLiked || !commentData.usersLiked[user.uid]) {
-            // User hasn't liked this comment yet
-            updates['/likes'] = (commentData.likes || 0) + 1;
-            updates[`/usersLiked/${user.uid}`] = true;
-          } else {
-            // User has liked this comment, remove like
-            updates['/likes'] = (commentData.likes || 0) - 1;
-            updates[`/usersLiked/${user.uid}`] = null;
-          }
-          commentRef.update(updates);
-        });
-      } else {
-        // User is not logged in, redirect to login page
-        window.location.href = 'login.html';
-      }
-    }
 
-    // Function to handle reply toggle
-    function toggleReplies(commentId) {
-      var repliesContainer = document.getElementById(`replies-container-${commentId}`);
-      var replyForm = document.getElementById(`reply-form-${commentId}`);
-      if (repliesContainer.style.display === 'none' || repliesContainer.style.display === '') {
-        repliesContainer.style.display = 'block';
-        replyForm.style.display = 'block';
-        fetchReplies(commentId); // Fetch replies when replies are displayed
-      } else {
-        repliesContainer.style.display = 'none';
-        replyForm.style.display = 'none';
-      }
-    }
+  function handleLike(commentId, isReply, parentId = null) {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      const commentRef = isReply
+        ? commentsRef.child(parentId).child('replies').child(commentId)
+        : commentsRef.child(commentId);
 
-    // Function to submit reply
-    function submitReply(event, commentId) {
-      event.preventDefault();
-      var reply = document.getElementById(`reply-input-${commentId}`).value;
-      var user = firebase.auth().currentUser;
-      if (user) {
-        var replyData = {
-          username: user.email,
-          comment: reply,
-          timestamp: new Date().toISOString(),
-          likes: 0,
-          usersLiked: {}
-        };
-        var repliesRef = commentsRef.child(commentId).child('replies').push();
-        repliesRef.set(replyData).then(() => {
-          document.getElementById(`reply-input-${commentId}`).value = '';
-          fetchReplies(commentId); // Fetch replies after submitting reply
-        }).catch((error) => {
-          console.error('Error writing new reply to Firebase Database', error);
-        });
-      } else {
-        window.location.href = 'login.html';
-      }
-    }
+      commentRef.once('value', (snapshot) => {
+        const data = snapshot.val();
+        const updates = {};
 
-    // Fetch replies
-    function fetchReplies(commentId) {
-      var repliesContainer = document.getElementById(`replies-container-${commentId}`);
-      commentsRef.child(commentId).child('replies').on('value', (snapshot) => {
-        var replyCount = snapshot.numChildren();
-        repliesContainer.innerHTML = ''; // Clear previous replies
-        snapshot.forEach((childSnapshot) => {
-          var replyData = childSnapshot.val();
-          var replyElement = document.createElement('div');
-          replyElement.className = 'reply-box';
-          var user = firebase.auth().currentUser;
-          var liked = user && replyData.usersLiked && replyData.usersLiked[user.uid];
-          replyElement.innerHTML = `
-            <strong style="color:  #00ff00;">${replyData.username}</strong>
-            <p>${replyData.comment}</p>
-            <small>${new Date(replyData.timestamp).toLocaleString()}</small>
-            <div>
-              <button class="like-btn ${liked ? 'liked' : ''}" onclick="handleLike('${childSnapshot.key}', true, '${commentId}')">
-                <i class="fa fa-thumbs-up"></i>
-              </button>
-              <span>${replyData.likes || 0}</span>
-            </div>
-          `;
-          repliesContainer.appendChild(replyElement);
-        });
+        if (!data.usersLiked || !data.usersLiked[user.uid]) {
+          updates['/likes'] = (data.likes || 0) + 1;
+          updates[`/usersLiked/${user.uid}`] = true;
+        } else {
+          updates['/likes'] = (data.likes || 0) - 1;
+          updates[`/usersLiked/${user.uid}`] = null;
+        }
+
+        commentRef.update(updates);
       });
+    } else {
+      window.location.href = 'login.html';
     }
+  }
 
-    // Fetch and display comments
-    function fetchComments() {
-      commentsRef.on('value', (snapshot) => {
-        var commentsContainer = document.getElementById('comments-container');
-        commentsContainer.innerHTML = '';
-        snapshot.forEach((childSnapshot) => {
-          var commentData = childSnapshot.val();
-          var commentElement = document.createElement('div');
-          commentElement.id = `comment-${childSnapshot.key}`;
-          commentElement.className = 'comment-box';
-          var user = firebase.auth().currentUser;
-          var liked = user && commentData.usersLiked && commentData.usersLiked[user.uid];
-          commentElement.innerHTML = `
-            <strong style="color:  #00ff00;">${commentData.username}</strong>
-            <p>${commentData.comment}</p>
-            <small>${new Date(commentData.timestamp).toLocaleString()}</small>
-            <div>
-              <button class="like-btn ${liked ? 'liked' : ''}" onclick="handleLike('${childSnapshot.key}', false)">
-                <i class="fa fa-thumbs-up"></i>
-              </button>
-              <span>${commentData.likes || 0}</span>
-              <button class="reply-btn" onclick="toggleReplies('${childSnapshot.key}')">
-                <i class="fas fa-comment"></i>
-              </button>
-              <span class="reply-count">${commentData.replies ? Object.keys(commentData.replies).length : 0} replies</span>
-            </div>
-            <div id="replies-container-${childSnapshot.key}" class="replies-container"></div>
-            <form id="reply-form-${childSnapshot.key}" class="reply-form" onsubmit="submitReply(event, '${childSnapshot.key}')">
-              <textarea class="form-control" id="reply-input-${childSnapshot.key}" rows="2" placeholder="Enter your reply"></textarea>
-              <button type="submit" class="btn btn-primary mt-2">Submit</button>
-            </form>
-          `;
-          commentsContainer.appendChild(commentElement);
+  function toggleReplies(commentId) {
+    const repliesContainer = document.getElementById(`replies-container-${commentId}`);
+    const replyForm = document.getElementById(`reply-form-${commentId}`);
+    repliesContainer.classList.toggle('d-none');
+    replyForm.classList.toggle('d-none');
+    fetchReplies(commentId);
+  }
 
-          // Display initial replies if form is already open
-          var repliesContainer = document.getElementById(`replies-container-${childSnapshot.key}`);
-          if (repliesContainer.style.display === 'block') {
-            fetchReplies(childSnapshot.key);
-          }
-        });
+  function submitReply(event, commentId) {
+    event.preventDefault();
+    const reply = document.getElementById(`reply-input-${commentId}`).value;
+    const user = firebase.auth().currentUser;
+
+    if (user) {
+      const replyData = {
+        username: user.email,
+        comment: reply,
+        timestamp: new Date().toISOString(),
+        likes: 0,
+        usersLiked: {}
+      };
+
+      const repliesRef = commentsRef.child(commentId).child('replies').push();
+      repliesRef.set(replyData).then(() => {
+        document.getElementById(`reply-input-${commentId}`).value = '';
+        fetchReplies(commentId);
       });
+    } else {
+      window.location.href = 'login.html';
     }
+  }
 
-    // Fetch comments when the page loads
-    window.onload = function() {
-      fetchComments();
-    };
+  function fetchReplies(commentId) {
+    const repliesContainer = document.getElementById(`replies-container-${commentId}`);
+    commentsRef.child(commentId).child('replies').on('value', (snapshot) => {
+      repliesContainer.innerHTML = '';
+
+      snapshot.forEach((childSnapshot) => {
+        const reply = childSnapshot.val();
+        const user = firebase.auth().currentUser;
+        const liked = user && reply.usersLiked && reply.usersLiked[user.uid];
+
+        const replyElement = document.createElement('div');
+        replyElement.className = 'card card-body bg-dark text-light mb-2 ';
+        replyElement.innerHTML = `
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <strong class="text-success">${reply.username}</strong>
+              <p class="mb-1 small">${reply.comment}</p>
+              <small class="text-muted">${new Date(reply.timestamp).toLocaleString()}</small>
+            </div>
+            <div class="text-end">
+              <button class="btn btn-sm btn-outline-primary ${liked ? 'active' : ''}" onclick="handleLike('${childSnapshot.key}', true, '${commentId}')">
+                <i class="fa fa-thumbs-up"></i> ${reply.likes || 0}
+              </button>
+            </div>
+          </div>
+        `;
+        repliesContainer.appendChild(replyElement);
+      });
+    });
+  }
+
+ function fetchComments() {
+  commentsRef.on('value', (snapshot) => {
+    const container = document.getElementById('comments-container');
+    const readMoreBtn = document.getElementById('read-more-btn');
+    container.innerHTML = '';
+
+    const allComments = [];
+    snapshot.forEach((childSnapshot) => {
+      allComments.unshift({ key: childSnapshot.key, ...childSnapshot.val() }); // newest first
+    });
+
+    const displayCount = 5;
+    const toDisplay = allComments.slice(0, displayCount);
+
+    toDisplay.forEach((comment) => {
+      const user = firebase.auth().currentUser;
+      const liked = user && comment.usersLiked && comment.usersLiked[user.uid];
+
+      const commentElement = document.createElement('div');
+      commentElement.className = 'card mb-3 bg-dark text-light';
+      commentElement.id = `comment-${comment.key}`;
+      commentElement.innerHTML = `
+        <div class="card-body">
+          <h6 class="text-success">${comment.username}</h6>
+          <p class="card-text small">${comment.comment}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">${new Date(comment.timestamp).toLocaleString()}</small>
+            <div class="btn-group btn-group-sm" role="group">
+              <button class="btn btn-outline-primary ${liked ? 'active' : ''}" onclick="handleLike('${comment.key}', false)">
+                <i class="fa fa-thumbs-up"></i> ${comment.likes || 0}
+              </button>
+              <button class="btn btn-outline-secondary" onclick="toggleReplies('${comment.key}')">
+                <i class="fa fa-reply"></i> Balas
+              </button>
+            </div>
+          </div>
+
+          <div id="replies-container-${comment.key}" class="mt-3 d-none"></div>
+
+          <form id="reply-form-${comment.key}" class="mt-2 d-none" onsubmit="submitReply(event, '${comment.key}')">
+            <div class="mb-2">
+              <textarea id="reply-input-${comment.key}" class="form-control form-control-sm" rows="2" placeholder="Tulis balasan..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Kirim</button>
+          </form>
+        </div>
+      `;
+      container.appendChild(commentElement);
+    });
+
+    // Tampilkan tombol read more hanya jika komentar lebih dari 5
+    if (allComments.length > displayCount) {
+      readMoreBtn.style.display = 'block';
+
+      // Simpan semua komentar jika nanti ingin tampilkan semuanya saat tombol diklik
+      window.remainingComments = allComments.slice(displayCount);
+    } else {
+      readMoreBtn.style.display = 'none';
+    }
+  });
+}
+
+function showAllComments() {
+  const container = document.getElementById('comments-container');
+  const readMoreBtn = document.getElementById('read-more-btn');
+  
+  if (!window.remainingComments) return;
+
+  window.remainingComments.forEach((comment) => {
+    const user = firebase.auth().currentUser;
+    const liked = user && comment.usersLiked && comment.usersLiked[user.uid];
+
+    const commentElement = document.createElement('div');
+    commentElement.className = 'card mb-3 bg-dark text-light';
+    commentElement.id = `comment-${comment.key}`;
+    commentElement.innerHTML = `
+      <div class="card-body">
+        <h6 class="text-success">${comment.username}</h6>
+        <p class="card-text small">${comment.comment}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">${new Date(comment.timestamp).toLocaleString()}</small>
+          <div class="btn-group btn-group-sm" role="group">
+            <button class="btn btn-outline-primary ${liked ? 'active' : ''}" onclick="handleLike('${comment.key}', false)">
+              <i class="fa fa-thumbs-up"></i> ${comment.likes || 0}
+            </button>
+            <button class="btn btn-outline-secondary" onclick="toggleReplies('${comment.key}')">
+              <i class="fa fa-reply"></i> Balas
+            </button>
+          </div>
+        </div>
+
+        <div id="replies-container-${comment.key}" class="mt-3 d-none"></div>
+
+        <form id="reply-form-${comment.key}" class="mt-2 d-none" onsubmit="submitReply(event, '${comment.key}')">
+          <div class="mb-2">
+            <textarea id="reply-input-${comment.key}" class="form-control form-control-sm" rows="2" placeholder="Tulis balasan..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-sm btn-success">Kirim</button>
+        </form>
+      </div>
+    `;
+    container.appendChild(commentElement);
+  });
+
+  readMoreBtn.style.display = 'none';
+}
+
+window.onload = () => fetchComments();
