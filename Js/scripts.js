@@ -147,8 +147,11 @@ loadFooterKomponen();
 
  function handleLogout() {
     firebase.auth().signOut().then(() => {
+      // Hapus data dari localStorage
+      localStorage.removeItem('login_token');
+
       alert("Berhasil logout!");
-      window.location.href = "/login.html"; // Ganti sesuai halaman login kamu
+      window.location.href = "/"; // Ganti sesuai halaman login kamu
     }).catch((error) => {
       console.error("Gagal logout:", error);
       alert("Gagal logout: " + error.message);
