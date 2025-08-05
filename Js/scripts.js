@@ -131,6 +131,29 @@ async function loadFooterKomponen() {
 
 loadFooterKomponen();
 
+async function loadBottomBarKomponen() {
+  try {
+    const res = await fetch('/components/Bottom-bar.html');
+    
+    if (!res.ok) {
+      throw new Error(`Gagal memuat komponen: ${res.status}`);
+    }
+
+    const html = await res.text();
+    const container = document.getElementById('BottomBar-komponen');
+
+    if (container) {
+      container.innerHTML = html;
+    } else {
+      console.warn('Elemen dengan id "link-komponen" tidak ditemukan.');
+    }
+  } catch (error) {
+    console.error('Terjadi kesalahan saat memuat komponen:', error);
+  }
+}
+
+loadBottomBarKomponen();
+
   // Firebase config kamu
 
   // Cek status login dari localStorage
@@ -158,3 +181,10 @@ loadFooterKomponen();
     });
   }
 
+function goToInput() {
+    const input = document.getElementById("myInput");
+    if (input) {
+      input.scrollIntoView({ behavior: "smooth", block: "center" });
+      input.focus(); // Fokus langsung ke input
+    }
+  }

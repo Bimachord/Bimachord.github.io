@@ -560,3 +560,73 @@
     .text-green {
        color: #008000; /* warna hijau */
     }
+
+    /* Bottom Navigation Bar */
+    
+    .bottom-navbar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      height: 60px;
+      border-radius: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.7rem;
+      flex-grow: 1;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-item i {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:active {
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+
+    .nav-item.active {
+      color: #4da6ff;
+    }
+
+    .nav-item.home {
+      position: relative;
+      top: -25px;
+    }
+
+    .nav-item.home .icon-wrapper {
+      background-color: #4da6ff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 5px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 0.7rem;
+      margin-top: 2px;
+    }

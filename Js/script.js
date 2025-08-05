@@ -131,6 +131,29 @@ async function loadFooterKomponen() {
 
 loadFooterKomponen();
 
+async function loadBottomBarKomponen() {
+  try {
+    const res = await fetch('/components/Bottom-bar.html');
+    
+    if (!res.ok) {
+      throw new Error(`Gagal memuat komponen: ${res.status}`);
+    }
+
+    const html = await res.text();
+    const container = document.getElementById('BottomBar-komponen');
+
+    if (container) {
+      container.innerHTML = html;
+    } else {
+      console.warn('Elemen dengan id "link-komponen" tidak ditemukan.');
+    }
+  } catch (error) {
+    console.error('Terjadi kesalahan saat memuat komponen:', error);
+  }
+}
+
+loadBottomBarKomponen();
+
   document.addEventListener('DOMContentLoaded', function () {
     const logoutItem = document.getElementById('logout-nav-item');
     const token = localStorage.getItem('login_token');
@@ -145,9 +168,17 @@ loadFooterKomponen();
  function handleLogout() {
     firebase.auth().signOut().then(() => {
       alert("Berhasil logout!");
-      window.location.href = "/login.html"; // Ganti sesuai halaman login kamu
+      window.location.href = "/"; // Ganti sesuai halaman login kamu
     }).catch((error) => {
       console.error("Gagal logout:", error);
       alert("Gagal logout: " + error.message);
     });
+  }
+
+function goToInput() {
+    const input = document.getElementById("myInput");
+    if (input) {
+      input.scrollIntoView({ behavior: "smooth", block: "center" });
+      input.focus(); // Fokus langsung ke input
+    }
   }
