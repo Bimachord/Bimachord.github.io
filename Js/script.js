@@ -133,7 +133,7 @@ loadFooterKomponen();
 
 async function loadBottomBarKomponen() {
   try {
-    const res = await fetch('/components/bottom-bar.html');
+    const res = await fetch('/components/bottombar.html');
     
     if (!res.ok) {
       throw new Error(`Gagal memuat komponen: ${res.status}`);
