@@ -85,7 +85,43 @@
 </head>
 <body translate="no">
 
-  <div id="Navbar-komponen"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" href="/">
+    <img src="/assets/img2.png" alt="Logo" height="30">
+    Bimachord.com
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tentang.html">Tentang Saya</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/lagu/">List Lagu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buku-tamu.html">Request Lagu Hubungi Saya</a>
+      </li>
+
+      <!-- Tombol Logout hanya tampil saat login -->
+      <li class="nav-item" id="logout-nav-item" style="display: none;">
+    <button class="btn btn-outline-danger" onclick="handleLogout()" title="Keluar">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </li>
+    </ul>
+  </div>
+</nav>
+
+
+
   
   <div class="container mt-3" style="margin-bottom: 12px;">
     <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
@@ -163,8 +199,69 @@
 </div>
       
 
- <div id="Footer-komponen"></div>
- <div id="BottomBar-komponen"></div>
+ <footer style="margin-bottom: 90px;" class="bg-dark text-white text-center py-3 mt-3 ">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <!-- COPYRIGHT -->
+        <p class="mb-1" style="font-size:.85rem; font-style:italic; color:#00ff00;">
+          &copy; 2024–2025 Chord Dasar &amp; Lirik Lagu.
+        </p>
+
+        <!-- POLICY & TERMS -->
+        <ul class="list-inline mb-3" style="font-size:.85rem;">
+          <li class="list-inline-item">
+            <a href="/privacy.html" class="text-white text-decoration-underline">
+              Kebijakan Privasi
+            </a>
+          </li>
+          <li class="list-inline-item">|</li>
+          <li class="list-inline-item">
+            <a href="/temrs.html" class="text-white text-decoration-underline">
+              Syarat &amp; Ketentuan
+            </a>
+          </li>
+        </ul>
+
+        <!-- SOCIAL ICONS -->
+        <div>
+          <a href="https://www.facebook.com/profile.php?id=100093961165463"
+             target="_blank" class="text-white mx-2">
+            <i class="fab fa-facebook fa-lg"></i>
+          </a>
+          <a href="https://wa.me/6287841947229" target="_blank" class="text-white mx-2">
+            <i class="fab fa-whatsapp fa-lg"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+            <i class="fab fa-instagram fa-lg"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+ <!-- Navbar -->
+<div class="bottom-navbar">
+  <a href="/" class="nav-item home active">
+    <div class="icon-wrapper"><i class="fas fa-home"></i></div>
+    <span>Home</span>
+  </a>
+  <a class="nav-item active" onclick="goToInput(); return false;">
+    <i class="fas fa-search"></i>
+    <span>Search</span>
+  </a>
+  <a href="/lagu/index.html" class="nav-item active">
+    <i class="fas fa-music"></i>
+    <span>Chord</span>
+  </a>
+  <a href="/tunning.html" class="nav-item active">
+    <i class="fas fa-sliders-h"></i>
+    <span>Tuning</span>
+  </a>
+</div>
+
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
