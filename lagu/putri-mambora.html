@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="description" content="Chord lagu bima Putri Mambora lengkap dengan lirik dan kunci gitar. Belajar chord gitar Putri Mambora dengan mudah di Bimachord!">
+  <meta name="keywords" content="chord gitar putri mambora, kunci gitar putri mambora, lirik lagu putri mambora, putri mambora, lagu bima putri mambora, rawa mbojo putri mambora, lagu mbojo, bima chord ,kunci gitar, putri mambora chord, chord putri mambora ">
+  <meta name="author" content="Bima Chord">
+
+  <!-- Perbaikan: og:title ditutup dengan benar -->
+  <meta property="og:title" content="Lagu Bima putri mambora Lirik Lagu dan Kunci Gitar - Bimachord" />
+  <meta property="og:description" content="Bima Chord menyediakan chord gitar dasar dan lirik lagu-lagu dari Bima." />
+  <meta property="og:url" content="https://bimachord.github.io" />
+  <meta property="og:site_name" content="Bima Chord" />
+  <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png"> 
+  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png"> 
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"> 
+  <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png"> 
+  <link rel="manifest" href="/manifest.json"> 
+  <meta name="msapplication-TileColor" content="#ffffff"> 
+  <!-- Perbaikan path gambar tile -->
+  <meta name="msapplication-TileImage" content="/icon/ms-icon-144x144.png"> 
+  <meta name="theme-color" content="#ffffff">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
+     crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Styles/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+
+  <title>Lagu Bima Putri Mambora Lirik Lagu dan Kunci Gitar - Bimachord</title>
+  
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      background-color: #1a1a1a;
+      color: #ffffff; 
+    }
+    .chord-container {
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+    }
+    .chord {
+      font-weight: bold;
+      color: #00ff00;
+      display: inline-block;
+      min-width: 40px;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    pre {
+      font-family: monospace;
+      font-size: 16px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      color: #ffffff;
+    }
+    .btn {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .btn-transpose { background-color: #3498db; color: white; }
+    .btn-scroll { background-color: #2ecc71; color: white; }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+    .modal img {
+      width: 200px;
+      height: auto;
+    }
+    .close-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body translate="no">
+
+  <!-- Navbar -->
+  <div id="Navbar-komponen"></div>
+
+  <!-- Search -->
+  <div class="container mt-3 mb-3">
+    <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
+    <ul id="myList" class="list-group mt-3"></ul>
+  </div>
+
+  <div class="bg-dark text-light text-center py-2 protected-text">
+    <p style="font-style: italic; color: #00ff00; font-size: 40px;">Bimachord.com</p>
+  </div>
+
+  <div class="container mt-2">
+    <div class="row"><div class="col-md-6 offset-md-3 content-divider"></div></div>
+  </div>
+
+  <div class="protected-text text-center content-divider">
+    <h2 style="color: #00ff00; font-size: 20px">Lagu Bima putri mambora-Chord Dasar</h2>
+  </div>
+
+  <!-- Iklan -->
+  <div class="ad-container">
+    <script type="text/javascript">
+      atOptions = {
+        'key': '79835cf4b45c5113461bc355f79bd332',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/79835cf4b45c5113461bc355f79bd332/invoke.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <!-- Kontrol -->
+  <section class="text-center content-divider">
+    <button class="btn btn-transpose" onclick="transpose(-1)">- Transpose</button>
+    <button class="btn btn-transpose" onclick="transpose(1)">+ Transpose</button>
+    <button class="btn btn-scroll" onclick="showElement()">Auto Scroll</button>
+  </section>
+
+  <!-- Lirik dan Chord -->
+  <section class="text-center">
+    <div class="chord-container" id="chordContainer">
+      <!-- ... isi pre seperti sebelumnya ... -->
+<pre>
+Intro : <span class="chord" onclick="showChordImage('Am')">Am</span><span class="chord" onclick="showChordImage('G')">G</span><span class="chord" onclick="showChordImage('F')">F</span><span class="chord" onclick="showChordImage('E')">E</span>
+
+<span class="chord" onclick="showChordImage('Am')">Am</span>         <span class="chord" onclick="showChordImage('G')">G</span>
+Carita mantoi ba dou ma tua
+<span class="chord" onclick="showChordImage('F')">F</span>                    <span class="chord" onclick="showChordImage('E')">E</span>
+Di rasa Kore ro rasa Donggo…
+<span class="chord" onclick="showChordImage('Am')">Am</span>                <span class="chord" onclick="showChordImage('G')">G</span>
+Putri ntika rangga marepa mai ka taki
+<span class="chord" onclick="showChordImage('F')">F</span>                      <span class="chord" onclick="showChordImage('E')">E</span>
+Mbora dei dana mbora dei moti…
+<span class="chord" onclick="showChordImage('Am')">Am</span>             <span class="chord" onclick="showChordImage('G')">G</span>
+Ma di Kore oto sarere ro katiri
+<span class="chord" onclick="showChordImage('F')">F</span>               <span class="chord" onclick="showChordImage('E')">E</span>
+Lu’u dei peti oro di oi…
+<span class="chord" onclick="showChordImage('Am')">Am</span>              <span class="chord" onclick="showChordImage('G')">G</span>
+Ma di Donggo mbora ba nee na dengga
+<span class="chord" onclick="showChordImage('F')">F</span>                  <span class="chord" onclick="showChordImage('E')">E</span>
+Lu’u dei dana paida du deni…
+         <span class="chord" onclick="showChordImage('Am')">Am</span>  <span class="chord" onclick="showChordImage('A')">A</span>
+menana mone…
+
+Reff
+
+<span class="chord" onclick="showChordImage('C')">C</span>            <span class="chord" onclick="showChordImage('Dm')">Dm</span>
+Dae la minga putri Kore…
+<span class="chord" onclick="showChordImage('G')">G</span>             <span class="chord" onclick="showChordImage('C')">C</span>
+Ntika raso kese dirasa…
+<span class="chord" onclick="showChordImage('E')">E</span>             <span class="chord" onclick="showChordImage('F')">F</span>
+Mbora di moti la hala…
+<span class="chord" onclick="showChordImage('Dm')">Dm</span>                         <span class="chord" onclick="showChordImage('E')">E</span>
+Paida ngango ra ora nee mone ma ore…
+<span class="chord" onclick="showChordImage('C')">C</span>             <span class="chord" onclick="showChordImage('Dm')">Dm</span>
+La Hilla putri Donggo
+<span class="chord" onclick="showChordImage('G')">G</span>               <span class="chord" onclick="showChordImage('C')">C</span>
+Ntika monca ma moci moso
+<span class="chord" onclick="showChordImage('E')">E</span>               <span class="chord" onclick="showChordImage('F')">F</span>
+Mbora dei dana ndadi kakando
+<span class="chord" onclick="showChordImage('Dm')">Dm</span>                          <span class="chord" onclick="showChordImage('E')">E</span>
+Paida ncao ra tuba rangga ma ncau-ncau
+<span class="chord" onclick="showChordImage('F')">F</span>                   <span class="chord" onclick="showChordImage('Am')">Am</span>
+Horu dana ro rasa, na rasoku
+<span class="chord" onclick="showChordImage('F')">F</span> <span class="chord" onclick="showChordImage('G')">G</span>     <span class="chord" onclick="showChordImage('Am')">Am</span>
+Mboho ra’a di sarei
+
+<span class="chord" onclick="showChordImage('Am')">Am</span>                    <span class="chord" onclick="showChordImage('G')">G</span>
+Ma di Kore oto sarere ro katiri
+<span class="chord" onclick="showChordImage('F')">F</span>               <span class="chord" onclick="showChordImage('E')">E</span>
+Lu’u dei peti oro di oi…
+<span class="chord" onclick="showChordImage('Am')">Am</span>                      <span class="chord" onclick="showChordImage('G')">G</span>
+Ma di Donggo mbora ba nee na dengga
+<span class="chord" onclick="showChordImage('F')">F</span>                 <span class="chord" onclick="showChordImage('E')">E</span>
+Lu’u dei dana paida du deni… 
+      <span class="chord" onclick="showChordImage('Am')">Am</span>  <span class="chord" onclick="showChordImage('A')">A</span>
+menana mone…
+</pre>
+
+    </div>
+
+    <!-- Modal Chord -->
+    <div class="modal" id="chordModal">
+      <div class="modal-content">
+        <h3 id="chordTitle"></h3>
+        <img id="chordImage" src="" alt="Chord Gambar">
+        <br>
+        <button class="close-btn" onclick="closeModal()">Tutup</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="px-5 mt-3" id="link-komponen"></div>
+
+  <!-- Banner Ad -->
+  <div class="adstera">
+    <a href="#"><img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif" /></a>
+  </div>
+
+  <!-- Footer -->
+<div id="Footer-komponen"></div>
+<div id="BottomBar-komponen"></div>
+
+  <!-- Scroll Icon -->
+  <div id="scroll-icon" class="scroll-iconn" onclick="scrollPage()">
+    <span>&darr;</span>
+  </div>
+
+  <!-- Script -->
+   <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../Js/script.js"></script>
+  <script src="./layout.js"></script>
+  <script src="./scrol.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script type='text/javascript' src='//pl22487775.profitablegatecpm.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+
+</body>
+</html>
