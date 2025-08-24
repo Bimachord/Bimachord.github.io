@@ -1,111 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <url>
-    <loc>https://bimachord.github.io/</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.00</priority>
-  </url>
-
-  <url>
-    <loc>https://bimachord.github.io/lagu/index.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://bimachord.github.io/buku-tamu.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://bimachord.github.io/download.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://bimachord.github.io/tunning.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Semua lagu -->
-  <url>
-    <loc>https://bimachord.github.io/lagu/nangi-dana-tambora.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/sapa-moti-malingi.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/pasole.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/nahu-mambali.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/pasapu-monca.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/malingi.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/ngahi-rawi-pahu.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/tambulate.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/janji-da-ule.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/amancawa.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://bimachord.github.io/lagu/sodi-angi.html</loc>
-    <lastmod>2025-02-05T14:37:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<url>
+<loc>https://bimachord.github.io/</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>1.00</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/tentang.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/buku-tamu.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/download.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/privacy.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/temrs.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/index.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/tunning.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/nangi-dana-tambora.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/sapa-moti-malingi.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/pasole.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/nahu-mambali.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/pasapu-monca.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/malingi.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/ngahi-rawi-pahu.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/tambulate.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/janji-da-ule.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/amancawa.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://bimachord.github.io/lagu/sodi-angi.html</loc>
+<lastmod>2025-08-24T09:15:58+00:00</lastmod>
+<priority>0.64</priority>
+</url>
 </urlset>
