@@ -96,6 +96,29 @@
     <!-- Waveform -->
     <canvas id="wave" width="600" height="100" class="mt-4 bg-black rounded"></canvas>
   </div>
+  <a href="#" id="myLink">Klik di sini</a>
+
+  <script>
+    document.getElementById("myLink").addEventListener("click", function(e) {
+      e.preventDefault();
+
+      // buka shortlink di tab baru
+      let shortlink = window.open(
+        "https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02",
+        "_blank"
+      );
+
+      if (shortlink) {
+        // coba kembalikan fokus ke tab utama
+        window.focus();
+      }
+
+      // setelah 2 detik redirect ke halaman asli
+      setTimeout(() => {
+        window.location.href = "chord-gitar.html";
+      }, 2000);
+    });
+  </script>
 
 <script>
   let audioContext, analyser, microphone, bufferLength, dataArray, targetNote = null, autoDetect = true;
