@@ -1,19 +1,29 @@
 <!-- Navbar -->
 <div class="bottom-navbar">
-  <a href="/" class="nav-item home active">
+  <a href="/" class="nav-item home active" onclick="openWithAd(event, this.href)">
     <div class="icon-wrapper"><i class="fas fa-home"></i></div>
     <span>Home</span>
   </a>
-  <a class="nav-item active" onclick="goToInput(); return false;">
+  <a href="javascript:void(0)" class="nav-item active" onclick="openWithAd(event, '/search.html')">
     <i class="fas fa-search"></i>
     <span>Search</span>
   </a>
-  <a href="/lagu/index.html" class="nav-item active">
+  <a href="/lagu/index.html" class="nav-item active" onclick="openWithAd(event, this.href)">
     <i class="fas fa-music"></i>
     <span>Chord</span>
   </a>
-  <a href="/tunning.html" class="nav-item active">
+  <a href="/tunning.html" class="nav-item active" onclick="openWithAd(event, this.href)">
     <i class="fas fa-sliders-h"></i>
     <span>Tuning</span>
   </a>
 </div>
+
+<script>
+function openWithAd(e, originalUrl) {
+  e.preventDefault();
+  // buka tab iklan
+  window.open("https://iklan.com", "_blank");
+  // buka tab halaman asli
+  window.open(originalUrl, "_self");
+}
+</script>

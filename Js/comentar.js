@@ -1,54 +1,59 @@
-// Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCxgwhRJeRailX_oDGp6XrqIAsD6wVilU8",
-      authDomain: "userbc-d8204.firebaseapp.com",
-      projectId: "userbc-d8204",
-      storageBucket: "userbc-d8204.appspot.com",
-      messagingSenderId: "941116930960",
-      appId: "1:941116930960:web:71d002aabbbedf45a21115",
-      measurementId: "G-JQ0SDKH6MT"
-    };
-    // Initialize Firebase
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var database = firebase.database();
 
-    // Reference to comments in Firebase
-    var commentsRef = database.ref('comments');
-    
-    // Submit comment form
-    document.getElementById('comment-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var comment = document.getElementById('comment').value;
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCxgwhRJeRailX_oDGp6XrqIAsD6wVilU8",
+    authDomain: "userbc-d8204.firebaseapp.com",
+    projectId: "userbc-d8204",
+    storageBucket: "userbc-d8204.appspot.com",
+    messagingSenderId: "941116930960",
+    appId: "1:941116930960:web:71d002aabbbedf45a21115",
+    measurementId: "G-JQ0SDKH6MT"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+  var commentsRef = database.ref('comments');
 
-      // Check if user is logged in
-      var user = firebase.auth().currentUser;
-      if (user) {
-        // User is logged in, submit comment
-        var newCommentRef = commentsRef.push();
-        newCommentRef.set({
-          username: user.email,
-          comment: comment,
-          timestamp: new Date().toISOString(),
-          likes: 0,
-          usersLiked: {},
-          replies: {}
-        }).then(() => {
-          // Clear comment form
-          document.getElementById('comment').value = '';
-          // Fetch and display comments
-          fetchComments();
-        }).catch((error) => {
-          console.error('Error writing new message to Firebase Database', error);
-        });
-      } else {
-        // User is not logged in, redirect to login page
-        window.location.href = 'login.html';
-      }
-    });
+  // Utility: buat elemen aman dari XSS
+  function createSafeElement(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
 
-    // Function to handle like
+  // Submit komentar
+  document.getElementById('comment-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var comment = document.getElementById('comment').value.trim();
 
+    if (!comment) {
+      alert("Komentar tidak boleh kosong.");
+      return;
+    }
+
+    var user = firebase.auth().currentUser;
+    if (user) {
+      var newCommentRef = commentsRef.push();
+      newCommentRef.set({
+        username: user.email,
+        comment: comment,
+        timestamp: new Date().toISOString(),
+        likes: 0,
+        usersLiked: {},
+        replies: {}
+      }).then(() => {
+        document.getElementById('comment').value = '';
+        fetchComments();
+      }).catch((error) => {
+        console.error('Error writing new message to Firebase Database', error);
+      });
+    } else {
+      window.location.href = 'login.html';
+    }
+  });
+
+  // Handle like
   function handleLike(commentId, isReply, parentId = null) {
     const user = firebase.auth().currentUser;
     if (user) {
@@ -75,6 +80,7 @@
     }
   }
 
+  // Toggle balasan
   function toggleReplies(commentId) {
     const repliesContainer = document.getElementById(`replies-container-${commentId}`);
     const replyForm = document.getElementById(`reply-form-${commentId}`);
@@ -83,10 +89,16 @@
     fetchReplies(commentId);
   }
 
+  // Submit balasan
   function submitReply(event, commentId) {
     event.preventDefault();
-    const reply = document.getElementById(`reply-input-${commentId}`).value;
+    const reply = document.getElementById(`reply-input-${commentId}`).value.trim();
     const user = firebase.auth().currentUser;
+
+    if (!reply) {
+      alert("Balasan tidak boleh kosong.");
+      return;
+    }
 
     if (user) {
       const replyData = {
@@ -107,6 +119,7 @@
     }
   }
 
+  // Ambil balasan
   function fetchReplies(commentId) {
     const repliesContainer = document.getElementById(`replies-container-${commentId}`);
     commentsRef.child(commentId).child('replies').on('value', (snapshot) => {
@@ -117,132 +130,134 @@
         const user = firebase.auth().currentUser;
         const liked = user && reply.usersLiked && reply.usersLiked[user.uid];
 
-        const replyElement = document.createElement('div');
-        replyElement.className = 'card card-body bg-dark text-light mb-2 ';
-        replyElement.innerHTML = `
-          <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <strong class="text-success">${reply.username}</strong>
-              <p class="mb-1 small">${reply.comment}</p>
-              <small class="text-muted">${new Date(reply.timestamp).toLocaleString()}</small>
-            </div>
-            <div class="text-end">
-              <button class="btn btn-sm btn-outline-primary ${liked ? 'active' : ''}" onclick="handleLike('${childSnapshot.key}', true, '${commentId}')">
-                <i class="fa fa-thumbs-up"></i> ${reply.likes || 0}
-              </button>
-            </div>
-          </div>
-        `;
+        const replyElement = createSafeElement('div', 'card card-body bg-dark text-light mb-2');
+        const header = createSafeElement('div', 'd-flex justify-content-between align-items-center');
+
+        const left = document.createElement('div');
+        left.appendChild(createSafeElement('strong', 'text-success', reply.username));
+        left.appendChild(createSafeElement('p', 'mb-1 small', reply.comment));
+        left.appendChild(createSafeElement('small', 'text-muted', new Date(reply.timestamp).toLocaleString()));
+
+        const right = createSafeElement('div', 'text-end');
+        const likeBtn = document.createElement('button');
+        likeBtn.className = `btn btn-sm btn-outline-primary ${liked ? 'active' : ''}`;
+        likeBtn.innerHTML = `<i class="fa fa-thumbs-up"></i> ${reply.likes || 0}`;
+        likeBtn.onclick = () => handleLike(childSnapshot.key, true, commentId);
+        right.appendChild(likeBtn);
+
+        header.appendChild(left);
+        header.appendChild(right);
+        replyElement.appendChild(header);
+
         repliesContainer.appendChild(replyElement);
       });
     });
   }
 
- function fetchComments() {
-  commentsRef.on('value', (snapshot) => {
-    const container = document.getElementById('comments-container');
-    const readMoreBtn = document.getElementById('read-more-btn');
-    container.innerHTML = '';
-
-    const allComments = [];
-    snapshot.forEach((childSnapshot) => {
-      allComments.unshift({ key: childSnapshot.key, ...childSnapshot.val() }); // newest first
-    });
-
-    const displayCount = 5;
-    const toDisplay = allComments.slice(0, displayCount);
-
-    toDisplay.forEach((comment) => {
-      const user = firebase.auth().currentUser;
-      const liked = user && comment.usersLiked && comment.usersLiked[user.uid];
-
-      const commentElement = document.createElement('div');
-      commentElement.className = 'card mb-3 bg-dark text-light';
-      commentElement.id = `comment-${comment.key}`;
-      commentElement.innerHTML = `
-        <div class="card-body">
-          <h6 class="text-success">${comment.username}</h6>
-          <p class="card-text small">${comment.comment}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <small class="text-muted">${new Date(comment.timestamp).toLocaleString()}</small>
-            <div class="btn-group btn-group-sm" role="group">
-              <button class="btn btn-outline-primary ${liked ? 'active' : ''}" onclick="handleLike('${comment.key}', false)">
-                <i class="fa fa-thumbs-up"></i> ${comment.likes || 0}
-              </button>
-              <button class="btn btn-outline-secondary" onclick="toggleReplies('${comment.key}')">
-                <i class="fa fa-reply"></i> Balas
-              </button>
-            </div>
-          </div>
-
-          <div id="replies-container-${comment.key}" class="mt-3 d-none"></div>
-
-          <form id="reply-form-${comment.key}" class="mt-2 d-none" onsubmit="submitReply(event, '${comment.key}')">
-            <div class="mb-2">
-              <textarea id="reply-input-${comment.key}" class="form-control form-control-sm" rows="2" placeholder="Tulis balasan..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-sm btn-success">Kirim</button>
-          </form>
-        </div>
-      `;
-      container.appendChild(commentElement);
-    });
-
-    // Tampilkan tombol read more hanya jika komentar lebih dari 5
-    if (allComments.length > displayCount) {
-      readMoreBtn.style.display = 'block';
-
-      // Simpan semua komentar jika nanti ingin tampilkan semuanya saat tombol diklik
-      window.remainingComments = allComments.slice(displayCount);
-    } else {
-      readMoreBtn.style.display = 'none';
-    }
-  });
-}
-
-function showAllComments() {
-  const container = document.getElementById('comments-container');
-  const readMoreBtn = document.getElementById('read-more-btn');
-  
-  if (!window.remainingComments) return;
-
-  window.remainingComments.forEach((comment) => {
+  // Render komentar utama
+  function renderComment(comment) {
     const user = firebase.auth().currentUser;
     const liked = user && comment.usersLiked && comment.usersLiked[user.uid];
 
-    const commentElement = document.createElement('div');
-    commentElement.className = 'card mb-3 bg-dark text-light';
+    const commentElement = createSafeElement('div', 'card mb-3 bg-dark text-light');
     commentElement.id = `comment-${comment.key}`;
-    commentElement.innerHTML = `
-      <div class="card-body">
-        <h6 class="text-success">${comment.username}</h6>
-        <p class="card-text small">${comment.comment}</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">${new Date(comment.timestamp).toLocaleString()}</small>
-          <div class="btn-group btn-group-sm" role="group">
-            <button class="btn btn-outline-primary ${liked ? 'active' : ''}" onclick="handleLike('${comment.key}', false)">
-              <i class="fa fa-thumbs-up"></i> ${comment.likes || 0}
-            </button>
-            <button class="btn btn-outline-secondary" onclick="toggleReplies('${comment.key}')">
-              <i class="fa fa-reply"></i> Balas
-            </button>
-          </div>
-        </div>
 
-        <div id="replies-container-${comment.key}" class="mt-3 d-none"></div>
+    const body = createSafeElement('div', 'card-body');
+    body.appendChild(createSafeElement('h6', 'text-success', comment.username));
+    body.appendChild(createSafeElement('p', 'card-text small', comment.comment));
 
-        <form id="reply-form-${comment.key}" class="mt-2 d-none" onsubmit="submitReply(event, '${comment.key}')">
-          <div class="mb-2">
-            <textarea id="reply-input-${comment.key}" class="form-control form-control-sm" rows="2" placeholder="Tulis balasan..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-sm btn-success">Kirim</button>
-        </form>
-      </div>
-    `;
-    container.appendChild(commentElement);
-  });
+    const footer = createSafeElement('div', 'd-flex justify-content-between align-items-center');
+    footer.appendChild(createSafeElement('small', 'text-muted', new Date(comment.timestamp).toLocaleString()));
 
-  readMoreBtn.style.display = 'none';
-}
+    const btnGroup = createSafeElement('div', 'btn-group btn-group-sm');
+    const likeBtn = document.createElement('button');
+    likeBtn.className = `btn btn-outline-primary ${liked ? 'active' : ''}`;
+    likeBtn.innerHTML = `<i class="fa fa-thumbs-up"></i> ${comment.likes || 0}`;
+    likeBtn.onclick = () => handleLike(comment.key, false);
 
-window.onload = () => fetchComments();
+    const replyBtn = document.createElement('button');
+    replyBtn.className = 'btn btn-outline-secondary';
+    replyBtn.innerHTML = `<i class="fa fa-reply"></i> Balas`;
+    replyBtn.onclick = () => toggleReplies(comment.key);
+
+    btnGroup.appendChild(likeBtn);
+    btnGroup.appendChild(replyBtn);
+    footer.appendChild(btnGroup);
+
+    body.appendChild(footer);
+
+    // Container balasan
+    const repliesContainer = document.createElement('div');
+    repliesContainer.id = `replies-container-${comment.key}`;
+    repliesContainer.className = 'mt-3 d-none';
+    body.appendChild(repliesContainer);
+
+    // Form balasan
+    const replyForm = document.createElement('form');
+    replyForm.id = `reply-form-${comment.key}`;
+    replyForm.className = 'mt-2 d-none';
+    replyForm.onsubmit = (e) => submitReply(e, comment.key);
+
+    const textareaDiv = createSafeElement('div', 'mb-2');
+    const textarea = document.createElement('textarea');
+    textarea.id = `reply-input-${comment.key}`;
+    textarea.className = 'form-control form-control-sm';
+    textarea.rows = 2;
+    textarea.placeholder = 'Tulis balasan...';
+    textareaDiv.appendChild(textarea);
+
+    const sendBtn = createSafeElement('button', 'btn btn-sm btn-success', 'Kirim');
+    sendBtn.type = 'submit';
+
+    replyForm.appendChild(textareaDiv);
+    replyForm.appendChild(sendBtn);
+
+    body.appendChild(replyForm);
+    commentElement.appendChild(body);
+
+    return commentElement;
+  }
+
+  // Ambil komentar
+  function fetchComments() {
+    commentsRef.on('value', (snapshot) => {
+      const container = document.getElementById('comments-container');
+      const readMoreBtn = document.getElementById('read-more-btn');
+      container.innerHTML = '';
+
+      const allComments = [];
+      snapshot.forEach((childSnapshot) => {
+        allComments.unshift({ key: childSnapshot.key, ...childSnapshot.val() });
+      });
+
+      const displayCount = 5;
+      const toDisplay = allComments.slice(0, displayCount);
+
+      toDisplay.forEach((comment) => {
+        container.appendChild(renderComment(comment));
+      });
+
+      if (allComments.length > displayCount) {
+        readMoreBtn.style.display = 'block';
+        window.remainingComments = allComments.slice(displayCount);
+      } else {
+        readMoreBtn.style.display = 'none';
+      }
+    });
+  }
+
+  // Tampilkan semua komentar
+  function showAllComments() {
+    const container = document.getElementById('comments-container');
+    const readMoreBtn = document.getElementById('read-more-btn');
+
+    if (!window.remainingComments) return;
+
+    window.remainingComments.forEach((comment) => {
+      container.appendChild(renderComment(comment));
+    });
+
+    readMoreBtn.style.display = 'none';
+  }
+
+  window.onload = () => fetchComments();
