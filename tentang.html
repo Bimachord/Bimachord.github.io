@@ -1,70 +1,149 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="description" content="Tentang situs Bimachord - Situs chord gitar dan lirik lagu daerah Bima.">
-  <meta name="keywords" content="tentang Bimachord, chord Bima, kunci gitar Bima, lirik lagu daerah Bima">
-  <title>Tentang Kami - Bimachord</title>
-  <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="/Styles/styles.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
-     crossorigin="anonymous"></script>
-  <style>
-    body {
-      background-color: #1a1a1a;
-      color: #ffffff;
-    }
-    .main-title {
-      color: #00ff00;
-      font-family: monospace;
-      text-align: center;
-      margin-top: 30px;
-    }
-    .content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    footer {
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description" content="Tentang Bimachord - Situs chord gitar dasar dan lirik lagu-lagu daerah Bima (Mbojo).">
+    <meta name="keywords" content="tentang Bimachord, chord Bima, kunci gitar Bima, lirik lagu daerah Bima, melestarikan budaya Bima">
+    <title>Tentang Kami - Bimachord</title>
+    <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
 
-  <div id="Navbar-komponen"></div>
-
-  <h1 class="main-title">Tentang Bimachord</h1>
-  <div class="content">
-    <p>Bimachord.com adalah situs sederhana yang berfokus menyediakan chord gitar dasar dan lirik lagu-lagu daerah Bima (Mbojo). Dengan semangat melestarikan budaya dan musik lokal, situs ini hadir sebagai sumber referensi bagi pemula yang ingin belajar memainkan gitar dengan lagu-lagu Bima yang populer.</p>
-
-    <p>Saya percaya bahwa musik daerah tidak hanya layak dikenang, tetapi juga dimainkan oleh generasi sekarang dan mendatang. Karena itu, semua chord dalam situs ini disederhanakan dalam bentuk chord dasar agar lebih mudah dipelajari, tanpa menghilangkan keaslian lagu.</p>
-
-    <p>Bimachord dilengkapi dengan fitur transpose otomatis yang memungkinkan kamu menyesuaikan nada lagu sesuai kebutuhan. Selain itu, kamu juga dapat memberikan komentar, saran, maupun request lagu melalui halaman <a href="/buku-tamu.html" class="text-info">Buku Tamu</a>.</p>
-
-    <p>Terima kasih telah berkunjung dan terus dukung musik daerah Bima!</p>
-
-    <p><em>"Musik lokal, semangat global!"</em></p>
-  </div>
-
- <div id="Footer-komponen"></div>
- <div id="BottomBar-komponen"></div>
- 
- <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="Js/scripts.js"></script>
-    <script type='text/javascript' src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/Styles/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#1a1a1a',
+                        'bimachord-green': '#00ff00',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-dark-bg text-gray-200 min-h-screen flex flex-col font-sans">
+
+      <nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-2" href="/">
+          <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+          <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+        </a>
+
+        <div class="lg:hidden">
+          <button id="navbar-toggle" type="button"
+            class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
+        </div>
+
+        <div class="hidden lg:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+            <a href="/tentang.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+              Saya</a>
+            <a href="/lagu/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+              Lagu</a>
+            <a href="/buku-tamu.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+              Lagu Hubungi Saya</a>
+
+            <div id="logout-nav-item" style="display: none;">
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                onclick="handleLogout()" title="Keluar">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+        <a href="/tentang.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+          Saya</a>
+        <a href="/lagu/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+          Lagu</a>
+        <a href="/buku-tamu.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+          Lagu Hubungi Saya</a>
+        <div id="logout-nav-item-mobile" style="display: none;">
+          <button
+            class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+            onclick="handleLogout()" title="Keluar">
+            <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Logika sederhana untuk toggle menu mobile
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+    <main class="flex-grow container mx-auto px-4 max-w-3xl py-8">
+        
+        <h1 class="text-3xl md:text-4xl font-extrabold text-center mb-6 text-bimachord-green">
+            <i class="fas fa-info-circle mr-2"></i> Tentang Bimachord
+        </h1>
+
+        <div class="bg-gray-800 p-6 md:p-10 rounded-xl shadow-2xl border border-green-500/20 text-lg leading-relaxed space-y-5">
+            
+            <p>
+                **Bimachord.com** adalah situs sederhana yang berfokus menyediakan **chord gitar dasar dan lirik lagu-lagu daerah Bima (Mbojo)**. Dengan semangat melestarikan budaya dan musik lokal, situs ini hadir sebagai sumber referensi bagi pemula yang ingin belajar memainkan gitar dengan lagu-lagu Bima yang populer.
+            </p>
+
+            <p>
+                Kami percaya bahwa musik daerah tidak hanya layak dikenang, tetapi juga dimainkan oleh generasi sekarang dan mendatang. Karena itu, semua chord dalam situs ini **disederhanakan dalam bentuk chord dasar** agar lebih mudah dipelajari, tanpa menghilangkan keaslian lagu.
+            </p>
+
+            <p class="border-l-4 border-green-500 pl-4 py-2 bg-gray-700/50 rounded-md">
+                Bimachord dilengkapi dengan fitur **transpose otomatis** yang memungkinkan kamu menyesuaikan nada lagu sesuai kebutuhan. Selain itu, kamu juga dapat memberikan komentar, saran, maupun *request* lagu melalui halaman 
+                <a href="/buku-tamu.html" class="text-blue-400 hover:text-blue-300 font-medium underline transition duration-150">Buku Tamu</a>.
+            </p>
+
+            <p>
+                Terima kasih telah berkunjung dan terus dukung musik daerah Bima!
+            </p>
+
+            <p class="italic text-center text-yellow-500 pt-4 font-semibold">
+                — "Musik lokal, semangat global!" —
+            </p>
+        </div>
+    </main>
+
+    <div id="Footer-komponen"></div>
+    <div id="BottomBar-komponen"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
+    <script src="Js/scripts.js"></script>
+    <script type='text/javascript'
+        src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
 </body>
+
 </html>

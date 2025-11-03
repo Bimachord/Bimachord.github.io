@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta name="google-site-verification" content="4qjSqtdsdaIrg97ESuZJWsDtFuQZJXfx1xRm53H3iBE" />
   <meta name="227364396ae14213be37e0c3c122703298f82163" content="227364396ae14213be37e0c3c122703298f82163" />
   <meta charset="UTF-8">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <meta name="description" content="Chord lagu Bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
-  <meta name="keywords" content="chord gitar, kunci gitar, lirik lagu Bima, chord Bima, lagu daerah Bima, chord mudah, belajar gitar Bima">
+  <meta name="description"
+    content="Chord lagu Bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
+  <meta name="keywords"
+    content="chord gitar, kunci gitar, lirik lagu Bima, chord Bima, lagu daerah Bima, chord mudah, belajar gitar Bima">
   <meta name="author" content="Bima Chord">
   <meta property="og:title" content="Bima Chord - Chord Gitar dan Lirik Lagu" />
   <meta property="og:description" content="Bima Chord menyediakan chord gitar dasar dan lirik lagu-lagu dari Bima." />
@@ -23,266 +26,409 @@
   <title>Bima Chord - Chord Gitar dan Lirik Lagu</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png"> 
-  <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png"> 
-  <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png"> 
-  <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-icon-76x76.png"> 
-  <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-icon-114x114.png"> 
-  <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-icon-120x120.png"> 
-  <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-icon-144x144.png"> 
-  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png"> 
-  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png"> 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"> 
-  <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png"> 
-  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png"> 
-  <link rel="manifest" href="/manifest.json"> 
-  <meta name="msapplication-TileColor" content="#ffffff"> 
-  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="Styles/styles.css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <style>
-    body {
+    /* Style untuk bottom-navbar (gunakan @apply untuk Tailwind) */
+    .bottom-navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(17, 24, 39);
+      /* bg-gray-900 */
+      border-top: 1px solid rgb(55, 65, 81);
+      /* border-gray-700 */
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      background-color: #1a1a1a !important; 
-      color: #ffffff; 
+      justify-content: space-around;
+      align-items: center;
+      height: 4rem;
+      /* h-16 */
+      z-index: 50;
     }
-     .like-btn, .reply-btn {
+
+    @media (min-width: 1024px) {
+      .bottom-navbar {
+        display: none;
+      }
+    }
+
+    .bottom-navbar .nav-item {
+      @apply flex flex-col items-center justify-center text-gray-400 p-2 text-xs transition-colors duration-200;
+    }
+
+    .bottom-navbar .nav-item i {
+      @apply text-xl mb-1;
+    }
+
+    .bottom-navbar .nav-item.active {
+      @apply text-blue-400;
+      /* Warna aktif */
+    }
+
+    /* Style untuk tombol like/reply */
+    .like-btn,
+    .reply-btn {
       border: none;
       background: none;
       cursor: pointer;
       font-size: 1.2em;
       color: inherit;
     }
-    .like-btn.liked, .reply-btn.replied {
-      color: blue;
+
+    .like-btn.liked,
+    .reply-btn.replied {
+      color: #3b82f6;
+      /* Tailwind blue-500 */
     }
-    .comment-box, .reply-box {
-      margin-bottom: 15px;
-    }
-    .reply-box {
-      margin-left: 20px;
-    }
+
     .reply-form {
       display: none;
     }
-    .btn.active i {
-    color: #0d6efd;
-  }
 
-   
+    .ad-container img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
-<body translate="no">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-  <a class="navbar-brand" href="/">
-    <img src="/assets/img2.png" alt="Logo" height="30">
-    Bimachord.com
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<body class="min-h-screen bg-gray-900 text-white flex flex-col">
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/tentang.html">Tentang Saya</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/lagu/">List Lagu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/buku-tamu.html">Request Lagu Hubungi Saya</a>
-      </li>
+  <nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-2" href="/">
+          <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+          <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+        </a>
 
-      <!-- Tombol Logout hanya tampil saat login -->
-      <li class="nav-item" id="logout-nav-item" style="display: none;">
-    <button class="btn btn-outline-danger" onclick="handleLogout()" title="Keluar">
-      <i class="fas fa-sign-out-alt"></i>
-    </button>
-  </li>
-    </ul>
-  </div>
-</nav>
+        <div class="lg:hidden">
+          <button id="navbar-toggle" type="button"
+            class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
+        </div>
 
+        <div class="hidden lg:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+            <a href="/tentang.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+              Saya</a>
+            <a href="/lagu/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+              Lagu</a>
+            <a href="/buku-tamu.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+              Lagu Hubungi Saya</a>
 
+            <div id="logout-nav-item" style="display: none;">
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                onclick="handleLogout()" title="Keluar">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  
-  <div class="container mt-3" style="margin-bottom: 12px;">
-    <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
-    <ul id="myList" class="list-group mt-3"></ul>
-  </div>
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+        <a href="/tentang.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+          Saya</a>
+        <a href="/lagu/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+          Lagu</a>
+        <a href="/buku-tamu.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+          Lagu Hubungi Saya</a>
+        <div id="logout-nav-item-mobile" style="display: none;">
+          <button
+            class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+            onclick="handleLogout()" title="Keluar">
+            <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Logika sederhana untuk toggle menu mobile
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
-  <div class="bg-dark text-light text-center py-2 protected-text">
-    <p style="font-style: italic; color: #00ff00; font-size: 40px; margin-bottom: 2px;">Bimachord.com</p>
-  </div>
-  
-  <div class="text-center container mt-2 protected-text">
-    <h2 style="color: #00ff00; font-family: courier; font-size: 20px;">Welcom to Bimachord</h2>
-  </div>     
-  
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-6 offset-md-3" style="color: #00ff00;">
+  <div class="container mx-auto px-4 mt-8 mb-4 flex-grow">
+    <div class="relative w-full max-w-sm mx-auto">
+      <input type="text" id="myInput" placeholder="Cari Lagu..."
+        class="w-full p-3 text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+      <ul id="myList">
+      </ul>
+    </div>
+
+    <div class="bg-gray-800 text-center py-4 my-6 rounded-xl shadow-lg border-2 border-green-500">
+      <p class="italic text-5xl text-green-400 font-extrabold tracking-wider">Bimachord.com</p>
+      <h2 class="text-xl text-green-400 font-mono mt-2">Welcom to Bimachord</h2>
+    </div>
+
+    <div class="flex justify-center my-6">
+      <div class="max-w-md w-full">
         <div class="adstera">
-          <a href=""><img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif"></a>
+          <a href=""><img alt="banner"
+              src="https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif"
+              class="w-full h-auto rounded-lg shadow-md"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
+      <p class="protected-text">
+        Situs ini berisi tentang kumpulan **chord mudah, kunci gitar dasar dan lirik** khusus lagu **"Bima"** lengkap..!
+      </p>
+      <p class="protected-text">
+        Bimachord.com hadir sebagai sumbangsih terhadap dunia musik dengan menghadirkan chord-chord kunci gitar dasar
+        dari khusus Lagu "Bima" saja.
+      </p>
+      <blockquote class="italic p-4 bg-gray-800 border-l-4 border-blue-500 rounded-md">
+        "Oyaa, sebelum kalian melangkah lebih jauh untuk menjelajahi situs ini, kami tekankan lagi bahwa hampir
+        keseluruhan chord kunci gitar yang ada di situs ini di publikasikan menjadi chord dasar dan terdapat juga
+        beberapa penyederhanaan chord dari chord aslinya, jika kami pikir ada chord lain yang lebih mudah dan dasar yang
+        bisa sedikit sesuai dengan nada suara kita. namun terkait itu semua, tentunya kami selalu berusaha memberikan
+        yang terbaik.
+      </blockquote>
+      <p class="protected-text">
+        Untuk memberikan tingkat kenyamanan kami sudah melengkapi situs ini dengan alat transpose chord yang ada di
+        bagian posting tepatnya di bawah judul setiap postingan. Ini sangat berguna saat anda ingin memainkan chord yang
+        ada disitus ini dengan chord-chord yang lain.
+      </p>
+      <p class="protected-text">
+        Semoga dengan kehadiran situs ini, mampu menjadi media hiburan yang bermanfaat bagi masyarakat serta mampu
+        menjadi bahan referensi dalam mencari chord gitar "berbekal" kunci dasar yang lebih mudah.
+      </p>
+      <p class="protected-text font-bold text-green-400 text-xl text-center pt-2">Happy Genjrengan...!!! 🎸</p>
+    </div>
+
+    <div class="flex justify-center my-6">
+      <div class="ad-container max-w-md w-full">
+        <script type="text/javascript">
+          atOptions = {
+            'key': '79835cf4b45c5113461bc355f79bd332',
+            'format': 'iframe',
+            'height': 60,
+            'width': 468,
+            'params': {}
+          };
+          document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/79835cf4b45c5113461bc355f79bd332/invoke.js"></scr' + 'ipt>');
+        </script>
+      </div>
+    </div>
+
+    <div class="py-5" id="link-komponen"></div>
+
+    <div class="bg-gray-800 p-6 rounded-xl shadow-xl mt-8">
+      <h3 class="text-2xl font-semibold mb-4 text-white border-b border-gray-700 pb-2">Kritik dan Saran</h3>
+
+      <form id="comment-form" class="space-y-4">
+        <div>
+          <label for="comment" class="block text-sm font-medium text-gray-400">Tulis Komentar Anda</label>
+          <textarea
+            class="w-full p-3 mt-1 border border-gray-700 rounded-lg bg-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            id="comment" rows="5" placeholder="Masukkan kritik dan saran Anda di sini..." required></textarea>
+        </div>
+        <button type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200 transform hover:scale-[1.01] shadow-md">
+          Submit Komentar
+        </button>
+      </form>
+
+      <div class="mt-8">
+        <h4 class="text-xl font-semibold mb-4 text-white">Komentar Terbaru</h4>
+        <div id="comments-container" class="space-y-4">
+        </div>
+
+        <div class="text-center my-4">
+          <button id="read-more-btn"
+            class="bg-transparent border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white font-semibold py-2 px-4 rounded-full transition-colors duration-200"
+            style="display: none;" onclick="showAllComments()">
+            Tampilkan Semua Komentar
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
-  <div class="container mt-2">
-    <p class="protected-text">
-      Situs ini berisi tentang kumpulan chord mudah, kunci gitar dasar dan lirik khusus lagu "Bima" lengkap.. !</p>
-    <p class="protected-text">Bimachord.com hadir sebagai sumbangsih terhadap dunia musik dengan menghadirkan chord-chord kunci gitar dasar dari khusus Lagu "Bima" saja. 
-    <p class="protected-text">"Oyaa, sebelum kalian melangkah lebih jauh untuk menjelajahi situs ini, kami tekankan lagi bahwa hampir keseluruhan chord kunci gitar yang ada di situs ini di publikasikan menjadi chord dasar dan terdapat juga beberapa penyederhanaan chord dari chord aslinya, jika kami pikir ada chord lain yang lebih mudah dan dasar yang bisa sedikit sesuai dengan nada suara kita. namun terkait itu semua, tentunya kami selalu berusaha memberikan yang terbaik.</p>
-    <p class="protected-text">Untuk memberikan tingkat kenyamanan kami sudah melengkapi situs ini dengan alat transpose chord yang ada di bagian posting tepatnya di bawah judul setiap postingan. Ini sangat berguna saat anda ingin memainkan chord yang ada disitus ini dengan chord-chord yang lain.</p>
-    <p class="protected-text">Semoga dengan kehadiran situs ini, mampu menjadi media hiburan yang bermanfaat bagi masyarakat serta mampu menjadi bahan referensi dalam mencari chord gitar "berbekal" kunci dasar yang lebih mudah.</p>
-    <p class="protected-text">Happy Genjrengan...!!!</p>
-  </div>
-       
-  <div class="ad-container">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '79835cf4b45c5113461bc355f79bd332',
-        'format' : 'iframe',
-        'height' : 60,
-        'width' : 468,
-        'params' : {}
-      };
-      document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/79835cf4b45c5113461bc355f79bd332/invoke.js"></scr' + 'ipt>');
-    </script>
-  </div>
 
-  <div class="px-5 mt-3" id="link-komponen"></div>
-      
-  <div class="container mt-5">
-      <form id="comment-form">
-          <div class="form-group">
-              <label for="comment">Kritik dan Saran</label>
-              <textarea class="form-control" id="comment" rows="5" placeholder="Enter your comment" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <div class="container mt-5">
-      <h4 class="text-light">Komentar</h4>
-      <div id="comments-container"></div>
-      <div class="text-center my-3">
-  <button id="read-more-btn" class="btn btn-outline-light btn-sm" style="display: none;" onclick="showAllComments()">
-    Tampilkan Semua Komentar
-  </button>
-</div>
-
-</div>
-
-  </div>
-      
-<div class="download-section">
-    <a href="download.html">
-        <i class="fas fa-download"></i> Unduh Aplikasi
+  <div class="fixed bottom-20 right-4 lg:bottom-4 lg:right-6 z-40">
+    <a href="download.html"
+      class="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-5 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+      <i class="fas fa-download text-xl"></i>
+      <span class="hidden lg:inline">Unduh Aplikasi</span>
+      <span class="lg:hidden">Unduh</span>
     </a>
-</div>
-      
+  </div>
 
- <footer style="margin-bottom: 90px;" class="bg-dark text-white text-center py-3 mt-3 ">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-
-        <!-- COPYRIGHT -->
-        <p class="mb-1" style="font-size:.85rem; font-style:italic; color:#00ff00;">
+  <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-6 pb-24 lg:pb-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4">
+        <p class="text-sm italic text-green-400">
           &copy; 2024–2025 Chord Dasar &amp; Lirik Lagu.
         </p>
 
-        <!-- POLICY & TERMS -->
-        <ul class="list-inline mb-3" style="font-size:.85rem;">
-          <li class="list-inline-item">
-            <a href="/privacy.html" class="text-white text-decoration-underline">
+        <ul class="flex justify-center space-x-4 text-sm">
+          <li>
+            <a href="/privacy.html" class="hover:text-white transition-colors duration-200 underline">
               Kebijakan Privasi
             </a>
           </li>
-          <li class="list-inline-item">|</li>
-          <li class="list-inline-item">
-            <a href="/temrs.html" class="text-white text-decoration-underline">
+          <li>|</li>
+          <li>
+            <a href="/temrs.html" class="hover:text-white transition-colors duration-200 underline">
               Syarat &amp; Ketentuan
             </a>
           </li>
         </ul>
 
-        <!-- SOCIAL ICONS -->
-        <div>
-          <a href="https://www.facebook.com/profile.php?id=100093961165463"
-             target="_blank" class="text-white mx-2">
-            <i class="fab fa-facebook fa-lg"></i>
+        <div class="flex justify-center space-x-6">
+          <a href="https://www.facebook.com/profile.php?id=100093961165463" target="_blank"
+            class="text-gray-400 hover:text-blue-500 transition-colors duration-200">
+            <i class="fab fa-facebook-f fa-lg"></i>
           </a>
-          <a href="https://wa.me/6287841947229" target="_blank" class="text-white mx-2">
+          <a href="https://wa.me/6287841947229" target="_blank"
+            class="text-gray-400 hover:text-green-500 transition-colors duration-200">
             <i class="fab fa-whatsapp fa-lg"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+          <a href="https://instagram.com" target="_blank"
+            class="text-gray-400 hover:text-pink-500 transition-colors duration-200">
             <i class="fab fa-instagram fa-lg"></i>
           </a>
         </div>
-
       </div>
     </div>
-  </div>
-</footer>
- <!-- Navbar -->
-<div class="bottom-navbar">
-  <a href="/" class="nav-item home active">
-    <div class="icon-wrapper"><i class="fas fa-home"></i></div>
-    <span>Home</span>
-  </a>
-  <a class="nav-item active" onclick="goToInput(); return false;">
-    <i class="fas fa-search"></i>
-    <span>Search</span>
-  </a>
-  <a href="/lagu/index.html" class="nav-item active">
-    <i class="fas fa-music"></i>
-    <span>Chord</span>
-  </a>
-  <a href="/tunning.html" class="nav-item active">
-    <i class="fas fa-sliders-h"></i>
-    <span>Tuning</span>
-  </a>
+  </footer>
+
+  <div id="BottomBar-komponen"
+    class="fixed inset-x-0 bottom-0 z-50 bg-gray-900 border-t-4 border-green-500/0 md:hidden shadow-2xl">
+    <div class="flex justify-around items-center h-16 max-w-lg mx-auto">
+
+        <a href="/" id="nav-home" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            data-page="home" onclick="openWithAd(event, this.href)">
+            <i class="fas fa-home text-xl text-gray-400 group-hover:text-green-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-green-400 transition duration-150 font-medium">Home</span>
+            <div class="absolute top-0 h-1 w-full bg-green-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+        <a href="#" id="nav-search" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            onclick="goToInput(); return false;" data-page="search">
+            <i class="fas fa-search text-xl text-gray-400 group-hover:text-blue-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-blue-400 transition duration-150 font-medium">Cari</span>
+            <div class="absolute top-0 h-1 w-full bg-blue-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+        <a href="/lagu/index.html" id="nav-chord" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            data-page="chord" onclick="openWithAd(event, this.href)">
+            <i class="fas fa-music text-xl text-gray-400 group-hover:text-yellow-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-yellow-400 transition duration-150 font-medium">Chord</span>
+            <div class="absolute top-0 h-1 w-full bg-yellow-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+        <a href="/tunning.html" id="nav-tuning" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            data-page="tuning" onclick="openWithAd(event, this.href)">
+            <i class="fas fa-sliders-h text-xl text-gray-400 group-hover:text-red-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-red-400 transition duration-150 font-medium">Tuning</span>
+            <div class="absolute top-0 h-1 w-full bg-red-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+    </div>
 </div>
+<script>
+function openWithAd(e, originalUrl) {
+  e.preventDefault();
+  // buka tab iklan
+  window.open("https://iklan.com", "_blank");
+  // buka tab halaman asli
+  window.open(originalUrl, "_self");
+}
+</script>
 
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
   <script src="Js/scripts.js"></script>
-  
-  <script type='text/javascript' src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
-  
+
+  <script type='text/javascript'
+    src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
-  
-      
+
   <script src="Js/comentar.js"></script>
 
+  <script>
+    // --- Fungsi untuk Tombol Search pada Bottom Navbar ---
+    function goToInput() {
+      const searchInput = document.getElementById('myInput');
+      if (searchInput) {
+        searchInput.focus();
+        // Gulir (scroll) ke posisi input pencarian
+        searchInput.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      // Tambahkan kelas 'active' pada tombol search di bottom-nav (optional)
+      // setActiveBottomNav('search');
+    }
 
-  
+    // --- Fungsi untuk Mengatur Status Active pada Bottom Navbar ---
+    function setActiveBottomNav(activePage) {
+      const navItems = document.querySelectorAll('#bottom-nav .nav-item');
+      navItems.forEach(item => {
+        item.classList.remove('active');
 
+        if (item.getAttribute('data-page') === activePage) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    // --- Logika untuk Menentukan Halaman Aktif saat Halaman Dimuat ---
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentPage = 'home'; // Default ke 'home'
+
+      const path = window.location.pathname;
+
+      if (path === '/' || path.endsWith('/index.html') || path.endsWith('bimachord.github.io/')) {
+        currentPage = 'home';
+      } else if (path.includes('/lagu/')) {
+        currentPage = 'chord';
+      } else if (path.includes('/tunning.html')) {
+        currentPage = 'tuning';
+      }
+
+      // Set status active berdasarkan URL saat ini
+      setActiveBottomNav(currentPage);
+    });
+
+    // Catatan: Fungsi searchFunction() dan handleLogout() diasumsikan sudah ada di Js/scripts.js atau global scope.
+  </script>
 </body>
-</html>
 
+</html>

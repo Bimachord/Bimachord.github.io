@@ -1,157 +1,177 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
-  <meta name="description" content="Tentang situs Bimachord - Situs chord gitar dan lirik lagu daerah Bima." />
-  <meta name="keywords" content="tentang Bimachord, chord Bima, kunci gitar Bima, lirik lagu daerah Bima" />
-  <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
-  <title>Privacy Policy - Bimachord</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="description" content="Tentang situs Bimachord - Situs chord gitar dan lirik lagu daerah Bima." />
+    <meta name="keywords" content="tentang Bimachord, chord Bima, kunci gitar Bima, lirik lagu daerah Bima" />
+    <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
+    <title>Kebijakan Privasi - Bimachord</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
 
-  <!-- ICON -->
-  <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png"> 
-  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png"> 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"> 
+    <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
 
-  <!-- STYLES -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="/Styles/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-  <style>
-    body {
-      background-color: #121212;
-      color: #eee;
-      font-size: 0.9rem;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .main-title {
-      color: #00ff00;
-      font-family: monospace;
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1.8rem;
-    }
-
-    .content {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #00ccff;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #00ffaa;
-      text-decoration: none;
-    }
-
-    h1, h2 {
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: 1.7rem;
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      margin-top: 2rem;
-    }
-
-    footer {
-      font-size: 0.75rem;
-      background: #000;
-    }
-
-    .footer-links a {
-      color: #ccc;
-      margin: 0 8px;
-    }
-
-    .footer-links a:hover {
-      color: #00ffaa;
-    }
-
-    @media (max-width: 576px) {
-      .main-title {
-        font-size: 1.4rem;
-      }
-
-      h1 {
-        font-size: 1.4rem;
-      }
-
-      h2 {
-        font-size: 1rem;
-      }
-
-      .content {
-        padding: 15px;
-      }
-    }
-  </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bimachord-green': '#00ff00',
+                        'bimachord-blue': '#00ccff',
+                        'dark-bg': '#121212',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
 
-  <!-- Navbar -->
-  <div id="Navbar-komponen"></div>
+<body class="bg-dark-bg text-gray-200 min-h-screen flex flex-col font-sans">
 
-  <!-- Main Content -->
-  <main class="content py-4">
-    <h1 class="main-title mb-4">Kebijakan Privasi</h1>
-    <p>
-      Di <strong>BimaChord</strong>, kami menghargai privasi Anda. Halaman ini menjelaskan bagaimana kami mengelola dan melindungi data Anda saat menggunakan layanan kami.
-    </p>
+      <nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-2" href="/">
+          <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+          <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+        </a>
 
-    <h2>1. Informasi yang Kami Kumpulkan</h2>
-    <p>
-      Kami mengumpulkan data dasar seperti nama dan email saat Anda login menggunakan Google. Kami tidak menyimpan kata sandi Anda.
-    </p>
+        <div class="lg:hidden">
+          <button id="navbar-toggle" type="button"
+            class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
+        </div>
 
-    <h2>2. Penggunaan Informasi</h2>
-    <p>
-      Data digunakan hanya untuk meningkatkan layanan. Kami tidak menjual atau membagikan informasi kepada pihak lain.
-    </p>
+        <div class="hidden lg:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+            <a href="/tentang.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+              Saya</a>
+            <a href="/lagu/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+              Lagu</a>
+            <a href="/buku-tamu.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+              Lagu Hubungi Saya</a>
 
-    <h2>3. Keamanan Data</h2>
-    <p>
-      Kami menggunakan standar keamanan untuk menjaga data Anda, walau tidak ada sistem yang sepenuhnya aman.
-    </p>
+            <div id="logout-nav-item" style="display: none;">
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                onclick="handleLogout()" title="Keluar">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h2>4. Perubahan Kebijakan</h2>
-    <p>
-      Perubahan kebijakan akan diumumkan di halaman ini dengan tanggal terbaru.
-    </p>
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+        <a href="/tentang.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+          Saya</a>
+        <a href="/lagu/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+          Lagu</a>
+        <a href="/buku-tamu.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+          Lagu Hubungi Saya</a>
+        <div id="logout-nav-item-mobile" style="display: none;">
+          <button
+            class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+            onclick="handleLogout()" title="Keluar">
+            <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Logika sederhana untuk toggle menu mobile
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
-    <h2>5. Kontak</h2>
-    <p>
-      Hubungi kami di <a href="mailto:anharaldevaro789@gmail.com">anharaldevaro789@gmail.com</a> untuk pertanyaan lebih lanjut.
-    </p>
+    <main class="flex-grow container mx-auto px-4 max-w-3xl py-8">
+        <div class="bg-gray-800 p-6 md:p-10 rounded-xl shadow-2xl border border-green-500/20">
+            
+            <h1 class="text-3xl md:text-4xl font-extrabold text-center mb-6 border-b border-gray-700 pb-3 text-green-400">
+                <i class="fas fa-user-shield mr-2"></i> Kebijakan Privasi
+            </h1>
+            
+            <p class="mb-6 text-base text-gray-300">
+                Di <strong>BimaChord</strong>, kami menghargai privasi Anda. Halaman ini menjelaskan bagaimana kami mengelola dan melindungi data Anda saat menggunakan layanan kami.
+            </p>
 
-    <p class="text-muted text-center mt-4">Tanggal Berlaku: 4 Agustus 2025</p>
-  </main>
+            <div class="space-y-8">
+                
+                <section>
+                    <h2 class="text-xl font-bold mt-4 mb-2 text-bimachord-blue border-b border-gray-700 pb-1">1. Informasi yang Kami Kumpulkan</h2>
+                    <p class="text-gray-300">
+                        Kami mengumpulkan data dasar seperti **nama dan email** saat Anda login menggunakan Google. Kami tidak menyimpan kata sandi Anda.
+                    </p>
+                </section>
 
-  <!-- Footer -->
-  <div id="Footer-komponen"></div>
-  <div id="BottomBar-komponen"></div>
+                <section>
+                    <h2 class="text-xl font-bold mt-4 mb-2 text-bimachord-blue border-b border-gray-700 pb-1">2. Penggunaan Informasi</h2>
+                    <p class="text-gray-300">
+                        Data digunakan hanya untuk **meningkatkan layanan**. Kami tidak menjual atau membagikan informasi pribadi kepada pihak lain.
+                    </p>
+                </section>
 
-  <!-- Scripts -->
-   <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/Js/script.js"></script>
-  <script type='text/javascript' src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+                <section>
+                    <h2 class="text-xl font-bold mt-4 mb-2 text-bimachord-blue border-b border-gray-700 pb-1">3. Keamanan Data</h2>
+                    <p class="text-gray-300">
+                        Kami menggunakan **standar keamanan** industri untuk menjaga data Anda, walau perlu diingat bahwa tidak ada sistem yang sepenuhnya aman.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold mt-4 mb-2 text-bimachord-blue border-b border-gray-700 pb-1">4. Perubahan Kebijakan</h2>
+                    <p class="text-gray-300">
+                        Perubahan kebijakan akan diumumkan di halaman ini dengan tanggal terbaru yang relevan. Kami mendorong Anda untuk meninjaunya secara berkala.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold mt-4 mb-2 text-bimachord-blue border-b border-gray-700 pb-1">5. Kontak</h2>
+                    <p class="text-gray-300">
+                        Hubungi kami di <a href="mailto:anharaldevaro789@gmail.com" class="text-blue-400 hover:text-blue-300 font-medium underline transition duration-150">anharaldevaro789@gmail.com</a> untuk pertanyaan lebih lanjut.
+                    </p>
+                </section>
+                
+            </div>
+            
+            <p class="text-sm text-gray-500 text-center mt-8 pt-4 border-t border-gray-700">Tanggal Berlaku: 4 Agustus 2025</p>
+        </div>
+    </main>
+
+    <div id="Footer-komponen"></div>
+    <div id="BottomBar-komponen"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
+    <script src="/Js/script.js"></script>
+    <script type='text/javascript' src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

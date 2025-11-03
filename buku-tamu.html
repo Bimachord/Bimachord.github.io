@@ -1,158 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <meta name="description" content="Chord lagu bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
+  <meta name="description"
+    content="Chord lagu bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png"> 
-  <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png"> 
-  <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png"> 
-  <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png"> 
-  <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png"> 
-  <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png"> 
-  <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png"> 
-  <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png"> 
-  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png"> 
-  <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png"> 
-  <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png"> 
-  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png"> 
-  <link rel="manifest" href="manifest.json"> 
-  <meta name="msapplication-TileColor" content="#ffffff"> 
-  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icon/android-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
-     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="Styles/styles.css">
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/Styles/styles.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <title>Buku Tamu Bimachord</title>
-  <style>
-    body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      background-color: #1a1a1a; 
-      color: #ffffff; 
-    }
-    input[type="text"],
-    textarea {
-      background-color: white;
-      color: black;
-    }
-    .scroll-box {
-            width: 100%;
-            height: 400px;
-            overflow-y: auto; /* Scroll vertikal */
-            border: 2px solid #333;
-            padding: 10px;
-            background-color: #221f1f;
-        }
-  </style>
+  <title>Buku Tamu - Bimachord</title>
 </head>
-<body>
-  <div id="Navbar-komponen"></div>
 
-  <div class="container mt-3" style="margin-bottom: 12px;">
-    <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
-    <ul id="myList" class="list-group mt-3">
-    </ul>
-  </div>
+<body class="flex flex-col min-h-screen bg-gray-900 text-white font-sans">
 
-  <div class="bg-dark text-light text-center py-2 protected-text">
-    <p style="font-style: italic; color: #00ff00; font-size: 40px; margin-bottom: 2px;">Bimachord.com</p>
-  </div>
-  <div class="container mt-2">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 content-divider">
-      </div>
-    </div>
-  </div>
-  
-  <div class="protected-text">
-    <div class="content-divider text-center">
-      <p style="color: #00ff00; font-size: 30px">Buku Tamu Bimachord</p>
-    </div>
-  </div>
+  <nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-2" href="/">
+          <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+          <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+        </a>
 
-  <div class="protected-text" style="text-align: center;">
-    <p><span style="color: red;">Catatan :</span> Sebelum kamu menggunakan buku tamu Bimachord, silahkan mendaftar terlebih dahulu caranya yaitu :</p>
-  </div>
+        <div class="lg:hidden">
+          <button id="navbar-toggle" type="button"
+            class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
+        </div>
 
-  <div class="protected-text" style="text-align: center;">
-    <p>1. <span style="color: #00ff00;">Login</span> atau jika belum punya akun <span style="color: #00ff00;">klik daftar</span></p>
-    <p>2. Tulis judul<span style="color: #00ff00;"> lagu</span> di kolom <span style="color: #00ff00;">Request</span></p>
-    <p>3. lalu setelah itu klik tombol <span style="color: #00ff00;">Kirim</span></p>
-    <p>4. <span style="color: #00ff00;">Harap di ingat username</span> dan <span style="color: #00ff00;">Password</span> yang kamu buat</p>
-  </div>
+        <div class="hidden lg:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+            <a href="/tentang.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+              Saya</a>
+            <a href="/lagu/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+              Lagu</a>
+            <a href="/buku-tamu.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+              Lagu Hubungi Saya</a>
 
-  <div class="content-divider protected-text" style="text-align: center; font-size: 20px; font-family: Arial, sans-serif;">
-    <p><span style="color: yellow; font-weight: bold;">PENTING!!! HARAP DIBACA!!!</span></p>
-    <p><span style="color: yellow; font-weight: bold;">SEBELUM REQUEST!!!</span></p>
-  </div>
-  
-  <div class="paragraf protected-text">
-    <p style="max-width: 600px; margin: 0 auto;">1. Pastikan dulu di blog ini memang belum ada chord/kunci gitar yang kamu cari dengan menelusurinya di list lagu atau kolom pencarian di atas</p>
-    <p style="max-width: 600px; margin: 0 auto;">2. Jika sudah di pastikan chord yang kamu cari tidak ada di blog ini, coba lihat dulu di google search engine, barangkali di blog/website lain sudah ada</p>
-    <p style="max-width: 600px; margin: 0 auto;">3. Request chord/kunci gitar yang sudah bertebaran di blog/website lain di menu search engine google, akan di filter terlebih dahulu jadi mungkin requestnya akan sangat lama atau bahkan tidak akan di posting sama sekali.</p>
-  </div>
-  
-  <div class="paragraf protected-text" style="text-align: center; background-color: white; padding: 20px; border: 1px solid black; border-radius: 10px;">
-    <p style="max-width: 600px; margin: 0 auto; color: black;">Jadikan panduan kunci gitarmu jangan hanya di blog ini saja karena kami menyadari blog ini sangat jauh dari kesempurnaan dan notabene kebanyakan berisi kunci-kunci gitar dasar. <a href="tentang-kami.html" style="color: blue;">Baca: Tentang Kami</a></p>
-  </div>
-
-  <div class="paragraf protected-text" style="text-align: center;">
-    <p>Terima kasih atas pengertianya. dan jangan membuat <span style="color: purple; font-weight: bold;">SPAM..</span> Kami dari segenap team bimachord.com sangat berterima kasih karena kamu sudah bersedia mengunjungi blog ini. salam....</p>
-  </div>
-
-  <!-- Form Request Lagu -->
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="card bg-dark text-white">
-          <div class="card-header">
-            <h5 class="card-title">Request Lagu</h5>
-          </div>
-          <div class="card-body">
-            <form id="request-form">
-              <div class="form-group">
-                <label for="song-title">Judul,artis dan pesan anda</label>
-                <textarea style="height: 80px;"type="text" class="form-control" id="song-title" placeholder="Masukkan pesan anda" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
-            </form>
+            <div id="logout-nav-item" style="display: none;">
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                onclick="handleLogout()" title="Keluar">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Display Requests -->
-    <div class="mt-5">
-      <div class="scroll-box">
-        <div id="requests-container">
-          <!-- Requests will be displayed here -->
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+        <a href="/tentang.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+          Saya</a>
+        <a href="/lagu/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+          Lagu</a>
+        <a href="/buku-tamu.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+          Lagu Hubungi Saya</a>
+        <div id="logout-nav-item-mobile" style="display: none;">
+          <button
+            class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+            onclick="handleLogout()" title="Keluar">
+            <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+          </button>
         </div>
       </div>
     </div>
-  </div>
+  </nav>
+  <script>
+    // Logika sederhana untuk toggle menu mobile
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
-<div id="Footer-komponen"></div>
-<div id="BottomBar-komponen"></div>
+  <main class="flex-grow container mx-auto px-4 max-w-xl py-6 md:py-8">
 
-  <!-- Firebase SDK -->
+    <div class="mb-6 space-y-4">
+      <div class="relative">
+        <input type="text" id="myInput"
+          class="w-full p-4 pl-12 text-white bg-gray-800 border border-green-500/50 rounded-full focus:outline-none focus:ring-4 focus:ring-green-500/30 transition shadow-xl"
+          onkeyup="searchFunction()" placeholder="Cari Lagu, Artis, atau Kunci Gitar...">
+        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-green-500"></i>
+        <ul id="myList"
+          class="hidden absolute z-10 w-full mt-2 bg-gray-800 border border-green-500 rounded-xl shadow-2xl max-h-80 overflow-y-auto list-none p-0">
+        </ul>
+      </div>
+
+      <div class="bg-gray-800 text-center py-5 protected-text rounded-xl shadow-2xl border border-green-500/20">
+        <p class="italic text-green-400 text-5xl font-extrabold mb-0 tracking-wider">Bimachord</p>
+      </div>
+
+      <div class="text-center protected-text">
+        <h1 class="text-green-400 text-3xl md:text-4xl font-extrabold">Buku Tamu Request Lagu</h1>
+      </div>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-blue-500/30 mb-8 space-y-4">
+      <h2 class="text-xl font-bold text-blue-400 border-b border-gray-700 pb-3">
+        <i class="fas fa-info-circle mr-2"></i> Panduan Penggunaan
+      </h2>
+      <div class="protected-text space-y-2 text-sm text-gray-300">
+        <p><span class="text-red-500 font-bold">CATATAN:</span> Anda harus **Login** untuk mengirim *request* atau
+          pesan.</p>
+        <ul class="list-none space-y-2 pl-0">
+          <li class="flex items-start">
+            <span class="text-green-400 font-bold mr-2">1.</span>
+            <span class="flex-1">Jika belum punya akun, silakan <a href="login.html"
+                class="text-blue-400 hover:text-blue-300 font-bold underline">klik daftar</a> terlebih dahulu.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-green-400 font-bold mr-2">2.</span>
+            <span class="flex-1">Tulis **judul lagu, artis**, dan **pesan** Anda di kolom *Request* di bawah.</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-green-400 font-bold mr-2">3.</span>
+            <span class="flex-1">Klik tombol **Kirim** dan *request* Anda akan masuk ke riwayat.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-yellow-900/40 p-5 rounded-xl border-l-4 border-yellow-400 shadow-xl mb-8 text-center">
+      <p class="text-yellow-400 text-xl font-extrabold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> PERINGATAN
+        PENTING!!!</p>
+      <div class="paragraf protected-text text-left space-y-3 text-sm text-gray-200">
+        <p>1. **Cari dulu** di kolom pencarian di atas untuk memastikan *chord* yang Anda cari belum tersedia.</p>
+        <p>2. Jika *chord* sudah banyak tersebar di *website* lain, *request* Anda **akan diprioritaskan lebih rendah**
+          atau diposting lebih lama.</p>
+        <p>3. Hindari **SPAM**. Satu pesan sudah cukup. Kami menghargai pengertian Anda.</p>
+      </div>
+    </div>
+
+    <div class="paragraf protected-text text-center mt-6 p-5 bg-white border border-gray-300 rounded-xl shadow-lg mb-8">
+      <p class="text-gray-900 text-sm md:text-base">Jadikan panduan kunci gitarmu jangan hanya di blog ini saja. Kami
+        menyadari blog ini sangat jauh dari kesempurnaan. <a href="tentang-kami.html"
+          class="text-blue-600 hover:text-blue-800 font-bold underline">Baca: Tentang Kami</a></p>
+    </div>
+
+    <div class="mt-5 mb-8">
+      <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-red-500/30">
+        <h5 class="text-2xl font-semibold text-red-400 border-b border-gray-700 pb-3 mb-4">
+          <i class="fas fa-music mr-2"></i> Kirim Request
+        </h5>
+        <form id="request-form" class="space-y-4">
+          <div class="space-y-1">
+            <label for="song-title" class="block text-sm font-medium text-gray-300">Judul Lagu, Artis, dan Pesan
+              Anda</label>
+            <textarea rows="4"
+              class="w-full p-3 text-gray-900 bg-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
+              id="song-title" placeholder="Contoh: Lagu Rindu - Band X. Tolong buat chord yang mudah ya kak!..."
+              required></textarea>
+          </div>
+          <button type="submit"
+            class="w-full flex justify-center items-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-lg">
+            <i class="fas fa-paper-plane mr-2"></i> Kirim Request
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mt-6 mb-8 flex flex-col">
+      <h5 class="text-xl font-bold text-center mb-4 text-blue-400">
+        <i class="fas fa-comments mr-2"></i> Riwayat Request Pengunjung
+      </h5>
+      <div class="h-96 overflow-y-auto border border-gray-700 rounded-xl shadow-inner bg-gray-800 p-4 space-y-3">
+        <div id="requests-container" class="space-y-3">
+          <div
+            class="p-3 bg-gray-700 rounded-lg shadow border-l-4 border-green-500 hover:bg-gray-600 transition duration-150 cursor-pointer">
+            <p class="mb-1">
+              <strong class="text-yellow-400 text-sm md:text-base"><i class="fas fa-user-circle mr-1"></i>
+                contoh@user.com :</strong>
+              <span class="text-gray-200">Lagu Rindu - Band X. Tolong buat chord yang mudah ya kak!...</span>
+            </p>
+            <p class="text-xs text-gray-400 mt-1 flex justify-between items-center">
+              <span><i class="far fa-clock mr-1"></i> 11/03/2025, 11:49:20 PM</span>
+              <span class="text-xs text-green-500 font-medium">BARU</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="Footer-komponen"></div>
+  <div id="BottomBar-komponen"></div>
+
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="Js/scripts.js"></script>
-  <script type='text/javascript' src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
-
+  <script type='text/javascript'
+    src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -173,18 +247,16 @@
     var database = firebase.database();
 
     // Check if user is logged in
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        // User is signed in
         console.log('User is logged in:', user);
       } else {
-        // No user is signed in
         console.log('No user is logged in');
       }
     });
 
     // Handle form submission
-    document.getElementById('request-form').addEventListener('submit', function(e) {
+    document.getElementById('request-form').addEventListener('submit', function (e) {
       e.preventDefault();
       var user = firebase.auth().currentUser;
       if (user) {
@@ -207,16 +279,25 @@
     function loadRequests() {
       var requestsContainer = document.getElementById('requests-container');
       requestsContainer.innerHTML = '';
-      database.ref('requests').orderByChild('timestamp').once('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
+      // Mengambil 50 request terbaru (Anda bisa mengubah angka 50 ini)
+      database.ref('requests').orderByChild('timestamp').limitToLast(50).once('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
           var request = childSnapshot.val();
           var requestElement = document.createElement('div');
-          requestElement.classList.add('comment-box');
+
+          // Styling yang Lebih Interaktif untuk setiap item request
+          requestElement.classList.add('p-3', 'bg-gray-700', 'rounded-lg', 'shadow', 'border-l-4', 'border-green-500/0', 'hover:border-green-500', 'hover:bg-gray-600', 'transition', 'duration-150', 'cursor-pointer');
+
+          // Menampilkan data
           requestElement.innerHTML = `
-            <strong style="color: #00ff00;">${request.username} :</strong> ${request.title}
-              <p class="card-text"><small class="text-muted">${new Date(request.timestamp).toLocaleString()}</small></p>
-            </strong>
-          `;
+                        <p class="mb-1">
+                            <strong class="text-yellow-400 text-sm md:text-base"><i class="fas fa-user-circle mr-1"></i> ${request.username} :</strong> 
+                            <span class="text-gray-200">${request.title}</span>
+                        </p>
+                        <p class="text-xs text-gray-400 mt-1 flex justify-between items-center">
+                            <span><i class="far fa-clock mr-1"></i> ${new Date(request.timestamp).toLocaleString()}</span>
+                        </p>
+                    `;
           requestsContainer.prepend(requestElement);
         });
       });
@@ -225,14 +306,15 @@
     // Initial load
     loadRequests();
   </script>
-    <script>
-      function openWithAd(e, originalUrl) {
-        e.preventDefault();
-        // buka tab iklan
-        window.open("https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02", "_blank");
-        // buka tab halaman asli
-        window.open(originalUrl, "_self");
-      }
-    </script>
+  <script>
+    function openWithAd(e, originalUrl) {
+      e.preventDefault();
+      // buka tab iklan
+      window.open("https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02", "_blank");
+      // buka tab halaman asli
+      window.open(originalUrl, "_self");
+    }
+  </script>
 </body>
+
 </html>

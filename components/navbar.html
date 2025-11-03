@@ -1,36 +1,71 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
-  <a class="navbar-brand" href="/">
-    <img src="/assets/img2.png" alt="Logo" height="30">
-    Bimachord.com
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-2" href="/">
+          <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+          <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+        </a>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/tentang.html">Tentang Saya</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/lagu/">List Lagu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/buku-tamu.html">Request Lagu Hubungi Saya</a>
-      </li>
+        <div class="lg:hidden">
+          <button id="navbar-toggle" type="button"
+            class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
+        </div>
 
-      <!-- Tombol Logout hanya tampil saat login -->
-      <li class="nav-item" id="logout-nav-item" style="display: none;">
-    <button class="btn btn-outline-danger" onclick="handleLogout()" title="Keluar">
-      <i class="fas fa-sign-out-alt"></i>
-    </button>
-  </li>
-    </ul>
-  </div>
-</nav>
+        <div class="hidden lg:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+            <a href="/tentang.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+              Saya</a>
+            <a href="/lagu/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+              Lagu</a>
+            <a href="/buku-tamu.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+              Lagu Hubungi Saya</a>
 
+            <div id="logout-nav-item" style="display: none;">
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                onclick="handleLogout()" title="Keluar">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+        <a href="/tentang.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+          Saya</a>
+        <a href="/lagu/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+          Lagu</a>
+        <a href="/buku-tamu.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+          Lagu Hubungi Saya</a>
+        <div id="logout-nav-item-mobile" style="display: none;">
+          <button
+            class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+            onclick="handleLogout()" title="Keluar">
+            <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Logika sederhana untuk toggle menu mobile
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>

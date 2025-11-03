@@ -1,21 +1,37 @@
-<!-- Navbar -->
-<div class="bottom-navbar">
-  <a href="/" class="nav-item home active" onclick="openWithAd(event, this.href)">
-    <div class="icon-wrapper"><i class="fas fa-home"></i></div>
-    <span>Home</span>
-  </a>
-  <a href="javascript:void(0)" class="nav-item active" onclick="openWithAd(event, '/search.html')">
-    <i class="fas fa-search"></i>
-    <span>Search</span>
-  </a>
-  <a href="/lagu/index.html" class="nav-item active" onclick="openWithAd(event, this.href)">
-    <i class="fas fa-music"></i>
-    <span>Chord</span>
-  </a>
-  <a href="/tunning.html" class="nav-item active" onclick="openWithAd(event, this.href)">
-    <i class="fas fa-sliders-h"></i>
-    <span>Tuning</span>
-  </a>
+
+<div id="BottomBar-komponen"
+    class="fixed inset-x-0 bottom-0 z-50 bg-gray-900 border-t-4 border-green-500/0 md:hidden shadow-2xl">
+    <div class="flex justify-around items-center h-16 max-w-lg mx-auto">
+
+        <a href="/" id="nav-home" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            data-page="home" onclick="openWithAd(event, this.href)">
+            <i class="fas fa-home text-xl text-gray-400 group-hover:text-green-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-green-400 transition duration-150 font-medium">Home</span>
+            <div class="absolute top-0 h-1 w-full bg-green-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+        <a href="#" id="nav-search" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            onclick="goToInput(); return false;" data-page="search">
+            <i class="fas fa-search text-xl text-gray-400 group-hover:text-blue-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-blue-400 transition duration-150 font-medium">Cari</span>
+            <div class="absolute top-0 h-1 w-full bg-blue-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+        <a href="/lagu/index.html" id="nav-chord" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            data-page="chord" onclick="openWithAd(event, this.href)">
+            <i class="fas fa-music text-xl text-gray-400 group-hover:text-yellow-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-yellow-400 transition duration-150 font-medium">Chord</span>
+            <div class="absolute top-0 h-1 w-full bg-yellow-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+        <a href="/tunning.html" id="nav-tuning" class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+            data-page="tuning" onclick="openWithAd(event, this.href)">
+            <i class="fas fa-sliders-h text-xl text-gray-400 group-hover:text-red-400 transition duration-150"></i>
+            <span class="text-xs mt-1 text-gray-400 group-hover:text-red-400 transition duration-150 font-medium">Tuning</span>
+            <div class="absolute top-0 h-1 w-full bg-red-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b"></div>
+        </a>
+
+    </div>
 </div>
 
 <script>

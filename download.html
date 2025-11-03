@@ -1,57 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png"> 
-  <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png"> 
-  <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png"> 
-  <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png"> 
-  <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png"> 
-  <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png"> 
-  <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png"> 
-  <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png"> 
-  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png"> 
-  <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png"> 
-  <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png"> 
-  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png"> 
-  <link rel="manifest" href="manifest.json"> 
-  <meta name="msapplication-TileColor" content="#ffffff"> 
-  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"> 
-  <meta name="theme-color" content="#ffffff">
-    <title>Unduh versi Android</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-          background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
+    <title>Unduh Versi Android - Bimachord</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body
+    class="min-h-screen flex items-center justify-center text-white p-4"
+    style="background: linear-gradient(135deg, #1f2937 0%, #064E3B 100%);"> 
+    <div class="container mx-auto max-w-lg text-center bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl border border-green-500/30 space-y-6">
+
+        <i class="fab fa-android text-7xl md:text-8xl text-green-400 mb-4 animate-bounce-slow"></i> 
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-2 text-green-400">
+            Unduh Aplikasi Android
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-300 mb-4">
+            Dapatkan pengalaman mencari kunci gitar terbaik! Unduh aplikasi **Bimachord** di perangkat Android Anda sekarang juga.
+        </p>
+
+        <a href="https://raw.githubusercontent.com/Bimachord/Bimachord.github.io/master/assets/Bimachord.apk"
+            class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 text-xl rounded-full transition duration-300 transform hover:scale-105 shadow-xl ring-4 ring-green-500/50"
+            download>
+            <i class="fas fa-download mr-3"></i> Unduh Sekarang (APK)
+        </a>
+        
+        <p class="text-sm text-gray-400 pt-4">
+            *Pastikan izin "Instal aplikasi dari sumber tidak dikenal" diaktifkan jika diminta.
+        </p>
+    </div>
+    
+    <style>
+        .animate-bounce-slow {
+            animation: bounce 4s infinite;
         }
-        .download-section {
-            text-align: center;
-            padding: 80px 0;
-        }
-        .download-button {
-            font-size: 1.5rem;
-            padding: 15px 40px;
-            border-radius: 50px;
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
-</head>
-<body>
-    <div class="container download-section">
-        <h1 class="display-4 mb-4">Unduh versi Android</h1>
-        <p class="lead mb-5">Dapatkan aplikasi Android kami sekarang juga untuk pengalaman terbaik!</p>
-        <a href="https://raw.githubusercontent.com/Bimachord/Bimachord.github.io/master/assets/Bimachord.apk" class="btn btn-primary btn-lg download-button" download>Unduh Sekarang</a>
-    </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

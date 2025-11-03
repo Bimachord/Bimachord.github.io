@@ -2,104 +2,207 @@
 <html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="description"
-    content="Chord lagu bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description"
+        content="Chord lagu bima lengkap dengan lirik dan kunci gitar. Belajar chord gitar dengan mudah di Bimachord!">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="57x57" href="../icon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="../icon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="../icon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="../icon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../icon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="../icon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="../icon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../icon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../icon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../icon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../icon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="../icon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../icon/favicon-16x16.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
-    crossorigin="anonymous"></script>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:image" content="https://bimachord.github.io/icon/android-icon-192x192.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1050785283670276"
+        crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../Styles/styles.css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
-  <title>List Lagu - Bimachord</title>
-  <style>
-    body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      background-color: #1a1a1a;
-      color: #ffffff;
-    }
-  </style>
+    <title>List Lagu - Bimachord</title>
 </head>
 
-<body translate="no">
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
 
-  <div id="Navbar-komponen"></div>
+      <nav class="bg-blue-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a class="flex items-center space-x-2" href="/">
+          <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+          <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+        </a>
 
-  <div class="container mt-3" style="margin-bottom: 12px;">
-    <input type="text" id="myInput" class="form-control" onkeyup="searchFunction()" placeholder="Cari Lagu.">
-    <ul id="myList" class="list-group mt-3">
-    </ul>
-  </div>
-
-  <div class="bg-dark text-light text-center py-2 protected-text">
-    <p style="font-style: italic; color: #00ff00; font-size: 40px; margin-bottom: 2px;">Bimachord.com</p>
-  </div>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-6 offset-md-3" style="color: #00ff00;">
-        <h3 class="text-center" style="margin-bottom: 10px;">Daftar Lagu</h3>
-        <div class="adstera">
-          <a href=""><img alt="banner"
-              src="https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif" /></a>
+        <div class="lg:hidden">
+          <button id="navbar-toggle" type="button"
+            class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <i class="fas fa-bars h-6 w-6"></i>
+          </button>
         </div>
-        <div class="content-list">
-          <ul>
-            <li class="content-divider"><a href="./nangi-dana-tambora.html">Nangi Dana Tambora</a></li>
-            <li class="content-divider"><a href="./sapa-moti-malingi.html">Sapa Moti Malingi</a></li>
-            <li class="content-divider"><a href="./pasole.html">Pasole</a></li>
-            <li class="content-divider"><a href="./nahu-mambali.html">Nahu Ma Mbali</a></li>
-            <li class="content-divider"><a href="./pasapu-monca.html">Pasapu Monca</a></li>
-            <li class="content-divider"><a href="./malingi.html">Malingi</a></li>
-            <li class="content-divider"><a href="./ngahi-rawi-pahu.html">Nggahi Rawi Pahu</a></li>
-            <li class="content-divider"><a href="./tambulate.html">Tambulate</a></li>
-            <li class="content-divider"><a href="./janji-da-ule.html">Janji Da Ule</a></li>
-            <li class="content-divider"><a href="./amancawa.html">Amancawa</a></li>
-            <li class="content-divider"><a href="./sodi-angi.html">Sodi Angi</a></li>
-            <li class="content-divider"><a href="./putri-mambora.html">Putri Mambora</a></li>
-            <li class="content-divider"><a href="./mori-kese.html">Mori Kese</a></li>
-          </ul>
+
+        <div class="hidden lg:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+            <a href="/tentang.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+              Saya</a>
+            <a href="/lagu/"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+              Lagu</a>
+            <a href="/buku-tamu.html"
+              class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+              Lagu Hubungi Saya</a>
+
+            <div id="logout-nav-item" style="display: none;">
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                onclick="handleLogout()" title="Keluar">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="ad-container">
-      <script type="text/javascript">
-        atOptions = {
-          'key': '79835cf4b45c5113461bc355f79bd332',
-          'format': 'iframe',
-          'height': 60,
-          'width': 468,
-          'params': {}
-        };
-        document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/79835cf4b45c5113461bc355f79bd332/invoke.js"></scr' + 'ipt>');
-      </script>
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+        <a href="/tentang.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+          Saya</a>
+        <a href="/lagu/"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+          Lagu</a>
+        <a href="/buku-tamu.html"
+          class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+          Lagu Hubungi Saya</a>
+        <div id="logout-nav-item-mobile" style="display: none;">
+          <button
+            class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+            onclick="handleLogout()" title="Keluar">
+            <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    // Logika sederhana untuk toggle menu mobile
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+    handleLogout();
+  </script>
+    
+
+    <div class="container mx-auto mt-4 px-4 relative max-w-xl mb-3">
+        <input type="text" id="myInput" 
+            class="w-full p-3 text-white bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onkeyup="searchFunction()" placeholder="Cari Lagu...">
+        
+        <ul id="myList" class="hidden absolute z-10 w-full mt-1 bg-gray-700 border border-blue-500 rounded-lg shadow-2xl max-h-80 overflow-y-auto">
+        </ul>
+    </div>
+
+    <div class="bg-gray-800 text-center py-4 protected-text shadow-lg">
+        <p class="italic text-green-400 text-4xl font-bold mb-0">Bimachord.com</p>
+    </div>
+
+    <div class="container mx-auto mt-6 px-4 flex-grow">
+        <div class="max-w-xl mx-auto">
+            <h3 class="text-center text-3xl font-extrabold text-blue-400 mb-4">Daftar Lagu</h3>
+            
+            <div class="adstera text-center mb-6 border border-yellow-500 p-2 bg-gray-800 rounded-lg">
+                <a href=""><img alt="banner" class="mx-auto"
+                        src="https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif" /></a>
+            </div>
+
+            <div class="content-list bg-gray-800 p-5 rounded-xl shadow-lg border border-gray-700">
+                <ul class="space-y-2">
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./nangi-dana-tambora.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Nangi Dana Tambora
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./sapa-moti-malingi.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Sapa Moti Malingi
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./pasole.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Pasole
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./nahu-mambali.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Nahu Ma Mbali
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./pasapu-monca.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Pasapu Monca
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./malingi.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Malingi
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./ngahi-rawi-pahu.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Nggahi Rawi Pahu
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./tambulate.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Tambulate
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./janji-da-ule.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Janji Da Ule
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./amancawa.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Amancawa
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./sodi-angi.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Sodi Angi
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./putri-mambora.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Putri Mambora
+                        </a>
+                    </li>
+                    <li class="content-divider border-b border-gray-700 last:border-b-0 py-2">
+                        <a href="./mori-kese.html" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> Mori Kese
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-container text-center my-6">
+        <script type="text/javascript">
+            atOptions = {
+                'key': '79835cf4b45c5113461bc355f79bd332',
+                'format': 'iframe',
+                'height': 60,
+                'width': 468,
+                'params': {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/79835cf4b45c5113461bc355f79bd332/invoke.js"></scr' + 'ipt>');
+        </script>
     </div>
 
     <div id="Footer-komponen"></div>
@@ -108,50 +211,69 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/Js/scripts.js"></script>
+    <script src="/Js/scripts.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script type='text/javascript'
-      src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+        src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
+    
     <script>
-      // URL iklan (shortlink)
-      const iklanURL = "https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02";
+        // URL iklan (shortlink)
+        const iklanURL = "https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02";
 
-      // Tangani semua link di daftar
-      document.querySelectorAll(".content-list a").forEach(link => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
+        // Tangani semua link di daftar
+        document.querySelectorAll(".content-list a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
 
-          // target asli
-          const targetURL = this.getAttribute("href");
+                // target asli
+                const targetURL = this.getAttribute("href");
 
-          // buka iklan di tab baru
-          let iklan = window.open(iklanURL, "_blank");
+                // buka iklan di tab baru
+                let iklan = window.open(iklanURL, "_blank");
 
-          // buka halaman asli di tab baru
-          let asli = window.open(targetURL, "_blank");
+                // buka halaman asli di tab baru
+                let asli = window.open(targetURL, "_blank");
 
-          if (asli) {
-            asli.focus(); // arahkan fokus ke konten asli
-          } else {
-            // fallback kalau popup diblokir
-            window.location.href = targetURL;
-          }
+                if (asli) {
+                    asli.focus(); // arahkan fokus ke konten asli
+                } else {
+                    // fallback kalau popup diblokir
+                    window.location.href = targetURL;
+                }
+            });
         });
-      });
     </script>
-      <script>
-      function openWithAd(e, originalUrl) {
-        e.preventDefault();
-        // buka tab iklan
-        window.open("https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02", "_blank");
-        // buka tab halaman asli
-        window.open(originalUrl, "_self");
-      }
+    <script>
+        function openWithAd(e, originalUrl) {
+            e.preventDefault();
+            // buka tab iklan
+            window.open("https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02", "_blank");
+            // buka tab halaman asli
+            window.open(originalUrl, "_self");
+        }
     </script>
-
+    <script>
+        // Pastikan fungsi searchFunction() dan logic pembuatan myList dari JS sebelumnya dimasukkan di sini atau di /Js/scripts.js
+        // Contoh sederhana untuk memastikan input pencarian terpisah dari daftar statis:
+        
+        function searchFunction() {
+            var input, filter, ul, li, i, txtValue;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById('myList');
+            
+            // Logic ini harus diisi dari kode JS Anda yang sebelumnya (yang menangani pencarian dinamis)
+            // Karena myInput sekarang hanya untuk pencarian, tidak perlu menampilkan daftar statis lagi di bawahnya.
+            // Biarkan JavaScript sebelumnya yang membuat dan menampilkan daftar LI hasil pencarian.
+            if (filter.trim() === '') {
+                 ul.style.display = 'none';
+            } else {
+                 ul.style.display = 'block';
+            }
+            
+            // Lanjutkan dengan logic pencarian dari file JS sebelumnya...
+        }
+    </script>
 </body>
 
 </html>
