@@ -273,7 +273,7 @@ function renderComment(comment) {
    
    // 1. Perbaikan Username + Icon: Menggunakan innerHTML
    const usernameElement = document.createElement('h6');
-   usernameElement.className = 'text-xl font-bold text-green-400 mb-1 flex items-center';
+   usernameElement.className = 'text-sm font-bold text-green-400 mb-1 flex items-center';
    usernameElement.innerHTML = `<i class="fas fa-user-circle mr-2 text-blue-400"></i> ${comment.username}`;
    body.appendChild(usernameElement);
    
@@ -302,14 +302,16 @@ function renderComment(comment) {
    // 2. Tombol Reply
    const replyBtn = document.createElement('button');
    replyBtn.className = 'flex items-center bg-gray-700 text-gray-300 hover:bg-gray-600 px-3 py-1 text-sm font-semibold rounded-full transition-colors duration-200';
-   replyBtn.innerHTML = `<i class="fa fa-reply mr-2"></i> Balas`;
+   replyBtn.innerHTML = `<i class="fa fa-reply mr-2"></i>`;
    replyBtn.onclick = () => toggleReplies(comment.key);
 
    // 3. Badge Jumlah Balasan
+// Badge Jumlah Balasan + Fungsi Reply
    const replyBadge = document.createElement('span');
-   replyBadge.className = 'bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center ml-2 cursor-default';
-   replyBadge.innerHTML = `<i class="fas fa-comment-dots mr-2"></i> ${replyCount} Balasan`;
-   replyBadge.title = `${replyCount} Balasan`;
+   replyBadge.className = 'bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center ml-2 cursor-pointer';
+   replyBadge.innerHTML = `<i class="fas fa-comment-dots mr-2"></i> ${replyCount}`;
+   replyBadge.title = `${replyCount}`;
+   replyBadge.onclick = () => toggleReplies(comment.key);
 
 
    btnGroup.appendChild(likeBtn);
