@@ -281,16 +281,17 @@ function renderComment(comment) {
    body.appendChild(createSafeElement('p', 'text-gray-200 text-base leading-relaxed break-words', comment.comment));
 
    // -- FOOTER (LIKE, REPLY, TIME) --
-   const footer = createSafeElement('div', 'flex justify-between items-center pt-3 border-t border-gray-700 mt-3');
-   
-   // 2. Perbaikan Waktu + Icon: Menggunakan innerHTML
+   const footer = createSafeElement('div', 'flex flex-col pt-3 border-t border-gray-700 mt-3');
+
+   // Waktu
    const timeElement = document.createElement('small');
-   timeElement.className = 'text-gray-400 text-xs flex items-center';
+   timeElement.className = 'text-gray-400 text-xs flex items-center mb-2';
    timeElement.innerHTML = `<i class="far fa-clock mr-1"></i> ${new Date(comment.timestamp).toLocaleString()}`;
    footer.appendChild(timeElement);
-
-   // -- TOMBOL GROUP --
-   const btnGroup = createSafeElement('div', 'flex space-x-3'); 
+   
+   // Tombol Group
+   const btnGroup = createSafeElement('div', 'flex space-x-3');
+   
    
    // 1. Tombol Like
    const likeBtn = document.createElement('button');
