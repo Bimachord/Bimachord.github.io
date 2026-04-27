@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 4. Ambil data dari API Laravel
-    fetch('/api/songs')
+    fetch('https://bimachord.free.nf/api/songs')
         .then(response => response.json())
         .then(result => {
             if (result.status === 'success') {
