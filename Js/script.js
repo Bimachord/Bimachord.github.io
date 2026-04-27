@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var myList = document.getElementById('myList');
-    var myInput = document.getElementById('myInput');
+    const myList = document.getElementById('myList');
+    const myInput = document.getElementById('myInput');
 
-    // 1. Styling untuk UL (Dropdown Container)
-    // Background lebih terang (gray-700), border biru, shadow lebih tegas.
+    // 1. Styling UI
     myList.className = 'absolute z-10 w-full mt-1 bg-gray-700 border border-blue-500 rounded-lg shadow-2xl max-h-80 overflow-y-auto';
     myList.style.display = 'none';
 
-    // Daftar lagu (DATA TIDAK BERUBAH)
-    var names = [
+    // 2. Data Master (Statis)
+    let names = [
         { name: "Nangi Dana Tambora", page: "/lagu/nangi-dana-tambora.html" },
         { name: "Sapa Moti Malingi", page: "/lagu/sapa-moti-malingi.html" },
         { name: "Pasole", page: "/lagu/pasole.html" },
@@ -24,35 +23,70 @@ document.addEventListener('DOMContentLoaded', function () {
         { name: "Mori Kese", page: "/lagu/mori-kese.html"},
         { name: "Waa Ndampa", page: "/lagu/waa-ndampa.html"}
     ];
-    
-    // 2. Rendering daftar lagu
-    names.forEach(function (item) {
-        var listItem = document.createElement('li');
+
+    // 3. Fungsi Render & Klik
+    function renderList(dataToRender) {
+        myList.innerHTML = ''; // Reset list
         
-        // Menerapkan kelas Tailwind untuk item daftar:
-        // - cursor-pointer: Menambahkan kursor tangan (pointer)
-        // - text-white: Warna teks default putih
-        // - hover:bg-blue-600: Background biru saat hover
-        // - hover:text-white: Warna teks tetap putih saat hover
-        listItem.className = 'px-4 py-2 text-white cursor-pointer hover:bg-blue-600 transition duration-150 flex items-center space-x-3 border-b border-gray-600 last:border-b-0';
+        if (dataToRender.length === 0) {
+            myList.style.display = 'none';
+            return;
+        }
 
-        // Mengganti ikon menjadi warna kuning/amber untuk kontras
-        listItem.innerHTML = `<i class="fas fa-music text-amber-400"></i> <span>${item.name}</span>`;
+        dataToRender.forEach(function (item) {
+            const listItem = document.createElement('li');
+            listItem.className = 'px-4 py-2 text-white cursor-pointer hover:bg-blue-600 transition duration-150 flex items-center space-x-3 border-b border-gray-600 last:border-b-0';
+            listItem.innerHTML = `<i class="fas fa-music text-amber-400"></i> <span>${item.name}</span>`;
+            
+            // INI KUNCINYA: Event klik dipasang langsung saat elemen dibuat
+            listItem.addEventListener('mousedown', function () {
+                window.location.href = item.page;
+            });
 
-        listItem.setAttribute('data-halaman', item.page); 
-        myList.appendChild(listItem);
-    });
+            myList.appendChild(listItem);
+        });
+        
+        myList.style.display = 'block';
+    }
 
-    // 3. Event Listener untuk Input dan Blur (LOGIC TIDAK BERUBAH)
-    myInput.addEventListener('input', searchFunction);
-    myInput.addEventListener('blur', function () {
-        setTimeout(() => {
-            if (this.value.trim() === '') {
-                myList.style.display = 'none';
+    // 4. Ambil data dari API Laravel
+    fetch('http://localhost:8000/api/songs')
+        .then(response => response.json())
+        .then(result => {
+            if (result.status === 'success') {
+                const apiNames = result.data.map(song => ({
+                    name: song.title,
+                    page: "/lagu/" + song.slug + ".html"
+                }));
+                names = [...names, ...apiNames]; // Gabung data
+                console.log("Bimachord API Synced!");
             }
-        }, 150); 
+        })
+        .catch(err => console.error("API Offline:", err));
+
+    // 5. Logika Pencarian
+    myInput.addEventListener('input', function() {
+        const filter = this.value.toLowerCase().trim();
+        
+        if (filter === '') {
+            myList.style.display = 'none';
+            return;
+        }
+
+        const filteredData = names.filter(item => 
+            item.name.toLowerCase().includes(filter)
+        );
+
+        renderList(filteredData);
     });
 
+    // 6. Handle Blur (Tutup dropdown)
+    myInput.addEventListener('blur', function () {
+        // Pakai timeout sedikit agar event klik sempat jalan duluan
+        setTimeout(() => {
+            myList.style.display = 'none';
+        }, 200); 
+    });
     // 4. Event Listener Klik pada Item Daftar (LOGIC TIDAK BERUBAH)
     var listItems = document.querySelectorAll('#myList li');
     listItems.forEach(function (item) {

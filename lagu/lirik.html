@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimachord - Lirik & Chord</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <meta id="meta-description" name="description" content="Belajar chord gitar lagu Bima dengan mudah di Bimachord!">
+    <meta id="meta-keywords" name="keywords" content="chord gitar, kunci gitar, lagu bima">
+    
+    <meta id="og-title" property="og:title" content="Bimachord" />
+    <meta id="og-description" property="og:description" content="Lirik dan Kunci Gitar Lagu Bima" />
+    <meta id="og-url" property="og:url" content="" />
+    
+    <meta id="twitter-title" name="twitter:title" content="Bimachord" />
+    <meta id="twitter-description" name="twitter:description" content="Lirik dan Kunci Gitar Lagu Bima" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#1a1a1a',
+                        'bimachord-green': '#00ff00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+
+        .chord-vocal {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body class="bg-dark-bg text-gray-200 min-h-screen flex flex-col font-sans" translate="no">
+    <div id="install-banner" class="hidden bg-gray-800 border-b border-blue-500 p-4 sticky top-16 z-40">
+    <div class="flex items-center justify-between max-w-7xl mx-auto relative">
+        <div class="flex items-center space-x-3">
+            <img src="/icon/android-icon-48x48.png" alt="Icon" class="w-10 h-10 rounded-lg">
+            <div>
+                <p class="font-bold text-sm text-white">Instal Bimachord</p>
+                <p class="text-xs text-gray-400">Akses cepat tanpa browser!</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button id="install-button" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                Unduh
+            </button>
+            <button id="close-banner" class="text-gray-400 hover:text-white transition">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <nav class="bg-blue-600 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a class="flex items-center space-x-2" href="/">
+                    <img src="/assets/img2.png" alt="Logo" class="h-8 w-auto">
+                    <span class="text-xl font-bold tracking-wide">Bimachord.com</span>
+                </a>
+
+                <div class="lg:hidden">
+                    <button id="navbar-toggle" type="button"
+                        class="text-white hover:text-gray-200 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/"
+                            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="/tentang.html"
+                            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Tentang
+                            Saya</a>
+                        <a href="/lagu/"
+                            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">List
+                            Lagu</a>
+                        <a href="/buku-tamu.html"
+                            class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Request
+                            Lagu Hubungi Saya</a>
+
+                        <div id="logout-nav-item" style="display: none;">
+                            <button
+                                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full transition-colors duration-200"
+                                onclick="handleLogout()" title="Keluar">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="/"
+                    class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Home</a>
+                <a href="/tentang.html"
+                    class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Tentang
+                    Saya</a>
+                <a href="/lagu/"
+                    class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">List
+                    Lagu</a>
+                <a href="/buku-tamu.html"
+                    class="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Request
+                    Lagu Hubungi Saya</a>
+                <div id="logout-nav-item-mobile" style="display: none;">
+                    <button
+                        class="w-full text-left bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-md transition-colors duration-200 mt-2"
+                        onclick="handleLogout()" title="Keluar">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // Logika sederhana untuk toggle menu mobile
+        document.getElementById('navbar-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+
+    <main class="flex-grow container mx-auto px-4 py-6 max-w-4xl">
+        <div class="mb-4" style="margin-bottom: 12px;">
+            <input type="text" id="myInput"
+                class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+                onkeyup="searchFunction()" placeholder="Cari Lagu.">
+            <ul id="myList" class="mt-3 space-y-2"></ul>
+        </div>
+
+        <div class="bg-gray-900 text-center py-3 rounded-t-lg border-b border-green-500">
+            <p id="judul-atas"
+                class="text-2xl md:text-4xl font-extrabold text-bimachord-green tracking-wider uppercase">Memuat...</p>
+        </div>
+
+        <section class="bg-gray-800 rounded-lg p-4 mb-6 border-l-4 border-bimachord-green shadow-lg">
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+                <div
+                    class="w-20 h-20 bg-gray-700 rounded-full flex items-center justify-center border-2 border-green-500">
+                    <i class="fas fa-compact-disc text-3xl text-green-400 animate-spin-slow"></i>
+                </div>
+                <div class="flex-grow">
+                    <h3 class="text-xl font-bold text-white mb-2 text-center md:text-left">Detail Informasi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                        <div class="flex items-center text-gray-300 bg-gray-900/50 p-2 rounded-md">
+                            <i class="fas fa-microphone-alt w-5 text-green-500"></i>
+                            <span class="ml-2 font-semibold">Penyanyi:</span>
+                            <span id="penyanyi" class="ml-2 text-white">-</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 bg-gray-900/50 p-2 rounded-md">
+                            <i class="fas fa-user-edit w-5 text-green-500"></i>
+                            <span class="ml-2 font-semibold">Posted By:</span>
+                            <span id="posted-by" class="ml-2 text-white">-</span>
+                        </div>
+                        <div class="flex items-center text-gray-300 bg-gray-900/50 p-2 rounded-md">
+                            <i class="fas fa-music w-5 text-green-500"></i>
+                            <span class="ml-2 font-semibold">Genre:</span>
+                            <span class="ml-2 text-white">Lagu Bima (Mbojo)</span>
+                        </div>
+                        <div id="youtube-container" class="hidden">
+                            <a id="youtube-link" href="#" target="_blank"
+                                class="flex items-center justify-center w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-lg">
+                                <i class="fab fa-youtube mr-2 text-lg"></i>
+                                Tonton di YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center py-4 bg-gray-800 rounded-b-lg mb-6 shadow-xl space-x-2">
+            <button onclick="transpose(-1)"
+                class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition shadow-md">-
+                Transpose</button>
+            <button onclick="transpose(1)"
+                class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition shadow-md">+
+                Transpose</button>
+            <button onclick="autoScroll()"
+                class="px-4 py-2 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition shadow-md">Auto
+                Scroll</button>
+        </section>
+
+        
+
+        <section
+            class="mx-auto p-4 md:p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 relative overflow-hidden">
+            <div id="loading-text" class="text-center py-10 text-gray-500 italic">Mengambil lirik dari server...</div>
+            <pre id="chordContainer"
+                class="chord-vocal text-left text-lg md:text-xl whitespace-pre-wrap leading-relaxed text-gray-100 hidden"></pre>
+        </section>
+    </main>
+    <footer style="margin-bottom: 70px;"
+        class="bg-gray-800 text-white text-center pt-8 pb-3 mt-8 shadow-inner border-t border-gray-700">
+        <div class="container mx-auto px-4 max-w-xl">
+            <div class="space-y-4">
+
+                <p class="text-sm italic text-green-400 font-semibold">
+                    &copy; 2024–2025 Chord Dasar &amp; Lirik Lagu.
+                </p>
+
+                <div class="flex justify-center space-x-4 text-sm font-medium text-gray-400">
+                    <a href="/privacy.html" class="hover:text-green-400 transition duration-150">
+                        Kebijakan Privasi
+                    </a>
+                    <span class="text-gray-600">|</span>
+                    <a href="/temrs.html" class="hover:text-green-400 transition duration-150">
+                        Syarat &amp; Ketentuan
+                    </a>
+                </div>
+
+                <div class="pt-2 flex justify-center space-x-6">
+                    <a href="https://www.facebook.com/profile.php?id=100093961165463"
+                        class="text-gray-300 hover:text-blue-600 transition duration-200 transform hover:scale-110"
+                        aria-label="Facebook">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/6287841947229" target="_blank"
+                        class="text-gray-300 hover:text-green-500 transition duration-200 transform hover:scale-110"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://instagram.com"
+                        class="text-gray-300 hover:text-pink-500 transition duration-200 transform hover:scale-110"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <div id="BottomBar-komponen"
+        class="fixed inset-x-0 bottom-0 z-50 bg-gray-900 border-t-4 border-green-500/0 md:hidden shadow-2xl">
+        <div class="flex justify-around items-center h-16 max-w-lg mx-auto">
+
+            <a href="/" id="nav-home"
+                class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+                data-page="home" onclick="openWithAd(event, this.href)">
+                <i class="fas fa-home text-xl text-gray-400 group-hover:text-green-400 transition duration-150"></i>
+                <span
+                    class="text-xs mt-1 text-gray-400 group-hover:text-green-400 transition duration-150 font-medium">Home</span>
+                <div
+                    class="absolute top-0 h-1 w-full bg-green-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b">
+                </div>
+            </a>
+
+            <a href="#" id="nav-search"
+                class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+                onclick="goToInput(); return false;" data-page="search">
+                <i class="fas fa-search text-xl text-gray-400 group-hover:text-blue-400 transition duration-150"></i>
+                <span
+                    class="text-xs mt-1 text-gray-400 group-hover:text-blue-400 transition duration-150 font-medium">Cari</span>
+                <div
+                    class="absolute top-0 h-1 w-full bg-blue-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b">
+                </div>
+            </a>
+
+            <a href="/lagu/index.html" id="nav-chord"
+                class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+                data-page="chord" onclick="openWithAd(event, this.href)">
+                <i class="fas fa-music text-xl text-gray-400 group-hover:text-yellow-400 transition duration-150"></i>
+                <span
+                    class="text-xs mt-1 text-gray-400 group-hover:text-yellow-400 transition duration-150 font-medium">Chord</span>
+                <div
+                    class="absolute top-0 h-1 w-full bg-yellow-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b">
+                </div>
+            </a>
+
+            <a href="/tunning.html" id="nav-tuning"
+                class="nav-item-bottom group flex flex-col items-center justify-center p-2 flex-1 relative"
+                data-page="tuning" onclick="openWithAd(event, this.href)">
+                <i class="fas fa-sliders-h text-xl text-gray-400 group-hover:text-red-400 transition duration-150"></i>
+                <span
+                    class="text-xs mt-1 text-gray-400 group-hover:text-red-400 transition duration-150 font-medium">Tuning</span>
+                <div
+                    class="absolute top-0 h-1 w-full bg-red-500 scale-x-0 group-[.active]:scale-x-100 transition-transform duration-300 rounded-b">
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        function openWithAd(e, originalUrl) {
+            e.preventDefault();
+            // buka tab iklan
+            window.open("hhttps://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02", "_blank");
+            // buka tab halaman asli
+            window.open(originalUrl, "_self");
+        }
+    </script>
+
+    <script>
+        // Ganti bagian <script> kamu dengan ini:
+
+        let originalChords = "";
+        const keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (slug) {
+                fetch('http://localhost:8000/api/songs/' + slug)
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.status === 'success') {
+                            const song = result.data;
+                            const titleLagu = "Lagu Bima " + song.title + " - Lirik dan Kunci Gitar Dasar";
+                            const descLagu = "Chord lagu " + song.title + " lengkap dengan lirik dan kunci gitar. Belajar chord gitar lagu Bima dengan mudah di Bimachord!";
+                
+                            // 1. Update Judul Halaman
+                            document.title = titleLagu;
+                
+                            // 2. Update Meta Description & Keywords
+                            document.getElementById('meta-description').setAttribute('content', descLagu);
+                            document.getElementById('meta-keywords').setAttribute('content', `chord ${song.title}, kunci gitar ${song.title}, lirik ${song.title}, lagu bima`);
+                
+                            // 3. Update Open Graph (Facebook/WA)
+                            document.getElementById('og-title').setAttribute('content', titleLagu);
+                            document.getElementById('og-description').setAttribute('content', descLagu);
+                            document.getElementById('og-url').setAttribute('content', window.location.href);
+                
+                            // 4. Update Twitter Card
+                            document.getElementById('twitter-title').setAttribute('content', titleLagu);
+                            document.getElementById('twitter-description').setAttribute('content', descLagu);
+                            document.getElementById('judul-atas').innerText = song.title;
+                            document.getElementById('penyanyi').innerText = song.singer || "Anonim";
+                            document.getElementById('posted-by').innerText = song.posted_by;
+                            
+
+                            // Logika Link YouTube
+                            if (song.youtube_url) {
+                                const ytLink = document.getElementById('youtube-link');
+                                const ytCont = document.getElementById('youtube-container');
+                                ytLink.href = song.youtube_url;
+                                ytCont.classList.remove('hidden');
+                            }
+
+                            // Simpan data mentah dari API
+                            document.title = "Bimachord - " + song.title;
+                            originalChords = song.chords;
+
+                            renderChords(originalChords);
+
+                            document.getElementById('loading-text').classList.add('hidden');
+                            document.getElementById('chordContainer').classList.remove('hidden');
+                        }
+                    });
+            }
+        });
+
+        // Fungsi untuk menampilkan teks dengan warna pada chord
+        function renderChords(text) {
+            // Regex ini mencari teks di dalam [ ]
+            const regex = /\[(.*?)\]/g;
+            const coloredText = text.replace(regex, '<span class="text-bimachord-green font-bold">$1</span>');
+            document.getElementById('chordContainer').innerHTML = coloredText;
+        }
+
+        // LOGIKA TRANSPOSE (Hanya untuk teks di dalam kurung siku)
+        function transpose(steps) {
+            // Regex ini menangkap seluruh isi kurung siku [Am]
+            const bracketRegex = /\[(.*?)\]/g;
+
+            // Regex untuk membedakan Nada Dasar (A-G) dan Suffix (m, 7, sus, dll)
+            const chordPartsRegex = /^([A-G][b#]?)(.*)$/;
+
+            originalChords = originalChords.replace(bracketRegex, (match, chordContent) => {
+                // chordContent adalah isinya saja, misal "Am" atau "C#"
+                return "[" + chordContent.replace(chordPartsRegex, (m, base, suffix) => {
+                    let index = keys.indexOf(base);
+                    if (index === -1) return m; // Jika bukan chord A-G, biarkan
+
+                    let newIndex = (index + steps + 12) % 12;
+                    return keys[newIndex] + (suffix || "");
+                }) + "]";
+            });
+
+            renderChords(originalChords);
+        }
+
+        // Fungsi Auto Scroll
+        let isScrolling = false;
+        let scrollInterval;
+        function autoScroll() {
+            if (!isScrolling) {
+                isScrolling = true;
+                scrollInterval = setInterval(() => {
+                    window.scrollBy(0, 1);
+                }, 50);
+            } else {
+                isScrolling = false;
+                clearInterval(scrollInterval);
+            }
+        }
+    </script>
+
+    <script>
+    let deferredPrompt;
+    const installBanner = document.getElementById('install-banner');
+    const installButton = document.getElementById('install-button');
+    const closeBanner = document.getElementById('close-banner'); // Tombol X
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBanner.classList.remove('hidden');
+    });
+
+    // Logika tombol Unduh
+    installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            installBanner.classList.add('hidden');
+        }
+    });
+
+    // Logika tombol Close (X)
+    closeBanner.addEventListener('click', () => {
+        installBanner.classList.add('hidden');
+        // Opsional: Simpan di sessionStorage biar gak muncul lagi selama sesi ini
+        sessionStorage.setItem('pwa-banner-closed', 'true');
+    });
+
+    // Tambahan: Cek apakah user pernah nutup banner sebelumnya
+    window.addEventListener('load', () => {
+        if (sessionStorage.getItem('pwa-banner-closed')) {
+            installBanner.classList.add('hidden');
+        }
+    });
+
+    window.addEventListener('appinstalled', () => {
+        installBanner.classList.add('hidden');
+    });
+
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker terdaftar!', reg))
+          .catch(err => console.log('Service Worker gagal:', err));
+      });
+    }
+</script>
+</body>
+
+</html>

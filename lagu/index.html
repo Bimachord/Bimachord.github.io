@@ -211,63 +211,88 @@
         src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
     
     <script>
-        // URL iklan (shortlink)
+    document.addEventListener('DOMContentLoaded', function () {
+        const songListUl = document.querySelector('.content-list ul');
         const iklanURL = "https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02";
 
-        // Tangani semua link di daftar
+        /**
+         * 1. FUNGSI KLIK IKLAN & REDIRECT
+         */
+        function handleSongClick(e, targetURL) {
+            e.preventDefault();
+            
+            // Buka iklan di tab baru
+            window.open(iklanURL, "_blank");
+
+            // Arahkan ke file lirik otomatis (lirik.html)
+            setTimeout(() => {
+                window.location.href = targetURL;
+            }, 100);
+        }
+
+        /**
+         * 2. PASANG LOGIKA KE LAGU STATIS (Lagu lama)
+         */
         document.querySelectorAll(".content-list a").forEach(link => {
             link.addEventListener("click", function (e) {
-                e.preventDefault();
-
-                // target asli
                 const targetURL = this.getAttribute("href");
-
-                // buka iklan di tab baru
-                let iklan = window.open(iklanURL, "_blank");
-
-                // buka halaman asli di tab baru
-                let asli = window.open(targetURL, "_blank");
-
-                if (asli) {
-                    asli.focus(); // arahkan fokus ke konten asli
-                } else {
-                    // fallback kalau popup diblokir
-                    window.location.href = targetURL;
-                }
+                handleSongClick(e, targetURL);
             });
         });
-    </script>
-    <script>
-        function openWithAd(e, originalUrl) {
-            e.preventDefault();
-            // buka tab iklan
-            window.open("https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02", "_blank");
-            // buka tab halaman asli
-            window.open(originalUrl, "_self");
-        }
-    </script>
-    <script>
-        // Pastikan fungsi searchFunction() dan logic pembuatan myList dari JS sebelumnya dimasukkan di sini atau di /Js/scripts.js
-        // Contoh sederhana untuk memastikan input pencarian terpisah dari daftar statis:
+
+        /**
+         * 3. AMBIL DATA DARI API LARAVEL (Sistem Otomatis)
+         */
+        fetch('http://localhost:8000/api/songs')
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success') {
+                    result.data.forEach(song => {
+                        const li = document.createElement('li');
+                        li.className = 'content-divider border-b border-gray-700 last:border-b-0 py-2';
+
+                        // PERBAIKAN: Arahkan ke lirik.html dengan parameter ?slug=
+                        // Jadi kita tidak perlu bikin file satu-satu lagi
+                        const targetURL = "lirik.html?slug=" + song.slug;
+
+                        li.innerHTML = `
+                            <a href="${targetURL}" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                                <i class="fas fa-compact-disc mr-3 text-green-400"></i> ${song.title}
+                            </a>
+                        `;
+
+                        const link = li.querySelector('a');
+                        link.addEventListener('click', function (e) {
+                            handleSongClick(e, targetURL);
+                        });
+
+                        songListUl.appendChild(li);
+                    });
+                    console.log("Bimachord: Sistem link otomatis aktif!");
+                }
+            })
+            .catch(error => {
+                console.error('Bimachord: API Laravel offline.', error);
+            });
+    });
+
+    /**
+     * 4. FUNGSI PENCARIAN
+     */
+    function searchFunction() {
+        const input = document.getElementById('myInput');
+        const filter = input.value.trim().toUpperCase();
+        const ulSearch = document.getElementById('myList'); 
         
-        function searchFunction() {
-            var input, filter, ul, li, i, txtValue;
-            input = document.getElementById('myInput');
-            filter = input.value.toUpperCase();
-            ul = document.getElementById('myList');
-            
-            // Logic ini harus diisi dari kode JS Anda yang sebelumnya (yang menangani pencarian dinamis)
-            // Karena myInput sekarang hanya untuk pencarian, tidak perlu menampilkan daftar statis lagi di bawahnya.
-            // Biarkan JavaScript sebelumnya yang membuat dan menampilkan daftar LI hasil pencarian.
-            if (filter.trim() === '') {
-                 ul.style.display = 'none';
+        if (ulSearch) {
+            if (filter === '') {
+                ulSearch.style.display = 'none';
             } else {
-                 ul.style.display = 'block';
+                ulSearch.style.display = 'block';
             }
-            
-            // Lanjutkan dengan logic pencarian dari file JS sebelumnya...
         }
-    </script>
+    }
+</script>
 </body>
 
 </html>

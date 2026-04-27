@@ -109,6 +109,27 @@
 
 <body class="min-h-screen bg-gray-900 text-white flex flex-col">
 
+  <div id="install-banner" class="hidden bg-gray-800 border-b border-blue-500 p-4 sticky top-16 z-40">
+    <div class="flex items-center justify-between max-w-7xl mx-auto relative">
+        <div class="flex items-center space-x-3">
+            <img src="/icon/android-icon-48x48.png" alt="Icon" class="w-10 h-10 rounded-lg">
+            <div>
+                <p class="font-bold text-sm text-white">Instal Bimachord</p>
+                <p class="text-xs text-gray-400">Akses cepat tanpa browser!</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button id="install-button" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-bold transition">
+                Unduh
+            </button>
+            <button id="close-banner" class="text-gray-400 hover:text-white transition">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
   <nav class="bg-blue-600 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
@@ -268,14 +289,6 @@
     </div>
   </div>
 
-  <div class="fixed bottom-20 right-4 lg:bottom-4 lg:right-6 z-40">
-    <a href="download.html"
-      class="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-5 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-      <i class="fas fa-download text-xl"></i>
-      <span class="hidden lg:inline">Unduh Aplikasi</span>
-      <span class="lg:hidden">Unduh</span>
-    </a>
-  </div>
 
   <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-6 pb-24 lg:pb-6">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -416,6 +429,55 @@ function openWithAd(e, originalUrl) {
 
     // Catatan: Fungsi searchFunction() dan handleLogout() diasumsikan sudah ada di Js/scripts.js atau global scope.
   </script>
+  <script>
+    let deferredPrompt;
+    const installBanner = document.getElementById('install-banner');
+    const installButton = document.getElementById('install-button');
+    const closeBanner = document.getElementById('close-banner'); // Tombol X
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBanner.classList.remove('hidden');
+    });
+
+    // Logika tombol Unduh
+    installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            installBanner.classList.add('hidden');
+        }
+    });
+
+    // Logika tombol Close (X)
+    closeBanner.addEventListener('click', () => {
+        installBanner.classList.add('hidden');
+        // Opsional: Simpan di sessionStorage biar gak muncul lagi selama sesi ini
+        sessionStorage.setItem('pwa-banner-closed', 'true');
+    });
+
+    // Tambahan: Cek apakah user pernah nutup banner sebelumnya
+    window.addEventListener('load', () => {
+        if (sessionStorage.getItem('pwa-banner-closed')) {
+            installBanner.classList.add('hidden');
+        }
+    });
+
+    window.addEventListener('appinstalled', () => {
+        installBanner.classList.add('hidden');
+    });
+
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker terdaftar!', reg))
+          .catch(err => console.log('Service Worker gagal:', err));
+      });
+    }
+</script>
 </body>
 
 </html>
