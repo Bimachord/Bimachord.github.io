@@ -211,71 +211,64 @@
         src='//pl22487775.revenuecpmgate.com/a4/40/8c/a4408c45f539dc2f248f81469839aba5.js'></script>
     
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const songListUl = document.querySelector('.content-list ul');
-        const iklanURL = "https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02";
+document.addEventListener('DOMContentLoaded', function () {
+    const songListUl = document.querySelector('.content-list ul');
+    const iklanURL = "https://www.revenuecpmgate.com/bhhkssufkx?key=4a0f863c856144a2113db97a5bea6e02";
 
-        /**
-         * 1. FUNGSI KLIK IKLAN & REDIRECT
-         */
-        function handleSongClick(e, targetURL) {
-            e.preventDefault();
-            
-            // Buka iklan di tab baru
-            window.open(iklanURL, "_blank");
+    // 1. FUNGSI KLIK IKLAN & REDIRECT
+    function handleSongClick(e, targetURL) {
+        e.preventDefault();
+        window.open(iklanURL, "_blank");
+        setTimeout(() => {
+            window.location.href = targetURL;
+        }, 100);
+    }
 
-            // Arahkan ke file lirik otomatis (lirik.html)
-            setTimeout(() => {
-                window.location.href = targetURL;
-            }, 100);
-        }
-
-        /**
-         * 2. PASANG LOGIKA KE LAGU STATIS (Lagu lama)
-         */
-        document.querySelectorAll(".content-list a").forEach(link => {
-            link.addEventListener("click", function (e) {
-                const targetURL = this.getAttribute("href");
+    // 2. PASANG LOGIKA KE LAGU STATIS
+    document.querySelectorAll(".content-list a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            const targetURL = this.getAttribute("href");
+            if(targetURL && targetURL !== "#") {
                 handleSongClick(e, targetURL);
-            });
+            }
         });
-
-        /**
-         * 3. AMBIL DATA DARI API LARAVEL (Sistem Otomatis)
-         */
-        fetch('https://cors-anywhere.herokuapp.com/https://bimachord.free.nf/api/songs')
-            .then(response => response.json())
-            .then(result => {
-                if (result.status === 'success') {
-                    result.data.forEach(song => {
-                        const li = document.createElement('li');
-                        li.className = 'content-divider border-b border-gray-700 last:border-b-0 py-2';
-
-                        // PERBAIKAN: Arahkan ke lirik.html dengan parameter ?slug=
-                        // Jadi kita tidak perlu bikin file satu-satu lagi
-                        const targetURL = "lirik.html?slug=" + song.slug;
-
-                        li.innerHTML = `
-                            <a href="${targetURL}" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
-                                <i class="fas fa-compact-disc mr-3 text-green-400"></i> ${song.title}
-                            </a>
-                        `;
-
-                        const link = li.querySelector('a');
-                        link.addEventListener('click', function (e) {
-                            handleSongClick(e, targetURL);
-                        });
-
-                        songListUl.appendChild(li);
-                    });
-                    console.log("Bimachord: Sistem link otomatis aktif!");
-                }
-            })
-            .catch(error => {
-                console.error('Bimachord: API Laravel offline.', error);
-            });
     });
 
+    // 3. AMBIL DATA DARI API LARAVEL (TANPA PROXY HEROKU)
+    // Kita langsung tembak ke API InfinityFree
+    fetch('https://bimachord.free.nf/api/songs')
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(result => {
+            if (result.status === 'success') {
+                result.data.forEach(song => {
+                    const li = document.createElement('li');
+                    li.className = 'content-divider border-b border-gray-700 last:border-b-0 py-2';
+
+                    const targetURL = "lirik.html?slug=" + song.slug;
+
+                    li.innerHTML = `
+                        <a href="${targetURL}" class="block text-lg text-white hover:text-blue-400 transition duration-150 flex items-center">
+                            <i class="fas fa-compact-disc mr-3 text-green-400"></i> ${song.title}
+                        </a>
+                    `;
+
+                    const link = li.querySelector('a');
+                    link.addEventListener('click', function (e) {
+                        handleSongClick(e, targetURL);
+                    });
+
+                    songListUl.appendChild(li);
+                });
+                console.log("Bimachord: Sistem link otomatis aktif!");
+            }
+        })
+        .catch(error => {
+            console.error('Bimachord: API Laravel offline atau diblokir CORS.', error);
+        });
+});
     /**
      * 4. FUNGSI PENCARIAN
      */
