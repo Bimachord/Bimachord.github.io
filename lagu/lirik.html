@@ -352,7 +352,7 @@
             const slug = urlParams.get('slug');
 
             if (slug) {
-                fetch('http://localhost:8000/api/songs/' + slug)
+                fetch('https://bimachord.free.nf/api/songs/' + slug)
                     .then(res => res.json())
                     .then(result => {
                         if (result.status === 'success') {

@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 4. Ambil data dari API Laravel
-    fetch('http://localhost:8000/api/songs')
+    fetch('https://bimachord.free.nf/api/songs')
         .then(response => response.json())
         .then(result => {
             if (result.status === 'success') {
                 const apiNames = result.data.map(song => ({
                     name: song.title,
-                    page: "/lagu/" + song.slug + ".html"
+                    page: "lirik.html?slug=" + song.slug
                 }));
                 names = [...names, ...apiNames]; // Gabung data
                 console.log("Bimachord API Synced!");
