@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 3. AMBIL DATA DARI API LARAVEL (TANPA PROXY HEROKU)
     // Kita langsung tembak ke API InfinityFree
-    fetch('https://bimachord.free.nf/api/songs')
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://bimachord.free.nf/api/songs')}`)
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok');
             return response.json();
