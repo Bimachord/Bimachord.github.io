@@ -352,7 +352,7 @@
             const slug = urlParams.get('slug');
 
             if (slug) {
-                fetch('https://bimachord.free.nf/api/songs/' + slug)
+                fetch("https://backend-bimachord.vercel.app/api/songs/" + slug)
                     .then(res => res.json())
                     .then(result => {
                         if (result.status === 'success') {
