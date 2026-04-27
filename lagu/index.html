@@ -243,7 +243,7 @@
         /**
          * 3. AMBIL DATA DARI API LARAVEL (Sistem Otomatis)
          */
-        fetch('https://bimachord.free.nf/api/songs')
+        fetch('https://cors-anywhere.herokuapp.com/https://bimachord.free.nf/api/songs')
             .then(response => response.json())
             .then(result => {
                 if (result.status === 'success') {
