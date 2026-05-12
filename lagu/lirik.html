@@ -4,19 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <meta id="meta-description" name="description" content="Belajar chord gitar lagu Bima dengan mudah di Bimachord!">
-    <meta id="meta-keywords" name="keywords" content="chord gitar, kunci gitar, lagu bima">
-    
-    <meta id="og-title" property="og:title" content="Bimachord" />
-    <meta id="og-description" property="og:description" content="Lirik dan Kunci Gitar Lagu Bima" />
-    <meta id="og-url" property="og:url" content="" />
-    
-    <meta id="twitter-title" name="twitter:title" content="Bimachord" />
-    <meta id="twitter-description" name="twitter:description" content="Lirik dan Kunci Gitar Lagu Bima" />
-    
+    <!-- Judul Halaman -->
+<title>__TITLE__</title>
+
+<!-- Meta SEO Standar -->
+<meta id="meta-description" name="description" content="__DESCRIPTION__">
+<meta id="meta-keywords" name="keywords" content="chord gitar, kunci gitar, lagu bima, lirik lagu bima">
+
+<!-- Open Graph (WhatsApp / Facebook) -->
+<meta id="og-title" property="og:title" content="__TITLE__" />
+<meta id="og-description" property="og:description" content="__DESCRIPTION__" />
+<meta id="og-url" property="og:url" content="__URL__" />
+<meta id="og-image" property="og:image" content="__IMAGE__" />
+
+<!-- Twitter Card -->
+<meta id="twitter-title" name="twitter:title" content="__TITLE__" />
+<meta id="twitter-description" name="twitter:description" content="__DESCRIPTION__" />
+<meta id="twitter-image" name="twitter:image" content="__IMAGE__" />
+
     <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-icon-72x72.png">
@@ -268,12 +275,17 @@
 
         
 
-        <section
-            class="mx-auto p-4 md:p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 relative overflow-hidden">
-            <div id="loading-text" class="text-center py-10 text-gray-500 italic">Mengambil lirik dari server...</div>
-            <pre id="chordContainer"
-                class="chord-vocal text-left text-lg md:text-xl whitespace-pre-wrap leading-relaxed text-gray-100 hidden"></pre>
-        </section>
+<div class="flex justify-center mb-4">
+  <button id="zoomIn" class="mx-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Perbesar</button>
+  <button id="zoomOut" class="mx-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Perkecil</button>
+</div>
+
+<section
+    class="mx-auto p-4 md:p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-700 relative overflow-hidden">
+    <div id="loading-text" class="text-center py-10 text-gray-500 italic text-xs">Mengambil lirik dari server...</div>
+    <pre id="chordContainer"
+        class="chord-vocal text-left whitespace-pre-wrap leading-relaxed text-gray-100 hidden text-xs md:text-sm"></pre>
+</section>
     </main>
     <footer style="margin-bottom: 70px;"
         class="bg-gray-800 text-white text-center pt-8 pb-3 mt-8 shadow-inner border-t border-gray-700">
@@ -550,6 +562,30 @@
           .catch(err => console.log('Service Worker gagal:', err));
       });
     }
+</script>
+
+<script>
+  // Mendapatkan elemen
+  const preElement = document.getElementById('chordContainer');
+  const zoomInBtn = document.getElementById('zoomIn');
+  const zoomOutBtn = document.getElementById('zoomOut');
+
+  // Variabel ukuran font awal (dalam rem)
+  let fontSize = 0.75; // 0.75 rem = 12px, ukuran awal sesuai kelas 'text-xs'
+
+  // Fungsi untuk memperbesar font
+  zoomInBtn.addEventListener('click', () => {
+    fontSize += 0.1; // tambahkan 0.1 rem
+    preElement.style.fontSize = fontSize + 'rem';
+  });
+
+  // Fungsi untuk memperkecil font
+  zoomOutBtn.addEventListener('click', () => {
+    if (fontSize > 0.2) { // batas minimum
+      fontSize -= 0.1;
+      preElement.style.fontSize = fontSize + 'rem';
+    }
+  });
 </script>
 </body>
 
